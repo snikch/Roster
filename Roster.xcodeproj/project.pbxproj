@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		206EE0741705516C001941F1 /* UnitNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0731705516C001941F1 /* UnitNameViewController.m */; };
+		206EE07D1705A583001941F1 /* UnitEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE07C1705A583001941F1 /* UnitEditViewController.m */; };
+		206EE080170798E3001941F1 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE07F170798E3001941F1 /* Unit.m */; };
+		206EE0821707A499001941F1 /* ArmyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0811707A499001941F1 /* ArmyEditViewController.m */; };
+		206EE0851707A4FD001941F1 /* ModelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0841707A4FD001941F1 /* ModelEditViewController.m */; };
+		206EE0881707A98F001941F1 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0871707A98F001941F1 /* Model.m */; };
+		206EE08B1707ED22001941F1 /* OptionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE08A1707ED22001941F1 /* OptionEditViewController.m */; };
+		206EE08E1707ED4F001941F1 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE08D1707ED4E001941F1 /* Option.m */; };
 		208C8D8E17044E8400D0A8C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8D17044E8400D0A8C0 /* UIKit.framework */; };
 		208C8D9017044E8400D0A8C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8F17044E8400D0A8C0 /* Foundation.framework */; };
 		208C8D9217044E8400D0A8C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D9117044E8400D0A8C0 /* CoreGraphics.framework */; };
@@ -21,13 +29,14 @@
 		208C8DAC17044E8400D0A8C0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208C8DAA17044E8400D0A8C0 /* MainStoryboard_iPad.storyboard */; };
 		208C8DAF17044E8400D0A8C0 /* Roster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DAD17044E8400D0A8C0 /* Roster.xcdatamodeld */; };
 		208C8DB217044E8400D0A8C0 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DB117044E8400D0A8C0 /* MasterViewController.m */; };
-		208C8DB517044E8400D0A8C0 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DB417044E8400D0A8C0 /* DetailViewController.m */; };
 		208C8DBD17044E8400D0A8C0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8DBC17044E8400D0A8C0 /* SenTestingKit.framework */; };
 		208C8DBE17044E8400D0A8C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8D17044E8400D0A8C0 /* UIKit.framework */; };
 		208C8DBF17044E8400D0A8C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8F17044E8400D0A8C0 /* Foundation.framework */; };
 		208C8DC017044E8400D0A8C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D9317044E8400D0A8C0 /* CoreData.framework */; };
 		208C8DC817044E8400D0A8C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 208C8DC617044E8400D0A8C0 /* InfoPlist.strings */; };
 		208C8DCB17044E8400D0A8C0 /* RosterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DCA17044E8400D0A8C0 /* RosterTests.m */; };
+		208C8DDE17052C5600D0A8C0 /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DDD17052C5600D0A8C0 /* Army.m */; };
+		208C8DF117052E5300D0A8C0 /* ArmyNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +50,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		206EE06E17054B90001941F1 /* ArmyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyEditViewController.h; sourceTree = "<group>"; };
+		206EE0721705516C001941F1 /* UnitNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitNameViewController.h; sourceTree = "<group>"; };
+		206EE0731705516C001941F1 /* UnitNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitNameViewController.m; sourceTree = "<group>"; };
+		206EE07B1705A583001941F1 /* UnitEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitEditViewController.h; sourceTree = "<group>"; };
+		206EE07C1705A583001941F1 /* UnitEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitEditViewController.m; sourceTree = "<group>"; };
+		206EE07E170798E3001941F1 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		206EE07F170798E3001941F1 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
+		206EE0811707A499001941F1 /* ArmyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyEditViewController.m; sourceTree = "<group>"; };
+		206EE0831707A4FD001941F1 /* ModelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelEditViewController.h; sourceTree = "<group>"; };
+		206EE0841707A4FD001941F1 /* ModelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelEditViewController.m; sourceTree = "<group>"; };
+		206EE0861707A98F001941F1 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		206EE0871707A98F001941F1 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		206EE0891707ED22001941F1 /* OptionEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionEditViewController.h; sourceTree = "<group>"; };
+		206EE08A1707ED22001941F1 /* OptionEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionEditViewController.m; sourceTree = "<group>"; };
+		206EE08C1707ED4E001941F1 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Option.h; sourceTree = "<group>"; };
+		206EE08D1707ED4E001941F1 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
 		208C8D8917044E8400D0A8C0 /* Roster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C8D8D17044E8400D0A8C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		208C8D8F17044E8400D0A8C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,14 +85,16 @@
 		208C8DAE17044E8400D0A8C0 /* Roster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roster.xcdatamodel; sourceTree = "<group>"; };
 		208C8DB017044E8400D0A8C0 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		208C8DB117044E8400D0A8C0 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		208C8DB317044E8400D0A8C0 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		208C8DB417044E8400D0A8C0 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		208C8DBB17044E8400D0A8C0 /* RosterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RosterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C8DBC17044E8400D0A8C0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		208C8DC517044E8400D0A8C0 /* RosterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RosterTests-Info.plist"; sourceTree = "<group>"; };
 		208C8DC717044E8400D0A8C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		208C8DC917044E8400D0A8C0 /* RosterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RosterTests.h; sourceTree = "<group>"; };
 		208C8DCA17044E8400D0A8C0 /* RosterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RosterTests.m; sourceTree = "<group>"; };
+		208C8DDC17052C5600D0A8C0 /* Army.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Army.h; sourceTree = "<group>"; };
+		208C8DDD17052C5600D0A8C0 /* Army.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Army.m; sourceTree = "<group>"; };
+		208C8DEF17052E5300D0A8C0 /* ArmyNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyNewViewController.h; sourceTree = "<group>"; };
+		208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyNewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,14 +157,12 @@
 		208C8D9517044E8400D0A8C0 /* Roster */ = {
 			isa = PBXGroup;
 			children = (
+				208C8DDB17052C4500D0A8C0 /* Models */,
+				208C8DD41705047F00D0A8C0 /* Controllers */,
 				208C8D9E17044E8400D0A8C0 /* AppDelegate.h */,
 				208C8D9F17044E8400D0A8C0 /* AppDelegate.m */,
 				208C8DA717044E8400D0A8C0 /* MainStoryboard_iPhone.storyboard */,
 				208C8DAA17044E8400D0A8C0 /* MainStoryboard_iPad.storyboard */,
-				208C8DB017044E8400D0A8C0 /* MasterViewController.h */,
-				208C8DB117044E8400D0A8C0 /* MasterViewController.m */,
-				208C8DB317044E8400D0A8C0 /* DetailViewController.h */,
-				208C8DB417044E8400D0A8C0 /* DetailViewController.m */,
 				208C8DAD17044E8400D0A8C0 /* Roster.xcdatamodeld */,
 				208C8D9617044E8400D0A8C0 /* Supporting Files */,
 			);
@@ -175,6 +200,42 @@
 				208C8DC617044E8400D0A8C0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		208C8DD41705047F00D0A8C0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				208C8DB017044E8400D0A8C0 /* MasterViewController.h */,
+				208C8DB117044E8400D0A8C0 /* MasterViewController.m */,
+				208C8DEF17052E5300D0A8C0 /* ArmyNewViewController.h */,
+				208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */,
+				206EE06E17054B90001941F1 /* ArmyEditViewController.h */,
+				206EE0811707A499001941F1 /* ArmyEditViewController.m */,
+				206EE0831707A4FD001941F1 /* ModelEditViewController.h */,
+				206EE0841707A4FD001941F1 /* ModelEditViewController.m */,
+				206EE0891707ED22001941F1 /* OptionEditViewController.h */,
+				206EE08A1707ED22001941F1 /* OptionEditViewController.m */,
+				206EE0721705516C001941F1 /* UnitNameViewController.h */,
+				206EE0731705516C001941F1 /* UnitNameViewController.m */,
+				206EE07B1705A583001941F1 /* UnitEditViewController.h */,
+				206EE07C1705A583001941F1 /* UnitEditViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		208C8DDB17052C4500D0A8C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				208C8DDC17052C5600D0A8C0 /* Army.h */,
+				208C8DDD17052C5600D0A8C0 /* Army.m */,
+				206EE0861707A98F001941F1 /* Model.h */,
+				206EE0871707A98F001941F1 /* Model.m */,
+				206EE08C1707ED4E001941F1 /* Option.h */,
+				206EE08D1707ED4E001941F1 /* Option.m */,
+				206EE07E170798E3001941F1 /* Unit.h */,
+				206EE07F170798E3001941F1 /* Unit.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +353,16 @@
 				208C8DA017044E8400D0A8C0 /* AppDelegate.m in Sources */,
 				208C8DAF17044E8400D0A8C0 /* Roster.xcdatamodeld in Sources */,
 				208C8DB217044E8400D0A8C0 /* MasterViewController.m in Sources */,
-				208C8DB517044E8400D0A8C0 /* DetailViewController.m in Sources */,
+				208C8DDE17052C5600D0A8C0 /* Army.m in Sources */,
+				208C8DF117052E5300D0A8C0 /* ArmyNewViewController.m in Sources */,
+				206EE0741705516C001941F1 /* UnitNameViewController.m in Sources */,
+				206EE07D1705A583001941F1 /* UnitEditViewController.m in Sources */,
+				206EE080170798E3001941F1 /* Unit.m in Sources */,
+				206EE0821707A499001941F1 /* ArmyEditViewController.m in Sources */,
+				206EE0851707A4FD001941F1 /* ModelEditViewController.m in Sources */,
+				206EE0881707A98F001941F1 /* Model.m in Sources */,
+				206EE08B1707ED22001941F1 /* OptionEditViewController.m in Sources */,
+				206EE08E1707ED4F001941F1 /* Option.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +546,7 @@
 				208C8DD017044E8400D0A8C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		208C8DD117044E8400D0A8C0 /* Build configuration list for PBXNativeTarget "RosterTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +555,7 @@
 				208C8DD317044E8400D0A8C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
