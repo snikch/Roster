@@ -9,13 +9,18 @@
 #import <UIKit/UIKit.h>
 
 #import "Model.h"
+#import "WargearSelectorViewController.h"
 
-@interface ModelEditViewController : UIViewController
+@interface ModelEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, WargearSelectorDelegate>
 
 @property (nonatomic) BOOL isNewModel;
 
 @property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *optionsResultsController;
+
+@property (strong, nonatomic) IBOutlet UITableView *optionsTableView;
+@property (strong, nonatomic) IBOutlet UITableView *characteristicsTableView;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *costField;

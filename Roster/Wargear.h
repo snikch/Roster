@@ -1,5 +1,5 @@
 //
-//  Model.h
+//  Wargear.h
 //  Roster
 //
 //  Created by Mal Curtis on 31/03/13.
@@ -8,8 +8,6 @@
 
 #import <CoreData/CoreData.h>
 
-@interface Model : NSManagedObject
-
--(NSMutableArray*)wargear;
+@interface Wargear : NSManagedObject
 
 @end

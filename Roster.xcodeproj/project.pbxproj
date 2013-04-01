@@ -15,6 +15,11 @@
 		206EE0881707A98F001941F1 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0871707A98F001941F1 /* Model.m */; };
 		206EE08B1707ED22001941F1 /* OptionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE08A1707ED22001941F1 /* OptionEditViewController.m */; };
 		206EE08E1707ED4F001941F1 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE08D1707ED4E001941F1 /* Option.m */; };
+		206EE0911708598D001941F1 /* WargearSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0901708598D001941F1 /* WargearSelectorViewController.m */; };
+		206EE0941708599A001941F1 /* WargearListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0931708599A001941F1 /* WargearListViewController.m */; };
+		206EE09717085A45001941F1 /* Wargear.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE09617085A45001941F1 /* Wargear.m */; };
+		206EE09D17086055001941F1 /* WargearEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE09C17086055001941F1 /* WargearEditViewController.m */; };
+		206EE0A11708ECF5001941F1 /* Seeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0A01708ECF5001941F1 /* Seeder.m */; };
 		208C8D8E17044E8400D0A8C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8D17044E8400D0A8C0 /* UIKit.framework */; };
 		208C8D9017044E8400D0A8C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8F17044E8400D0A8C0 /* Foundation.framework */; };
 		208C8D9217044E8400D0A8C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D9117044E8400D0A8C0 /* CoreGraphics.framework */; };
@@ -66,6 +71,16 @@
 		206EE08A1707ED22001941F1 /* OptionEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionEditViewController.m; sourceTree = "<group>"; };
 		206EE08C1707ED4E001941F1 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Option.h; sourceTree = "<group>"; };
 		206EE08D1707ED4E001941F1 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
+		206EE08F1708598D001941F1 /* WargearSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WargearSelectorViewController.h; sourceTree = "<group>"; };
+		206EE0901708598D001941F1 /* WargearSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WargearSelectorViewController.m; sourceTree = "<group>"; };
+		206EE0921708599A001941F1 /* WargearListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WargearListViewController.h; sourceTree = "<group>"; };
+		206EE0931708599A001941F1 /* WargearListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WargearListViewController.m; sourceTree = "<group>"; };
+		206EE09517085A45001941F1 /* Wargear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wargear.h; sourceTree = "<group>"; };
+		206EE09617085A45001941F1 /* Wargear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wargear.m; sourceTree = "<group>"; };
+		206EE09B17086055001941F1 /* WargearEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WargearEditViewController.h; sourceTree = "<group>"; };
+		206EE09C17086055001941F1 /* WargearEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WargearEditViewController.m; sourceTree = "<group>"; };
+		206EE09F1708ECF5001941F1 /* Seeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seeder.h; sourceTree = "<group>"; };
+		206EE0A01708ECF5001941F1 /* Seeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seeder.m; sourceTree = "<group>"; };
 		208C8D8917044E8400D0A8C0 /* Roster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C8D8D17044E8400D0A8C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		208C8D8F17044E8400D0A8C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		206EE09E1708ECEB001941F1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				206EE09F1708ECF5001941F1 /* Seeder.h */,
+				206EE0A01708ECF5001941F1 /* Seeder.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		208C8D7E17044E8400D0A8C0 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +181,7 @@
 		208C8D9517044E8400D0A8C0 /* Roster */ = {
 			isa = PBXGroup;
 			children = (
+				206EE09E1708ECEB001941F1 /* Helpers */,
 				208C8DDB17052C4500D0A8C0 /* Models */,
 				208C8DD41705047F00D0A8C0 /* Controllers */,
 				208C8D9E17044E8400D0A8C0 /* AppDelegate.h */,
@@ -219,6 +244,12 @@
 				206EE0731705516C001941F1 /* UnitNameViewController.m */,
 				206EE07B1705A583001941F1 /* UnitEditViewController.h */,
 				206EE07C1705A583001941F1 /* UnitEditViewController.m */,
+				206EE09B17086055001941F1 /* WargearEditViewController.h */,
+				206EE09C17086055001941F1 /* WargearEditViewController.m */,
+				206EE0921708599A001941F1 /* WargearListViewController.h */,
+				206EE0931708599A001941F1 /* WargearListViewController.m */,
+				206EE08F1708598D001941F1 /* WargearSelectorViewController.h */,
+				206EE0901708598D001941F1 /* WargearSelectorViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +265,8 @@
 				206EE08D1707ED4E001941F1 /* Option.m */,
 				206EE07E170798E3001941F1 /* Unit.h */,
 				206EE07F170798E3001941F1 /* Unit.m */,
+				206EE09517085A45001941F1 /* Wargear.h */,
+				206EE09617085A45001941F1 /* Wargear.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -363,6 +396,11 @@
 				206EE0881707A98F001941F1 /* Model.m in Sources */,
 				206EE08B1707ED22001941F1 /* OptionEditViewController.m in Sources */,
 				206EE08E1707ED4F001941F1 /* Option.m in Sources */,
+				206EE0911708598D001941F1 /* WargearSelectorViewController.m in Sources */,
+				206EE0941708599A001941F1 /* WargearListViewController.m in Sources */,
+				206EE09717085A45001941F1 /* Wargear.m in Sources */,
+				206EE09D17086055001941F1 /* WargearEditViewController.m in Sources */,
+				206EE0A11708ECF5001941F1 /* Seeder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

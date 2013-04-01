@@ -9,9 +9,7 @@
 #import "UnitEditViewController.h"
 
 #import "ModelEditViewController.h"
-#import "OptionEditViewController.h"
 #import "Model.h"
-#import "Option.h"
 
 @interface UnitEditViewController ()
 -(void)commitChanges;
@@ -25,15 +23,7 @@
 @synthesize managedObjectContext;
 
 # pragma mark - Lifecycle
-- (id)init {
-    if (self = [super init]) {
-        //other your stuff goes here
-        //...
-        //here we customize the target and action for the backBarButtonItem
-        //every navigationController has one of this item automatically configured to pop back
-    }
-    return self;
-}
+
 -(void)commitChanges{
     [_unit setValue:nameField.text forKey:@"name"];
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
@@ -47,7 +37,6 @@
 }
 
 -(void)applyUnitValues{
-    NSLog(@"Applying unit values to fields for unit named: %@", [_unit valueForKey:@"name"]);
     nameField.text = [_unit valueForKey:@"name"];
     costField.text = [(NSNumber *)[_unit valueForKey:@"cost"] stringValue];
     classificationField.text = [_unit valueForKey:@"classification"];
@@ -56,7 +45,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    _optionsResultsController = nil;
+    NSLog(@"UE View will disappear");
     _modelsResultsController = nil;
     [self commitChanges];
 }
@@ -64,13 +53,8 @@
 -(void) viewWillAppear:(BOOL)animated{
     [self applyUnitValues];
     [self updateFetchResultsControllerPredicate];
+    NSLog(@"Unit Edit View will appear");
     [super viewWillAppear:animated];
-
-}
-
--(void)viewDidLoad{
-    [super viewDidLoad];
-    [self updateFetchResultsControllerPredicate];
 }
 
 -(void)didPressBackButton:(id)sender{
@@ -94,7 +78,6 @@
         [vc setIsNewModel:YES];
         [vc setManagedObjectContext: self.managedObjectContext];
     }else if ([[segue identifier] isEqualToString:@"editModel"]) {
-        NSLog(@"Showing model edit controller with moc %@", self.managedObjectContext);
         ModelEditViewController *vc = (ModelEditViewController *)[segue destinationViewController];
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -102,24 +85,6 @@
         
         [vc setModel:model];
         [vc setIsNewModel:NO];
-        [vc setManagedObjectContext: self.managedObjectContext];
-    }else if ([[segue identifier] isEqualToString:@"newOption"]) {
-        OptionEditViewController *vc = (OptionEditViewController *)[segue destinationViewController];
-        
-        Option *option = [NSEntityDescription insertNewObjectForEntityForName:@"Option" inManagedObjectContext:self.managedObjectContext];
-        
-        [option setValue:_unit forKey:@"unit"];
-        
-        [vc setOption:option];
-        [vc setIsNewOption:YES];
-        [vc setManagedObjectContext: self.managedObjectContext];
-    }else if ([[segue identifier] isEqualToString:@"editOption"]) {
-        OptionEditViewController *vc = (OptionEditViewController *)[segue destinationViewController];
-        
-        Option *option = (Option *)[[self optionsResultsController] objectAtIndexPath:[NSIndexPath indexPathForRow:[[self.tableView indexPathForSelectedRow] row] inSection:0]];
-        
-        [vc setOption:option];
-        [vc setIsNewOption:NO];
         [vc setManagedObjectContext: self.managedObjectContext];
     }
 }
@@ -134,11 +99,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo;
-    if (0 == section){
-        sectionInfo = [self.modelsResultsController sections][0];
-    }else{
-        sectionInfo = [self.optionsResultsController sections][0];
-    }
+    sectionInfo = [self.modelsResultsController sections][0];
     NSLog(@"Rows in section %i: %i", section, [sectionInfo numberOfObjects]);
     return [sectionInfo numberOfObjects];
 }
@@ -146,11 +107,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier;
-    if (0 == [indexPath section]){
-        CellIdentifier = @"Model";
-    }else{
-        CellIdentifier = @"Option";
-    }
+    CellIdentifier = @"Model";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
@@ -168,10 +125,6 @@
         case 0:
             sectionName = NSLocalizedString(@"Models", @"Models");
             break;
-        case 1:
-            sectionName = NSLocalizedString(@"Wargear Options", @"Wargear Options");
-            break;
-            // ...
         default:
             sectionName = @"";
             break;
@@ -194,11 +147,8 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObject *object;
-        if(0 == [indexPath section]){
-            object = (NSManagedObject *)[[self modelsResultsController] objectAtIndexPath:indexPath];
-        }else{
-            object = (NSManagedObject *)[[self optionsResultsController] objectAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:0]];
-        }
+        object = (NSManagedObject *)[[self modelsResultsController] objectAtIndexPath:indexPath];
+
         [self.managedObjectContext deleteObject:object];
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
@@ -247,11 +197,7 @@
 {
     NSManagedObject *object;
     NSLog(@"Retrieving object for row %i in section %i", [indexPath row], [indexPath section]);
-    if(0 == [indexPath section]){
-        object = [self.modelsResultsController objectAtIndexPath:indexPath];
-    }else{
-        object = [self.optionsResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:0]];
-    }
+    object = [self.modelsResultsController objectAtIndexPath:indexPath];
     NSLog(@"Configuring cell: %@", [object valueForKey:@"name"]);
     NSNumber * cost = [object valueForKey:@"cost"];
 
@@ -263,19 +209,16 @@
 
 -(void)updateFetchResultsControllerPredicate{
     NSFetchRequest *modelsFetchRequest = [self.modelsResultsController fetchRequest];
-    NSFetchRequest *optionsFetchRequest = [self.optionsResultsController fetchRequest];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unit == %@",_unit];
     NSLog(@"Setting frc predicate to unit %@", _unit);
     
-    [optionsFetchRequest setPredicate:predicate];
     [modelsFetchRequest setPredicate:predicate];
     
     [NSFetchedResultsController deleteCacheWithName:@"Models"];
-    [NSFetchedResultsController deleteCacheWithName:@"Options"];
     
     NSError *error;
-    if (![self.modelsResultsController performFetch:&error] || ![self.optionsResultsController performFetch:&error]) {
+    if (![self.modelsResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -322,43 +265,6 @@
 }
 
 
-- (NSFetchedResultsController *)optionsResultsController
-{
-    if (_optionsResultsController != nil) {
-        return _optionsResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Option" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
-    NSArray *sortDescriptors = @[sortDescriptor];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Options"];
-    aFetchedResultsController.delegate = self;
-    self.optionsResultsController = aFetchedResultsController;
-    
-	NSError *error = nil;
-	if (![self.optionsResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return _optionsResultsController;
-}
-
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
@@ -367,10 +273,6 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-    NSLog(@"Did change section info: %@", sectionInfo);
-   // if([anObject isMemberOfClass:[Option class]]){
-     //   sectionIndex = 1;
-   // }
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -387,10 +289,7 @@
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     UITableView *tableView = self.tableView;
-    if([anObject isMemberOfClass:[Option class]]){
-        indexPath = [NSIndexPath indexPathForRow:[indexPath row] inSection:1];
-    }
-    NSLog(@"did change object %@ at indexPath: %@ for type %i", anObject, indexPath, type);
+
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];

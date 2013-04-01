@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "Seeder.h"
 
 @implementation AppDelegate
 
@@ -145,8 +146,10 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 # pragma mark TODO - Remove this
-        //[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
-        abort();
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        _persistentStoreCoordinator = nil;
+        //abort();
+        [Seeder insertSeedData:[self managedObjectContext]];
     }    
     
     return _persistentStoreCoordinator;

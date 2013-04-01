@@ -424,7 +424,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="amP-VS-wPz">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="# Included:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxN-L7-21F">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -469,21 +469,54 @@
                                     <constraint firstAttribute="height" constant="476" id="PZd-VV-36T"/>
                                     <constraint firstAttribute="width" constant="382" id="bux-PM-mXd"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Option" id="ohc-IL-RZ2">
+                                        <rect key="frame" x="0.0" y="22" width="382" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="Ocn-Bo-chS" kind="push" identifier="editOption" id="mcE-e0-03J"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2xH-Yl-It5" id="Seh-Hz-U9r"/>
+                                    <outlet property="delegate" destination="2xH-Yl-It5" id="bLf-Kv-jlH"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPx-Vv-xjx">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add WarGear Option">
+                                <state key="normal" title="Add Optional WarGear">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Ocn-Bo-chS" kind="push" identifier="newOption" id="Hoq-Ik-za7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEg-Mt-L1v">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add Base WarGear">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gXU-xF-2B5" kind="modal" identifier="selectWargear" id="Unh-aA-zEI"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PCc-er-O6f">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="531" id="bgF-YE-dzJ"/>
                                     <constraint firstAttribute="width" constant="213" id="kMl-cP-Z8p"/>
                                 </constraints>
                             </tableView>
@@ -494,7 +527,6 @@
                             <constraint firstItem="OAh-De-NfB" firstAttribute="baseline" secondItem="KxN-L7-21F" secondAttribute="baseline" type="default" id="4bA-vZ-5oY"/>
                             <constraint firstItem="13i-ng-1fL" firstAttribute="baseline" secondItem="7Qg-RW-uaD" secondAttribute="baseline" type="default" id="7In-gy-Ml0"/>
                             <constraint firstItem="UmX-x1-2Bu" firstAttribute="bottom" secondItem="rrV-wj-4cv" secondAttribute="bottom" type="default" id="9DV-TT-mBV"/>
-                            <constraint firstItem="niW-WM-XG1" firstAttribute="top" secondItem="cPx-Vv-xjx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9t3-Wd-wZy"/>
                             <constraint firstItem="YcQ-yH-NbK" firstAttribute="bottom" secondItem="5Ug-WE-jUQ" secondAttribute="bottom" type="default" id="AZj-4h-lmT"/>
                             <constraint firstItem="8FN-w8-iT1" firstAttribute="trailing" secondItem="OAh-De-NfB" secondAttribute="trailing" type="default" id="Bnx-av-yll"/>
                             <constraint firstItem="YcQ-yH-NbK" firstAttribute="leading" secondItem="UmX-x1-2Bu" secondAttribute="leading" type="default" id="DVW-yh-6Sa"/>
@@ -506,14 +538,17 @@
                             <constraint firstItem="niW-WM-XG1" firstAttribute="bottom" secondItem="Pdj-sv-fnf" secondAttribute="bottom" type="default" id="MTt-O1-ncK"/>
                             <constraint firstItem="abr-Qk-wMC" firstAttribute="leading" secondItem="rrV-wj-4cv" secondAttribute="leading" type="default" id="QbU-2P-PV6"/>
                             <constraint firstItem="OAh-De-NfB" firstAttribute="top" secondItem="Pdj-sv-fnf" secondAttribute="top" constant="23" id="RFP-Kg-clL"/>
+                            <constraint firstAttribute="trailing" secondItem="cPx-Vv-xjx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="UGB-r1-5eu"/>
                             <constraint firstItem="UmX-x1-2Bu" firstAttribute="top" secondItem="13i-ng-1fL" secondAttribute="top" type="default" id="Unm-vo-iRP"/>
                             <constraint firstAttribute="trailing" secondItem="yFM-8a-Kox" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Vfe-TI-qJt"/>
                             <constraint firstItem="8FN-w8-iT1" firstAttribute="top" secondItem="Pdj-sv-fnf" secondAttribute="top" constant="68" id="Z8H-Zf-1w1"/>
                             <constraint firstItem="PCc-er-O6f" firstAttribute="leading" secondItem="Pdj-sv-fnf" secondAttribute="leading" type="default" id="Zbz-YB-fiF"/>
+                            <constraint firstItem="dEg-Mt-L1v" firstAttribute="top" secondItem="Pdj-sv-fnf" secondAttribute="top" constant="173" id="a6D-KJ-7UO"/>
                             <constraint firstAttribute="trailing" secondItem="UmX-x1-2Bu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bjl-EC-6a7"/>
-                            <constraint firstAttribute="trailing" secondItem="cPx-Vv-xjx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="d1j-gq-9J4"/>
+                            <constraint firstItem="dEg-Mt-L1v" firstAttribute="baseline" secondItem="cPx-Vv-xjx" secondAttribute="baseline" type="default" id="c4R-xk-bHj"/>
                             <constraint firstItem="yFM-8a-Kox" firstAttribute="leading" secondItem="UmX-x1-2Bu" secondAttribute="leading" type="default" id="d5i-4b-aQ9"/>
                             <constraint firstItem="5Ug-WE-jUQ" firstAttribute="leading" secondItem="Pdj-sv-fnf" secondAttribute="leading" constant="26" id="dn4-dI-dwR"/>
+                            <constraint firstItem="dEg-Mt-L1v" firstAttribute="top" secondItem="PCc-er-O6f" secondAttribute="top" type="default" id="exZ-ss-345"/>
                             <constraint firstItem="FTK-4N-Qxg" firstAttribute="baseline" secondItem="xjf-vH-a30" secondAttribute="baseline" type="default" id="fVb-dg-yq6"/>
                             <constraint firstItem="OAh-De-NfB" firstAttribute="leading" secondItem="Pdj-sv-fnf" secondAttribute="leading" constant="89" id="fc2-Xd-rL6"/>
                             <constraint firstItem="7Qg-RW-uaD" firstAttribute="baseline" secondItem="8FN-w8-iT1" secondAttribute="baseline" type="default" id="g8z-6N-MaI"/>
@@ -530,6 +565,7 @@
                             <constraint firstAttribute="trailing" secondItem="aYQ-En-XJl" secondAttribute="trailing" constant="253" id="vIT-tW-mvm"/>
                             <constraint firstItem="rrV-wj-4cv" firstAttribute="leading" secondItem="5Ug-WE-jUQ" secondAttribute="leading" type="default" id="vZw-Am-Gg4"/>
                             <constraint firstItem="niW-WM-XG1" firstAttribute="trailing" secondItem="Pdj-sv-fnf" secondAttribute="trailing" type="default" id="w2q-bz-uON"/>
+                            <constraint firstItem="dEg-Mt-L1v" firstAttribute="leading" secondItem="niW-WM-XG1" secondAttribute="leading" type="default" id="zLT-to-lvm"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
@@ -554,19 +590,20 @@
                         <outlet property="maxLabel" destination="13i-ng-1fL" id="3iE-zg-MrS"/>
                         <outlet property="maxSlider" destination="UmX-x1-2Bu" id="Zq3-po-B6W"/>
                         <outlet property="nameField" destination="OAh-De-NfB" id="Frh-VK-u5q"/>
+                        <outlet property="optionsTableView" destination="niW-WM-XG1" id="QFA-u2-yKe"/>
                         <outlet property="typeField" destination="8FN-w8-iT1" id="Yvh-tW-z3Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olD-21-e8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="-82"/>
+            <point key="canvasLocation" x="2232" y="248"/>
         </scene>
         <!--Option Edit View Controller-->
         <scene sceneID="IQF-Rb-GJe">
             <objects>
                 <viewController id="Ocn-Bo-chS" customClass="OptionEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pr3-5S-4rG">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPI-Li-2EM">
@@ -605,25 +642,65 @@
                                     <constraint firstAttribute="width" constant="216" id="h7n-h3-nQS"/>
                                 </constraints>
                             </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wargear" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-Cq-1fc">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wargear Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sj-0O-R6K">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Is Unit?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgQ-XL-B1M">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBG-6R-PB8"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eef-Pz-pT6">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Select Wargear">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gXU-xF-2B5" kind="modal" identifier="selectWargear" id="RRg-Wx-Q6l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kcR-MS-twb" firstAttribute="top" secondItem="pr3-5S-4rG" secondAttribute="top" constant="26" id="0td-Us-t6a"/>
+                            <constraint firstItem="Eef-Pz-pT6" firstAttribute="leading" secondItem="8sj-0O-R6K" secondAttribute="leading" type="default" id="2Cz-fa-qLo"/>
+                            <constraint firstItem="Eef-Pz-pT6" firstAttribute="top" secondItem="pr3-5S-4rG" secondAttribute="top" constant="158" id="3XG-ZD-X4M"/>
+                            <constraint firstItem="LPI-Li-2EM" firstAttribute="trailing" secondItem="KrO-l8-VVn" secondAttribute="trailing" type="default" id="68V-Xm-afm"/>
                             <constraint firstAttribute="trailing" secondItem="O7a-0Q-j8f" secondAttribute="trailing" constant="253" id="AfR-KE-gU1"/>
                             <constraint firstItem="o9O-E2-4pG" firstAttribute="leading" secondItem="pr3-5S-4rG" secondAttribute="leading" constant="345" id="COa-PL-MZ5"/>
                             <constraint firstItem="Lt2-Kg-FnD" firstAttribute="trailing" secondItem="kcR-MS-twb" secondAttribute="trailing" type="default" id="J0o-Cj-EfM"/>
                             <constraint firstItem="o9O-E2-4pG" firstAttribute="baseline" secondItem="kcR-MS-twb" secondAttribute="baseline" type="default" id="Jn7-7r-2gv"/>
                             <constraint firstItem="O7a-0Q-j8f" firstAttribute="baseline" secondItem="o9O-E2-4pG" secondAttribute="baseline" type="default" id="Nrp-mF-yGf"/>
-                            <constraint firstItem="LPI-Li-2EM" firstAttribute="leading" secondItem="pr3-5S-4rG" secondAttribute="leading" constant="26" id="UgE-89-HbI"/>
-                            <constraint firstItem="KrO-l8-VVn" firstAttribute="leading" secondItem="LPI-Li-2EM" secondAttribute="leading" type="default" id="VII-To-ezM"/>
+                            <constraint firstItem="8sj-0O-R6K" firstAttribute="baseline" secondItem="KmN-Cq-1fc" secondAttribute="baseline" type="default" id="Ogk-ft-Ehy"/>
                             <constraint firstItem="kcR-MS-twb" firstAttribute="centerY" secondItem="GzX-DD-35c" secondAttribute="centerY" type="default" id="W8B-Rg-VMz"/>
-                            <constraint firstItem="KrO-l8-VVn" firstAttribute="top" secondItem="pr3-5S-4rG" secondAttribute="top" constant="75" id="Yf4-QX-IA8"/>
+                            <constraint firstItem="KmN-Cq-1fc" firstAttribute="top" secondItem="pr3-5S-4rG" secondAttribute="top" constant="120" id="YjS-zo-QAG"/>
+                            <constraint firstItem="RgQ-XL-B1M" firstAttribute="baseline" secondItem="Lt2-Kg-FnD" secondAttribute="baseline" type="default" id="Ywr-NA-urU"/>
+                            <constraint firstItem="fBG-6R-PB8" firstAttribute="leading" secondItem="GzX-DD-35c" secondAttribute="leading" type="default" id="ZWv-pi-LPd"/>
                             <constraint firstItem="LPI-Li-2EM" firstAttribute="top" secondItem="GzX-DD-35c" secondAttribute="top" type="default" id="a3R-EU-VGG"/>
+                            <constraint firstItem="fBG-6R-PB8" firstAttribute="centerY" secondItem="KrO-l8-VVn" secondAttribute="centerY" type="default" id="aXr-tq-Jbp"/>
+                            <constraint firstItem="o9O-E2-4pG" firstAttribute="trailing" secondItem="RgQ-XL-B1M" secondAttribute="trailing" type="default" id="f1a-hK-xVB"/>
+                            <constraint firstItem="8sj-0O-R6K" firstAttribute="leading" secondItem="Lt2-Kg-FnD" secondAttribute="leading" type="default" id="fRd-7F-Nmu"/>
                             <constraint firstItem="kcR-MS-twb" firstAttribute="leading" secondItem="pr3-5S-4rG" secondAttribute="leading" constant="89" id="lg7-Ub-EtM"/>
                             <constraint firstAttribute="trailing" secondItem="GzX-DD-35c" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="r5D-5Q-BV4"/>
                             <constraint firstItem="kcR-MS-twb" firstAttribute="leading" secondItem="Lt2-Kg-FnD" secondAttribute="leading" type="default" id="vQb-UI-cJm"/>
+                            <constraint firstItem="KmN-Cq-1fc" firstAttribute="leading" secondItem="pr3-5S-4rG" secondAttribute="leading" constant="7" id="w0V-9u-q8t"/>
+                            <constraint firstItem="fBG-6R-PB8" firstAttribute="top" secondItem="pr3-5S-4rG" secondAttribute="top" constant="72" id="wUX-cs-yaG"/>
                             <constraint firstItem="Lt2-Kg-FnD" firstAttribute="top" secondItem="pr3-5S-4rG" secondAttribute="top" constant="71" id="x5Q-Q4-akN"/>
+                            <constraint firstItem="KmN-Cq-1fc" firstAttribute="trailing" secondItem="KrO-l8-VVn" secondAttribute="trailing" type="default" id="zpS-lE-OGJ"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="OJ9-6a-ZjR">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lG0-6h-aXv">
@@ -641,12 +718,156 @@
                         <outlet property="availableLabel" destination="O7a-0Q-j8f" id="4XC-rr-7gx"/>
                         <outlet property="availableSlider" destination="GzX-DD-35c" id="KUH-hk-q1k"/>
                         <outlet property="costField" destination="Lt2-Kg-FnD" id="duh-i7-fpO"/>
+                        <outlet property="isUnitSwitch" destination="fBG-6R-PB8" id="rqr-ov-rIv"/>
                         <outlet property="nameField" destination="kcR-MS-twb" id="rMx-Rc-M9U"/>
+                        <outlet property="wargearLabel" destination="8sj-0O-R6K" id="7dg-vz-C3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fA4-bt-Mmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="786"/>
+            <point key="canvasLocation" x="3122" y="248"/>
+        </scene>
+        <!--Wargear List View Controller - Root View Controller-->
+        <scene sceneID="Z1Q-d6-JbT">
+            <objects>
+                <tableViewController id="jTa-Gr-mBi" customClass="WargearListViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XEI-Yf-obt">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Wargear" id="sR9-uT-CHU">
+                                <rect key="frame" x="0.0" y="22" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="1004" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-F1-rT4">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Edit">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="Yld-Xw-6fj" kind="push" identifier="editWargear" id="Icl-Ae-Cx4"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bUz-F1-rT4" secondAttribute="trailing" constant="40" id="Jas-tq-lZn"/>
+                                    <constraint firstItem="bUz-F1-rT4" firstAttribute="top" secondItem="sR9-uT-CHU" secondAttribute="top" type="default" id="d3H-PP-VIT"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Yld-Xw-6fj" kind="push" identifier="editWargear" trigger="accessoryAction" id="yxO-h9-uEs"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="UNm-1g-CiI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="cRg-rF-kgf">
+                            <connections>
+                                <action selector="didPressDone:" destination="jTa-Gr-mBi" id="bkM-Z5-m5D"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="03P-Ec-kLH">
+                            <connections>
+                                <segue destination="Yld-Xw-6fj" kind="push" identifier="addWargear" id="wZC-GX-vME"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHO-KD-MNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3422" y="1214"/>
+        </scene>
+        <!--Wargear Edit View Controller-->
+        <scene sceneID="s8J-qB-IaN">
+            <objects>
+                <viewController id="Yld-Xw-6fj" customClass="WargearEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bVL-8Y-csN">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2o-JE-fN7">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uez-7s-oWy">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="233" id="XCw-UT-3cf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Characteristics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CI-Uj-on6">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrk-6h-EQk">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zrk-6h-EQk" firstAttribute="baseline" secondItem="2CI-Uj-on6" secondAttribute="baseline" type="default" id="39O-eZ-3uR"/>
+                            <constraint firstItem="Zrk-6h-EQk" firstAttribute="leading" secondItem="Uez-7s-oWy" secondAttribute="leading" type="default" id="4CI-94-DDN"/>
+                            <constraint firstItem="Zrk-6h-EQk" firstAttribute="top" secondItem="bVL-8Y-csN" secondAttribute="top" constant="83" id="603-Bj-ZFp"/>
+                            <constraint firstItem="Zrk-6h-EQk" firstAttribute="trailing" secondItem="Uez-7s-oWy" secondAttribute="trailing" type="default" id="6Pg-z7-M8w"/>
+                            <constraint firstItem="Uez-7s-oWy" firstAttribute="top" secondItem="bVL-8Y-csN" secondAttribute="top" constant="39" id="CBX-KN-8J3"/>
+                            <constraint firstItem="2CI-Uj-on6" firstAttribute="leading" secondItem="w2o-JE-fN7" secondAttribute="leading" type="default" id="Njz-BE-M3r"/>
+                            <constraint firstItem="Uez-7s-oWy" firstAttribute="baseline" secondItem="w2o-JE-fN7" secondAttribute="baseline" type="default" id="Zhn-25-uP7"/>
+                            <constraint firstItem="2CI-Uj-on6" firstAttribute="leading" secondItem="bVL-8Y-csN" secondAttribute="leading" constant="48" id="dHs-5O-rAS"/>
+                            <constraint firstItem="Uez-7s-oWy" firstAttribute="leading" secondItem="bVL-8Y-csN" secondAttribute="leading" constant="175" id="ecp-ye-9Ry"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3xM-Vz-GB7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JeH-Oz-4rV">
+                            <connections>
+                                <action selector="didPressCancel:" destination="Yld-Xw-6fj" id="HwD-Im-Gw8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aPs-56-gE9">
+                            <connections>
+                                <action selector="didPressSave:" destination="Yld-Xw-6fj" id="B7n-9q-YiZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="characteristicsField" destination="Zrk-6h-EQk" id="sqb-oH-P3i"/>
+                        <outlet property="nameField" destination="Uez-7s-oWy" id="GPD-ch-U9e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEg-qV-fsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4596" y="1214"/>
+        </scene>
+        <!--Wargear Selector View Controller-->
+        <scene sceneID="aAW-ic-gYg">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="gXU-xF-2B5" customClass="WargearSelectorViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="snm-aT-8F4"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="400" height="400"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jix-vg-hzi">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jTa-Gr-mBi" kind="relationship" relationship="rootViewController" id="8Pa-28-4kI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahC-b7-4is" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232" y="1214"/>
         </scene>
     </scenes>
     <classes>
@@ -669,16 +890,21 @@
         <class className="ModelEditViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ModelEditViewController.h"/>
             <relationships>
+                <relationship kind="action" name="availableSliderDidChange:" candidateClass="UISlider"/>
                 <relationship kind="action" name="didPressCancel:"/>
                 <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="action" name="includedSliderDidChange:" candidateClass="UISlider"/>
+                <relationship kind="action" name="maxSliderDidChange:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="availableLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="availableSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="characteristicsTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="costField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="includedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="includedSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="maxSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="optionsTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="typeField" candidateClass="UITextField"/>
             </relationships>
         </class>
@@ -694,7 +920,9 @@
                 <relationship kind="outlet" name="availableLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="availableSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="costField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="isUnitSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="wargearLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="UnitEditViewController" superclassName="UIViewController">
@@ -716,6 +944,24 @@
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="WargearEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressCancel:"/>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="characteristicsField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WargearListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressDone:"/>
+            </relationships>
+        </class>
+        <class className="WargearSelectorViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearSelectorViewController.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
@@ -723,6 +969,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="mcE-e0-03J"/>
         <segue reference="OPX-eV-AKt"/>
+        <segue reference="RRg-Wx-Q6l"/>
+        <segue reference="wZC-GX-vME"/>
     </inferredMetricsTieBreakers>
 </document>

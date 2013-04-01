@@ -8,6 +8,10 @@
 
 #import "OptionEditViewController.h"
 
+#import "Army.h"
+#import "Unit.h"
+#import "Model.h"
+
 @interface OptionEditViewController ()
 
 -(void)applyValues;
@@ -19,6 +23,39 @@
 @synthesize nameField, costField;
 @synthesize availableLabel;
 @synthesize availableSlider;
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"selectWargear"]) {
+        WargearSelectorViewController *vc = (WargearSelectorViewController *)[segue destinationViewController];
+        
+        Model *model = [_option valueForKey:@"model"];
+        Unit *unit = [model valueForKey:@"unit"];
+        Army *army = [unit valueForKey:@"army"];
+        
+        [vc setArmy:army];
+        [vc setWargearDelegate:self];
+        [vc setManagedObjectContext: self.managedObjectContext];
+        [vc setMultiple:NO];
+        NSMutableArray *wargearArray = [NSMutableArray array];
+        Wargear *wargear = (Wargear *)[_option valueForKey:@"wargear"];
+        if(wargear != nil){
+            [wargearArray addObject:wargear];
+        }
+        NSLog(@"Loading wargear selector with wargear: %@", wargearArray);
+        [vc setSelectedWargear:wargearArray];
+    }
+}
+
+
+-(void)didSelectWargear:(NSArray *)array{
+    NSLog(@"Did select wargear! %@", array);
+    if(array.count > 0){
+        [_option setValue:[array objectAtIndex:0] forKey:@"wargear"];
+    }else{
+        [_option setValue:nil forKey:@"wargear"];
+    }
+}
 
 -(void)viewDidLoad{
     [availableSlider

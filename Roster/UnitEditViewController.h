@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSFetchedResultsController *modelsResultsController;
-@property (strong, nonatomic) NSFetchedResultsController *optionsResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) Unit *unit;
