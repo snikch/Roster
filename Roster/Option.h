@@ -10,4 +10,8 @@
 
 @interface Option : NSManagedObject
 
+-(NSMutableArray*)replacesWargear;
+-(void)replacesWargear:(NSManagedObject*)wargear;
+-(void)addToGroup:(NSManagedObject*)group;
+
 @end

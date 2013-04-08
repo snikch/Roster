@@ -10,7 +10,7 @@
 		206EE0741705516C001941F1 /* UnitNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0731705516C001941F1 /* UnitNameViewController.m */; };
 		206EE07D1705A583001941F1 /* UnitEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE07C1705A583001941F1 /* UnitEditViewController.m */; };
 		206EE080170798E3001941F1 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE07F170798E3001941F1 /* Unit.m */; };
-		206EE0821707A499001941F1 /* ArmyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0811707A499001941F1 /* ArmyEditViewController.m */; };
+		206EE0821707A499001941F1 /* ArmyUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0811707A499001941F1 /* ArmyUnitViewController.m */; };
 		206EE0851707A4FD001941F1 /* ModelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0841707A4FD001941F1 /* ModelEditViewController.m */; };
 		206EE0881707A98F001941F1 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0871707A98F001941F1 /* Model.m */; };
 		206EE08B1707ED22001941F1 /* OptionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE08A1707ED22001941F1 /* OptionEditViewController.m */; };
@@ -20,6 +20,16 @@
 		206EE09717085A45001941F1 /* Wargear.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE09617085A45001941F1 /* Wargear.m */; };
 		206EE09D17086055001941F1 /* WargearEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE09C17086055001941F1 /* WargearEditViewController.m */; };
 		206EE0A11708ECF5001941F1 /* Seeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0A01708ECF5001941F1 /* Seeder.m */; };
+		206EE0A4170B00D8001941F1 /* CharacteristicsSelectorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0A3170B00D8001941F1 /* CharacteristicsSelectorListViewController.m */; };
+		206EE0A7170B0584001941F1 /* CharacteristicsSelectorEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0A6170B0583001941F1 /* CharacteristicsSelectorEditViewController.m */; };
+		206EE0B0170C0BBA001941F1 /* CustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0AF170C0BBA001941F1 /* CustomKeyboard.m */; };
+		206EE0B3170D2EE6001941F1 /* ModelCharacteristicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0B2170D2EE6001941F1 /* ModelCharacteristicsViewController.m */; };
+		207755CC170D493C002D9F8E /* CharacteristicEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755CB170D493C002D9F8E /* CharacteristicEditViewController.m */; };
+		207755D0170FEEC2002D9F8E /* OptionGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755CF170FEEC2002D9F8E /* OptionGroupListViewController.m */; };
+		207755D3170FEECE002D9F8E /* OptionGroupEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755D2170FEECE002D9F8E /* OptionGroupEditViewController.m */; };
+		207755D7171010EE002D9F8E /* SpaceMarines.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755D6171010EE002D9F8E /* SpaceMarines.m */; };
+		207755DA1710DE00002D9F8E /* WargearCharacteristicEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755D91710DE00002D9F8E /* WargearCharacteristicEditViewController.m */; };
+		207755DD1711236A002D9F8E /* ArmyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755DC1711236A002D9F8E /* ArmyListViewController.m */; };
 		208C8D8E17044E8400D0A8C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8D17044E8400D0A8C0 /* UIKit.framework */; };
 		208C8D9017044E8400D0A8C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8F17044E8400D0A8C0 /* Foundation.framework */; };
 		208C8D9217044E8400D0A8C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D9117044E8400D0A8C0 /* CoreGraphics.framework */; };
@@ -55,14 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		206EE06E17054B90001941F1 /* ArmyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyEditViewController.h; sourceTree = "<group>"; };
+		206EE06E17054B90001941F1 /* ArmyUnitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyUnitViewController.h; sourceTree = "<group>"; };
 		206EE0721705516C001941F1 /* UnitNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitNameViewController.h; sourceTree = "<group>"; };
 		206EE0731705516C001941F1 /* UnitNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitNameViewController.m; sourceTree = "<group>"; };
 		206EE07B1705A583001941F1 /* UnitEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitEditViewController.h; sourceTree = "<group>"; };
 		206EE07C1705A583001941F1 /* UnitEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitEditViewController.m; sourceTree = "<group>"; };
 		206EE07E170798E3001941F1 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
 		206EE07F170798E3001941F1 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
-		206EE0811707A499001941F1 /* ArmyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyEditViewController.m; sourceTree = "<group>"; };
+		206EE0811707A499001941F1 /* ArmyUnitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyUnitViewController.m; sourceTree = "<group>"; };
 		206EE0831707A4FD001941F1 /* ModelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelEditViewController.h; sourceTree = "<group>"; };
 		206EE0841707A4FD001941F1 /* ModelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelEditViewController.m; sourceTree = "<group>"; };
 		206EE0861707A98F001941F1 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
@@ -81,6 +91,26 @@
 		206EE09C17086055001941F1 /* WargearEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WargearEditViewController.m; sourceTree = "<group>"; };
 		206EE09F1708ECF5001941F1 /* Seeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seeder.h; sourceTree = "<group>"; };
 		206EE0A01708ECF5001941F1 /* Seeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seeder.m; sourceTree = "<group>"; };
+		206EE0A2170B00D8001941F1 /* CharacteristicsSelectorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicsSelectorListViewController.h; sourceTree = "<group>"; };
+		206EE0A3170B00D8001941F1 /* CharacteristicsSelectorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicsSelectorListViewController.m; sourceTree = "<group>"; };
+		206EE0A5170B0583001941F1 /* CharacteristicsSelectorEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicsSelectorEditViewController.h; sourceTree = "<group>"; };
+		206EE0A6170B0583001941F1 /* CharacteristicsSelectorEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicsSelectorEditViewController.m; sourceTree = "<group>"; };
+		206EE0AE170C0BBA001941F1 /* CustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomKeyboard.h; sourceTree = "<group>"; };
+		206EE0AF170C0BBA001941F1 /* CustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomKeyboard.m; sourceTree = "<group>"; };
+		206EE0B1170D2EE6001941F1 /* ModelCharacteristicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCharacteristicsViewController.h; sourceTree = "<group>"; };
+		206EE0B2170D2EE6001941F1 /* ModelCharacteristicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCharacteristicsViewController.m; sourceTree = "<group>"; };
+		207755CA170D493C002D9F8E /* CharacteristicEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicEditViewController.h; sourceTree = "<group>"; };
+		207755CB170D493C002D9F8E /* CharacteristicEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicEditViewController.m; sourceTree = "<group>"; };
+		207755CE170FEEC2002D9F8E /* OptionGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionGroupListViewController.h; sourceTree = "<group>"; };
+		207755CF170FEEC2002D9F8E /* OptionGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionGroupListViewController.m; sourceTree = "<group>"; };
+		207755D1170FEECE002D9F8E /* OptionGroupEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionGroupEditViewController.h; sourceTree = "<group>"; };
+		207755D2170FEECE002D9F8E /* OptionGroupEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionGroupEditViewController.m; sourceTree = "<group>"; };
+		207755D5171010EE002D9F8E /* SpaceMarines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceMarines.h; sourceTree = "<group>"; };
+		207755D6171010EE002D9F8E /* SpaceMarines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceMarines.m; sourceTree = "<group>"; };
+		207755D81710DE00002D9F8E /* WargearCharacteristicEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WargearCharacteristicEditViewController.h; sourceTree = "<group>"; };
+		207755D91710DE00002D9F8E /* WargearCharacteristicEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WargearCharacteristicEditViewController.m; sourceTree = "<group>"; };
+		207755DB1711236A002D9F8E /* ArmyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyListViewController.h; sourceTree = "<group>"; };
+		207755DC1711236A002D9F8E /* ArmyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyListViewController.m; sourceTree = "<group>"; };
 		208C8D8917044E8400D0A8C0 /* Roster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C8D8D17044E8400D0A8C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		208C8D8F17044E8400D0A8C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,10 +171,100 @@
 		206EE09E1708ECEB001941F1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				207755D4171010DA002D9F8E /* Armies */,
+				206EE0AE170C0BBA001941F1 /* CustomKeyboard.h */,
+				206EE0AF170C0BBA001941F1 /* CustomKeyboard.m */,
 				206EE09F1708ECF5001941F1 /* Seeder.h */,
 				206EE0A01708ECF5001941F1 /* Seeder.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		206EE0A8170B98F6001941F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				206EE0831707A4FD001941F1 /* ModelEditViewController.h */,
+				206EE0841707A4FD001941F1 /* ModelEditViewController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		206EE0A9170B9905001941F1 /* Wargear */ = {
+			isa = PBXGroup;
+			children = (
+				206EE09B17086055001941F1 /* WargearEditViewController.h */,
+				206EE09C17086055001941F1 /* WargearEditViewController.m */,
+				206EE0921708599A001941F1 /* WargearListViewController.h */,
+				206EE0931708599A001941F1 /* WargearListViewController.m */,
+				206EE08F1708598D001941F1 /* WargearSelectorViewController.h */,
+				206EE0901708598D001941F1 /* WargearSelectorViewController.m */,
+				207755D81710DE00002D9F8E /* WargearCharacteristicEditViewController.h */,
+				207755D91710DE00002D9F8E /* WargearCharacteristicEditViewController.m */,
+			);
+			name = Wargear;
+			sourceTree = "<group>";
+		};
+		206EE0AA170B9912001941F1 /* Option */ = {
+			isa = PBXGroup;
+			children = (
+				206EE0891707ED22001941F1 /* OptionEditViewController.h */,
+				206EE08A1707ED22001941F1 /* OptionEditViewController.m */,
+				207755CE170FEEC2002D9F8E /* OptionGroupListViewController.h */,
+				207755CF170FEEC2002D9F8E /* OptionGroupListViewController.m */,
+				207755D1170FEECE002D9F8E /* OptionGroupEditViewController.h */,
+				207755D2170FEECE002D9F8E /* OptionGroupEditViewController.m */,
+			);
+			name = Option;
+			sourceTree = "<group>";
+		};
+		206EE0AB170B991E001941F1 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				206EE0721705516C001941F1 /* UnitNameViewController.h */,
+				206EE0731705516C001941F1 /* UnitNameViewController.m */,
+				206EE07B1705A583001941F1 /* UnitEditViewController.h */,
+				206EE07C1705A583001941F1 /* UnitEditViewController.m */,
+			);
+			name = Unit;
+			sourceTree = "<group>";
+		};
+		206EE0AC170B992A001941F1 /* Characteristic */ = {
+			isa = PBXGroup;
+			children = (
+				206EE0A2170B00D8001941F1 /* CharacteristicsSelectorListViewController.h */,
+				206EE0A3170B00D8001941F1 /* CharacteristicsSelectorListViewController.m */,
+				206EE0A5170B0583001941F1 /* CharacteristicsSelectorEditViewController.h */,
+				206EE0A6170B0583001941F1 /* CharacteristicsSelectorEditViewController.m */,
+				206EE0B1170D2EE6001941F1 /* ModelCharacteristicsViewController.h */,
+				206EE0B2170D2EE6001941F1 /* ModelCharacteristicsViewController.m */,
+				207755CA170D493C002D9F8E /* CharacteristicEditViewController.h */,
+				207755CB170D493C002D9F8E /* CharacteristicEditViewController.m */,
+			);
+			name = Characteristic;
+			sourceTree = "<group>";
+		};
+		206EE0AD170B993A001941F1 /* Army */ = {
+			isa = PBXGroup;
+			children = (
+				208C8DB017044E8400D0A8C0 /* MasterViewController.h */,
+				208C8DB117044E8400D0A8C0 /* MasterViewController.m */,
+				208C8DEF17052E5300D0A8C0 /* ArmyNewViewController.h */,
+				208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */,
+				206EE06E17054B90001941F1 /* ArmyUnitViewController.h */,
+				206EE0811707A499001941F1 /* ArmyUnitViewController.m */,
+				207755DB1711236A002D9F8E /* ArmyListViewController.h */,
+				207755DC1711236A002D9F8E /* ArmyListViewController.m */,
+			);
+			name = Army;
+			sourceTree = "<group>";
+		};
+		207755D4171010DA002D9F8E /* Armies */ = {
+			isa = PBXGroup;
+			children = (
+				207755D5171010EE002D9F8E /* SpaceMarines.h */,
+				207755D6171010EE002D9F8E /* SpaceMarines.m */,
+			);
+			name = Armies;
 			sourceTree = "<group>";
 		};
 		208C8D7E17044E8400D0A8C0 = {
@@ -230,26 +350,12 @@
 		208C8DD41705047F00D0A8C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				208C8DB017044E8400D0A8C0 /* MasterViewController.h */,
-				208C8DB117044E8400D0A8C0 /* MasterViewController.m */,
-				208C8DEF17052E5300D0A8C0 /* ArmyNewViewController.h */,
-				208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */,
-				206EE06E17054B90001941F1 /* ArmyEditViewController.h */,
-				206EE0811707A499001941F1 /* ArmyEditViewController.m */,
-				206EE0831707A4FD001941F1 /* ModelEditViewController.h */,
-				206EE0841707A4FD001941F1 /* ModelEditViewController.m */,
-				206EE0891707ED22001941F1 /* OptionEditViewController.h */,
-				206EE08A1707ED22001941F1 /* OptionEditViewController.m */,
-				206EE0721705516C001941F1 /* UnitNameViewController.h */,
-				206EE0731705516C001941F1 /* UnitNameViewController.m */,
-				206EE07B1705A583001941F1 /* UnitEditViewController.h */,
-				206EE07C1705A583001941F1 /* UnitEditViewController.m */,
-				206EE09B17086055001941F1 /* WargearEditViewController.h */,
-				206EE09C17086055001941F1 /* WargearEditViewController.m */,
-				206EE0921708599A001941F1 /* WargearListViewController.h */,
-				206EE0931708599A001941F1 /* WargearListViewController.m */,
-				206EE08F1708598D001941F1 /* WargearSelectorViewController.h */,
-				206EE0901708598D001941F1 /* WargearSelectorViewController.m */,
+				206EE0AD170B993A001941F1 /* Army */,
+				206EE0AC170B992A001941F1 /* Characteristic */,
+				206EE0A8170B98F6001941F1 /* Model */,
+				206EE0AA170B9912001941F1 /* Option */,
+				206EE0AB170B991E001941F1 /* Unit */,
+				206EE0A9170B9905001941F1 /* Wargear */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -391,7 +497,7 @@
 				206EE0741705516C001941F1 /* UnitNameViewController.m in Sources */,
 				206EE07D1705A583001941F1 /* UnitEditViewController.m in Sources */,
 				206EE080170798E3001941F1 /* Unit.m in Sources */,
-				206EE0821707A499001941F1 /* ArmyEditViewController.m in Sources */,
+				206EE0821707A499001941F1 /* ArmyUnitViewController.m in Sources */,
 				206EE0851707A4FD001941F1 /* ModelEditViewController.m in Sources */,
 				206EE0881707A98F001941F1 /* Model.m in Sources */,
 				206EE08B1707ED22001941F1 /* OptionEditViewController.m in Sources */,
@@ -401,6 +507,16 @@
 				206EE09717085A45001941F1 /* Wargear.m in Sources */,
 				206EE09D17086055001941F1 /* WargearEditViewController.m in Sources */,
 				206EE0A11708ECF5001941F1 /* Seeder.m in Sources */,
+				206EE0A4170B00D8001941F1 /* CharacteristicsSelectorListViewController.m in Sources */,
+				206EE0A7170B0584001941F1 /* CharacteristicsSelectorEditViewController.m in Sources */,
+				206EE0B0170C0BBA001941F1 /* CustomKeyboard.m in Sources */,
+				206EE0B3170D2EE6001941F1 /* ModelCharacteristicsViewController.m in Sources */,
+				207755CC170D493C002D9F8E /* CharacteristicEditViewController.m in Sources */,
+				207755D0170FEEC2002D9F8E /* OptionGroupListViewController.m in Sources */,
+				207755D3170FEECE002D9F8E /* OptionGroupEditViewController.m in Sources */,
+				207755D7171010EE002D9F8E /* SpaceMarines.m in Sources */,
+				207755DA1710DE00002D9F8E /* WargearCharacteristicEditViewController.m in Sources */,
+				207755DD1711236A002D9F8E /* ArmyListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +631,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roster/Roster-Prefix.pch";
 				INFOPLIST_FILE = "Roster/Roster-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -526,6 +643,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roster/Roster-Prefix.pch";
 				INFOPLIST_FILE = "Roster/Roster-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *costField;
 @property (strong, nonatomic) IBOutlet UITextField *classificationField;
+@property (strong, nonatomic) IBOutlet UITextField *typeField;
 @property (strong, nonatomic) IBOutlet UITextView *infoField;
 
 -(void)setUnit:(Unit *)unit;

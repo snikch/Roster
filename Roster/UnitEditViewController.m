@@ -19,7 +19,7 @@
 
 @implementation UnitEditViewController
 
-@synthesize nameField, costField, classificationField, infoField;
+@synthesize nameField, costField, classificationField, infoField, typeField;
 @synthesize managedObjectContext;
 
 # pragma mark - Lifecycle
@@ -30,6 +30,7 @@
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     [_unit setValue:[f numberFromString:costField.text] forKey:@"cost"];
     [_unit setValue:classificationField.text forKey:@"classification"];
+    [_unit setValue:typeField.text forKey:@"type"];
     [_unit setValue:infoField.text forKey:@"info"];
 }
 -(void)setUnit:(Unit *)unit{
@@ -41,6 +42,7 @@
     costField.text = [(NSNumber *)[_unit valueForKey:@"cost"] stringValue];
     classificationField.text = [_unit valueForKey:@"classification"];
     infoField.text = [_unit valueForKey:@"info"];
+    typeField.text = [_unit valueForKey:@"type"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -55,6 +57,7 @@
     [self updateFetchResultsControllerPredicate];
     NSLog(@"Unit Edit View will appear");
     [super viewWillAppear:animated];
+    self.title = @"Edit Unit";
 }
 
 -(void)didPressBackButton:(id)sender{

@@ -154,6 +154,16 @@
     
     return _persistentStoreCoordinator;
 }
+-(void)reset{
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Roster.sqlite"];
+        
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    _persistentStoreCoordinator = nil;
+    _managedObjectContext = nil;
+    //abort();
+    [Seeder insertSeedData:[self managedObjectContext]];
+
+}
 
 #pragma mark - Application's Documents directory
 

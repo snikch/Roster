@@ -10,17 +10,23 @@
 
 #import "Model.h"
 #import "WargearSelectorViewController.h"
+#import "CharacteristicsSelectorListViewController.h"
+#import "CharacteristicEditViewController.h"
+#import "ModelCharacteristicsViewController.h"
 
-@interface ModelEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, WargearSelectorDelegate>
+@interface ModelEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, WargearSelectorDelegate, CharacteristicsSelectorDelegate, ModelCharacteristicsDelegate, CharacteristicEditDelegate>
 
 @property (nonatomic) BOOL isNewModel;
 
 @property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *optionsResultsController;
+@property (strong, nonatomic) ModelCharacteristicsViewController *characteristicsController;
 
 @property (strong, nonatomic) IBOutlet UITableView *optionsTableView;
 @property (strong, nonatomic) IBOutlet UITableView *characteristicsTableView;
+
+@property (strong, nonatomic) IBOutlet UIButton *charPopOverAnchorButton;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *costField;
@@ -36,5 +42,6 @@
 
 -(IBAction)didPressCancel:(id)sender;
 -(IBAction)didPressSave:(id)sender;
+-(IBAction)didPressAddCharacteristics:(id)sender;
 
 @end

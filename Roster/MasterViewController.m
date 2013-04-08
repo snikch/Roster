@@ -9,13 +9,23 @@
 #import "MasterViewController.h"
 
 #import "ArmyNewViewController.h"
-#import "ArmyEditViewController.h"
+
+#import "AppDelegate.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (weak) UIPopoverController *addPopover;
 @end
 
 @implementation MasterViewController
+-(IBAction)didPressAdd:(id)sender{
+    NSLog(@"Did press add with popover %@", _addPopover);
+    if (_addPopover){
+        [_addPopover dismissPopoverAnimated:YES];
+    }else{
+        [self performSegueWithIdentifier:@"newArmy" sender:sender];
+    }
+}
 
 - (void)awakeFromNib
 {
@@ -30,14 +40,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(didPressReload) ];
+    self.navigationItem.leftBarButtonItem = reloadButton;
+    self.title = @"Armies";
 
  //   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     //self.navigationItem.rightBarButtonItem = addButton;
-    self.armyEditViewController = (ArmyEditViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    [self.armyEditViewController setManagedObjectContext:self.managedObjectContext];
+    self.armyListViewController = (ArmyListViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    [self.armyListViewController setManagedObjectContext:self.managedObjectContext];
 }
 
+-(void)didPressReload{
+    AppDelegate *ad = [[UIApplication sharedApplication] delegate];
+    [ad reset];
+    [self.tableView reloadData];
+}
 - (void)insertNewObject:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -113,7 +130,7 @@
         
         [[self.splitViewController.viewControllers lastObject] popToRootViewControllerAnimated:YES];
         Army *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [self.armyEditViewController setArmy:object];
+        [self.armyListViewController setArmy:object];
     }
 }
 
@@ -128,7 +145,9 @@
         NSLog(@"Showing new army controller with moc %@", self.managedObjectContext);
         ArmyNewViewController *vc = (ArmyNewViewController *)[segue destinationViewController];
         [vc setManagedObjectContext: self.managedObjectContext];
+        _addPopover = [(UIStoryboardPopoverSegue *)segue popoverController];
     }
+        
 }
 
 #pragma mark - Fetched results controller

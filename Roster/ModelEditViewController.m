@@ -14,11 +14,14 @@
 @interface ModelEditViewController ()
 -(void)applyModelValues;
 -(void)commitChanges;
+@property (weak, nonatomic) UIPopoverController *addCharacteristicsPopover;
+@property (weak, nonatomic) UIPopoverController *editCharacteristicPopover;
 @end
 
 @implementation ModelEditViewController
 
-@synthesize nameField, costField, typeField;
+
+@synthesize nameField, costField;
 @synthesize availableLabel, includedLabel, maxLabel;
 @synthesize availableSlider, includedSlider, maxSlider;
 
@@ -40,6 +43,8 @@
      addTarget:self
      action:@selector(maxSliderDidChange:)
      forControlEvents:UIControlEventValueChanged];
+    
+    self.title = @"Edit Model";
 }
 
 -(IBAction)availableSliderDidChange:(UISlider *)sender
@@ -63,12 +68,12 @@
     [super viewWillAppear:animated];
     [self applyModelValues];
     [self updateFetchResultsControllerPredicate];
+    [self characteristicsController];
     NSLog(@"ME will appear");
 }
 
 -(void)applyModelValues{
     nameField.text = [_model valueForKey:@"name"];
-    typeField.text = [_model valueForKey:@"type"];
     costField.text = [NSString stringWithFormat:@"%i", [(NSNumber *)[_model valueForKey:@"cost"] intValue]];
     
     availableLabel.text = [NSString stringWithFormat:@"%i", [(NSNumber*)[_model valueForKey:@"available"] intValue]];
@@ -80,9 +85,8 @@
     [maxSlider setValue:[(NSNumber *)[_model valueForKey:@"max"] floatValue]];
 }
 
--(void)commitChanges{    
+-(void)commitChanges{
     [_model setValue:nameField.text forKey:@"name"];
-    [_model setValue:typeField.text forKey:@"type"];
     
     [_model setValue:[NSNumber numberWithInt:(int)(availableSlider.value + 0.5)] forKey:@"available"];
     [_model setValue:[NSNumber numberWithInt:(int)(includedSlider.value + 0.5)] forKey:@"included"];
@@ -109,6 +113,16 @@
         abort();
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(IBAction)didPressAddCharacteristics:(id)sender{
+    NSLog(@"Did press add, char popover is %@", _addCharacteristicsPopover);
+    //    if (_addCharacteristicsPopover){
+    //        [_addCharacteristicsPopover dismissPopoverAnimated:YES];
+    //        _addCharacteristicsPopover = nil;
+    //    }else{
+    [self performSegueWithIdentifier:@"addCharacteristics" sender:sender];
+    //    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -143,13 +157,30 @@
         [vc setManagedObjectContext: self.managedObjectContext];
         [vc setMultiple:YES];
         [vc setSelectedWargear:_model.wargear];
+    }else if ([[segue identifier] isEqualToString:@"addCharacteristics"]) {
+        NSLog(@"Adding characteristics");
+        _addCharacteristicsPopover = [(UIStoryboardPopoverSegue *)segue popoverController];
+        UINavigationController *nc = (UINavigationController *)[segue destinationViewController];
+        CharacteristicsSelectorListViewController *vc = (CharacteristicsSelectorListViewController*)[nc.viewControllers objectAtIndex:0];
+        vc.managedObjectContext = self.managedObjectContext;
+        vc.presentingPopoverController = _addCharacteristicsPopover;
+        vc.delegate = self;
+    }else if ([[segue identifier] isEqualToString:@"editCharacteristic"]) {
+        NSLog(@"Adding characteristics");
+        _editCharacteristicPopover = [(UIStoryboardPopoverSegue *)segue popoverController];
+        CharacteristicEditViewController *vc = (CharacteristicEditViewController *)[segue destinationViewController];
+        vc.presentedPopoverController = _editCharacteristicPopover;
+        vc.modelCharacteristic = sender;
+        vc.delegate = self;
     }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self commitChanges];
     _optionsResultsController = nil;
+    _characteristicsController = nil;
     NSLog(@"ME will disappear");
 }
 
@@ -373,25 +404,32 @@
 
 # pragma mark - Wargear Selector
 
--(void)didSelectWargear:(NSArray *)array{
-    NSLog(@"Did select wargear! %@", array);
+-(void)didSelectWargear:(NSArray *)targetWargear{
+    NSLog(@"Did select wargear! %@", targetWargear);
     NSError *error;
     
-    // Clear existing wargear
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ModelWargear" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"model == %@",_model];
-    [fetchRequest setPredicate:predicate];
-    [fetchRequest setFetchBatchSize:20];
-    NSArray *currentObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    for(NSManagedObject *object in currentObjects){
-        NSLog(@"Deleting wargear %@", [[object valueForKey:@"wargear"] valueForKey:@"name"]);
-        [self.managedObjectContext deleteObject:object];
+    // Clear wargear no longer in target set
+    NSMutableArray *currentWargear = _model.wargear;
+    NSArray *currentModelWargear = [(NSSet*)[_model valueForKey:@"modelWargear"] allObjects];
+    
+    NSPredicate *relativeComplementPredicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@", targetWargear];
+    NSArray *removedWargear = [currentWargear filteredArrayUsingPredicate:relativeComplementPredicate];
+    for(Wargear *wargear in removedWargear){
+        for(NSManagedObject *modelWargear in currentModelWargear){
+            if ([wargear isEqual:[modelWargear valueForKey:@"wargear"]]){
+                NSLog(@"Deleting wargear %@", [wargear valueForKey:@"name"]);
+                [self.managedObjectContext deleteObject:modelWargear];
+                for(NSManagedObject *replacement in [(NSSet*)[modelWargear valueForKey:@"replacements"] allObjects]){
+                    [self.managedObjectContext deleteObject:replacement];
+                }
+            }
+        }
     }
     
-    // Create new records
-    for(Wargear *wargear in array){
+    // Create new records for wargear in target set not in current set
+    relativeComplementPredicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@", currentWargear];
+    NSArray *newWargear = [targetWargear filteredArrayUsingPredicate:relativeComplementPredicate];
+    for(Wargear *wargear in newWargear){
         NSManagedObject *modelWargear = [NSEntityDescription insertNewObjectForEntityForName:@"ModelWargear" inManagedObjectContext:self.managedObjectContext];
         NSLog(@"Adding wargear %@", [wargear valueForKey:@"name"]);
         [modelWargear setValue:_model forKey:@"model"];
@@ -404,6 +442,76 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
+}
+
+# pragma mark - Characteristics Selector delegate
+-(void)didSelectCharacteristics:(NSDictionary *)characteristics{
+    NSLog(@"Did select chars %@", characteristics);
+    for(NSString *key in characteristics){
+        NSManagedObject *modelCharacteristic = [NSEntityDescription insertNewObjectForEntityForName:@"ModelCharacteristic" inManagedObjectContext:self.managedObjectContext];
+        NSDictionary *valueDict = [characteristics valueForKey:key];
+        id value = [valueDict valueForKey:@"value"];
+        NSLog(@"Adding char %@: %@", key, value);
+        [modelCharacteristic setValue:key forKey:@"name"];
+        [modelCharacteristic setValue:_model forKey:@"model"];
+        if(value != [NSNull null]){
+            [modelCharacteristic setValue:value forKey:@"value"];
+        }
+        [modelCharacteristic setValue:(NSNumber*)[valueDict valueForKey:@"sortOrder"] forKey:@"sortOrder"];
+    }
+    NSError *error;
+    if (![self.optionsResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    [[self characteristicsController].tableView reloadData];
+}
+
+# pragma  mark - Characteristics Controller
+
+-(ModelCharacteristicsViewController*)characteristicsController{
+    if(_characteristicsController != nil){
+        return _characteristicsController;
+    }
+    ModelCharacteristicsViewController *aController = [[ModelCharacteristicsViewController alloc] init];
+    
+    aController.model = _model;
+    aController.managedObjectContext = self.managedObjectContext;
+    aController.tableView = self.characteristicsTableView;
+    aController.delegate = self;
+    self.characteristicsTableView.delegate = aController;
+    self.characteristicsTableView.dataSource = aController;
+    
+    _characteristicsController = aController;
+    return _characteristicsController;
+}
+
+# pragma mark - Characteristics Controller Delegate
+
+-(void)displayCharacteristics:(NSManagedObject *)modelCharacteristics atRect:(CGRect)rect{
+    NSLog(@"Display char %@ at %@", modelCharacteristics, NSStringFromCGRect(rect));
+    [self.charPopOverAnchorButton setFrame:rect];
+    [self.view setNeedsDisplay];
+    
+    NSLog(@"Display char %@ at %@ (button at %@)", modelCharacteristics, NSStringFromCGRect(rect), NSStringFromCGRect(self.charPopOverAnchorButton.frame));
+    
+    [self performSegueWithIdentifier:@"editCharacteristic" sender:modelCharacteristics];
+}
+
+-(void)didEditCharacteristic:(NSManagedObject *)modelCharacteristic name:(NSString *)name value:(NSString *)value{
+    [modelCharacteristic setValue:name forKey:@"name"];
+    [modelCharacteristic setValue:value forKey:@"value"];
+    NSError *error;
+    if (![self.optionsResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    [[self characteristicsController].tableView reloadData];
+
 }
 
 @end

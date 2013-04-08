@@ -52,6 +52,7 @@
     self.multiple = vc.multiple;
     self.selectedWargear = vc.selectedWargear;
     NSLog(@"wargear Index view selected wargear is %@", self.selectedWargear);
+    self.title = @"Select Wargear";
 }
 
 -(IBAction)didPressDone:(id)sender{
@@ -288,12 +289,14 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    UILabel *title = (UILabel*)[cell viewWithTag:101];
+    title.text = [[object valueForKey:@"name"] description];
     Wargear *wargear = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    UISwitch *toggle = (UISwitch*)[cell viewWithTag:102];
     if([self.selectedWargear containsObject:wargear]){
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [toggle setOn:YES animated:NO];
     }else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        [toggle setOn:NO animated:NO];
     }
 }
 
@@ -304,12 +307,13 @@
     Wargear *wargear = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if(self.multiple == YES){
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UISwitch *toggle = (UISwitch*)[cell viewWithTag:102];
         if([self.selectedWargear containsObject:wargear]){
             [self.selectedWargear removeObject:wargear];
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            [toggle setOn:NO animated:YES];
         }else{
             [self.selectedWargear addObject:wargear];
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            [toggle setOn:YES animated:YES];
         }
     }else{
         WargearSelectorViewController *vc = (WargearSelectorViewController *) self.navigationController;

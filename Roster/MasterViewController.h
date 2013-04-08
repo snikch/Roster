@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class ArmyEditViewController;
+#import "ArmyListViewController.h"
 
 #import <CoreData/CoreData.h>
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) ArmyEditViewController *armyEditViewController;
+@property (strong, nonatomic) ArmyListViewController *armyListViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+-(IBAction)didPressAdd:(id)sender;
 
 @end

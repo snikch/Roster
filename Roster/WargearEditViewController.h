@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "Wargear.h"
+#import "WargearCharacteristicEditViewController.h"
 
-@interface WargearEditViewController : UIViewController
+@interface WargearEditViewController : UIViewController <NSFetchedResultsControllerDelegate, WargearCharacteristicDelegate>
 
 @property (nonatomic) BOOL isNew;
 @property (nonatomic) BOOL isMultiple;
@@ -18,10 +19,15 @@
 
 @property (strong, nonatomic) Wargear *wargear;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) IBOutlet UIButton *hiddenEditPopoverButton;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
-@property (strong, nonatomic) IBOutlet UITextField *characteristicsField;
+@property (strong, nonatomic) IBOutlet UITextField *typeField;
+@property (strong, nonatomic) IBOutlet UITextView *infoField;
 
 -(IBAction)didPressCancel:(id)sender;
 -(IBAction)didPressSave:(id)sender;

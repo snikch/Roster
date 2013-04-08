@@ -1,100 +1,51 @@
 //
-//  WargearEditViewController.m
+//  OptionGroupListViewController.m
 //  Roster
 //
-//  Created by Mal Curtis on 31/03/13.
+//  Created by Mal Curtis on 6/04/13.
 //  Copyright (c) 2013 Mal Curtis. All rights reserved.
 //
 
-#import "WargearEditViewController.h"
-#import "WargearSelectorViewController.h"
+#import "OptionGroupListViewController.h"
+#import "OptionGroupEditViewController.h"
 
-@interface WargearEditViewController ()
-
-@property (weak, nonatomic) UIPopoverController *characteristicPopoverController;
+@interface OptionGroupListViewController ()
 
 @end
 
-@implementation WargearEditViewController
-
-@synthesize nameField, typeField, infoField;
+@implementation OptionGroupListViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    WargearCharacteristicEditViewController *vc = (WargearCharacteristicEditViewController *)[segue destinationViewController];
-    vc.delegate = self;
-    _characteristicPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
-    if ([[segue identifier] isEqualToString:@"editCharacteristic"]) {
-        
-        //        Wargear *wargear = [NSEntityDescription insertNewObjectForEntityForName:@"Wargear" inManagedObjectContext:self.managedObjectContext];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSManagedObject *object = (NSManagedObject *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
-                
-        [vc setWargearCharacteristic:object];
-        
-        UITableViewCell *cell = (UITableViewCell*)sender;
-        CGRect displayFrom = CGRectMake(self.tableView.frame.origin.x + cell.frame.size.width, cell.center.y + self.tableView.frame.origin.y - self.tableView.contentOffset.y, 1, 1);
-        _hiddenEditPopoverButton.frame = displayFrom;
-        
-    }else if ([[segue identifier] isEqualToString:@"addCharacteristic"]) {
-       
-    }
+//    if ([[segue identifier] isEqualToString:@"editGroup"]) {
+        OptionGroupEditViewController *vc = (OptionGroupEditViewController *)[segue destinationViewController];
+        vc.delegate = self.delegate;
+        vc.managedObjectContext = self.managedObjectContext;
+        vc.model = _model;
+//    }
 }
+# pragma mark - Lifecycle
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self applyModelValues];
-    self.title = @"Edit Wargear";
+    
+    self.title = @"Option Groups";
+    
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    [self.tableView reloadData];
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     _fetchedResultsController = nil;
 }
 
--(void)applyModelValues{
-    NSLog(@"Applying wargear values for: %@", [_wargear valueForKey:@"name"]);
-    nameField.text = [_wargear valueForKey:@"name"];
-    infoField.text = [_wargear valueForKey:@"info"];
-    typeField.text = [_wargear valueForKey:@"type"];
-}
-
--(void)commitChanges{
-    [_wargear setValue:nameField.text forKey:@"name"];
-    [_wargear setValue:typeField.text forKey:@"type"];
-    [_wargear setValue:infoField.text forKey:@"info"];
-}
-
--(IBAction)didPressCancel:(id)sender{
-    if(self.isNew){
-        [self.managedObjectContext deleteObject:_wargear];
-    }
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
--(IBAction)didPressSave:(id)sender{
-    [self commitChanges];
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    if(![self.selectedWargear containsObject:self.wargear]){
-        [self.selectedWargear addObject:self.wargear];
-    }
-    
-    if(self.isNew){
-        if(self.isMultiple == YES){
-            [self.navigationController popViewControllerAnimated:YES];
-        }else{
-            WargearSelectorViewController *vc = (WargearSelectorViewController *) self.navigationController;
-            [vc didSelectWargear:@[self.wargear]];
-        }
-    }else{
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -111,7 +62,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Char" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Group" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -144,21 +95,6 @@
     return NO;
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = NSLocalizedString(@"Characteristics", @"Characteristics");
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
-}
 #pragma mark - Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -169,18 +105,18 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WargearCharacteristic" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"OptionGroup" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+        
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"model == %@",self.model];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"wargear == %@",self.wargear];
-    
-    [fetchRequest setPredicate:predicate];
+    [fetchRequest setPredicate:predicate];    
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -252,23 +188,27 @@
     [self.tableView endUpdates];
 }
 
-/*
- // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
- {
- // In the simplest, most efficient, case, reload the table view.
- [self.tableView reloadData];
- }
- */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if([(NSNumber*)[object valueForKey:@"modify"] isEqualToNumber:[NSNumber numberWithBool:YES]]){
-        cell.textLabel.text = [NSString stringWithFormat:@"Modify %@ by %@", [object valueForKey:@"name"], [object valueForKey:@"value"]];
+    NSString *modelNames;
+    NSArray *members = [object valueForKey:@"members"];
+    if(members.count == 0){
+        modelNames = @"No options in group";
     }else{
-        cell.textLabel.text = [NSString stringWithFormat:@"Change %@ to %@", [object valueForKey:@"name"], [object valueForKey:@"value"]];
+        NSMutableArray *names = [NSMutableArray array];
+        for(NSManagedObject *member in members){
+            [names addObject:[[member valueForKey:@"option"] valueForKey:@"name"]];
+        }
+        modelNames = [names componentsJoinedByString:@", "];
+    }
+    cell.textLabel.text = [object valueForKey:@"name"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Options: %@", modelNames];
+    if([self.group isEqual:object]){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
 }
 
@@ -276,34 +216,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"editCharacteristic" sender:[tableView cellForRowAtIndexPath:indexPath]];
-
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if(self.delegate){
+        [self.delegate didSelectOptionGroup:object];
+    }
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
-# pragma  mark - Wargear Characteristic Delegate
-
--(void)didChangeWargearCharacteristic:(NSManagedObject *)characteristic toValues:(NSDictionary *)values{
-    NSLog(@"Did change wargear chars: %@", values);
-    if(characteristic == nil){
-        characteristic = [NSEntityDescription insertNewObjectForEntityForName:@"WargearCharacteristic" inManagedObjectContext:self.managedObjectContext];
-        [characteristic setValue:_wargear forKey:@"wargear"];
-    }
-    
-    [characteristic setValuesForKeysWithDictionary:values];
-    [characteristic setValue:[NSNumber numberWithBool:[[NSNumber numberWithBool:YES] isEqualToNumber:(NSNumber*)[values valueForKey:@"modify"]]] forKey:@"modify"];
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    [self.tableView reloadData];
-    if(_characteristicPopoverController){
-        [_characteristicPopoverController dismissPopoverAnimated:YES];
-    }
-}
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "Wargear.h"
 
 @interface Model : NSManagedObject
 
 -(NSMutableArray*)wargear;
+-(void)addWargear:(Wargear*)wargear;
+-(void)addCharacteristics:(NSArray*)characteristics;
 
 @end

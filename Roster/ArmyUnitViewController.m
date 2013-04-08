@@ -6,18 +6,18 @@
 //  Copyright (c) 2013 Mal Curtis. All rights reserved.
 //
 
-#import "ArmyEditViewController.h"
+#import "ArmyUnitViewController.h"
 #import "UnitNameViewController.h"
 #import "UnitEditViewController.h"
 
 #import "Unit.h"
 
-@interface ArmyEditViewController ()
+@interface ArmyUnitViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
 @end
 
-@implementation ArmyEditViewController
+@implementation ArmyUnitViewController
 
 @synthesize addUnitButton;
 

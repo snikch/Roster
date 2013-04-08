@@ -10,7 +10,7 @@
 
 #import "Army.h"
 
-@interface ArmyEditViewController : UITableViewController <UISplitViewControllerDelegate, NSFetchedResultsControllerDelegate>
+@interface ArmyUnitViewController : UITableViewController <UISplitViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) Army *army;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
