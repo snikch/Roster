@@ -1,84 +1,22 @@
 //
-//  ArmyListViewController.m
+//  UnitListViewController.m
 //  Roster
 //
-//  Created by Mal Curtis on 7/04/13.
+//  Created by Mal Curtis on 9/04/13.
 //  Copyright (c) 2013 Mal Curtis. All rights reserved.
 //
 
-#import "ArmyListViewController.h"
-#import "ArmyUnitViewController.h"
+#import "UnitListViewController.h"
 
-@interface ArmyListViewController ()
-
-@property (weak, nonatomic) UIPopoverController *armyPopoverController;
+@interface UnitListViewController ()
 
 @end
 
-@implementation ArmyListViewController
+@implementation UnitListViewController
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"editArmy"]) {
-        NSLog(@"Did prepare for segue");
-        //        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //        Army *army = (Army *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
-        //        [[segue destinationViewController] setArmy:army];
-        NSLog(@"Showing new army controller with moc %@", self.managedObjectContext);
-        ArmyUnitViewController *vc = (ArmyUnitViewController *)[segue destinationViewController];
-        [vc setManagedObjectContext: self.managedObjectContext];
-        [vc setArmy:self.army];
-    }else if ([[segue identifier] isEqualToString:@"addList"]) {
-        ListNewViewController *vc = (ListNewViewController *)[segue destinationViewController];
-        [vc setDelegate:self];
-        _armyPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
-    }else if ([[segue identifier] isEqualToString:@"editList"]) {
-        ListEditViewController *vc = (ListEditViewController *)[segue destinationViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [vc setManagedObjectContext:self.managedObjectContext];
-        [vc setList: object];
-    }
-    
-}
--(void)viewDidLoad{
-    [super viewDidLoad];
-    [self configureView];
-    [self updateFetchResultsControllerPredicate];
-}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     _fetchedResultsController = nil;
-}
-
-- (void)setArmy:(Army *)newArmy
-{
-    NSLog(@"Did receive setArmy with %@", newArmy);
-    if (_army != newArmy) {
-        _army = newArmy;
-        
-        // Update the view.
-        [self configureView];
-        [self updateFetchResultsControllerPredicate];
-    }
-}
-
--(void)configureView{
-    self.title = [_army valueForKey: @"name"];
-    NSMutableArray *toolbarButtons = [self.navigationItem.leftBarButtonItems mutableCopy];
-    if(_army == nil){
-        NSLog(@"Removing button from: %@", toolbarButtons);
-        [toolbarButtons removeObject:self.editArmyButton];
-        [self.navigationItem setLeftBarButtonItems:toolbarButtons animated:NO];
-    }else{
-        
-        // This is how you remove the button from the toolbar and animate it
-        // This is how you add the button to the toolbar and animate it
-        if (![toolbarButtons containsObject:self.editArmyButton]) {
-            [toolbarButtons addObject:self.editArmyButton];
-            [self.navigationItem setLeftBarButtonItems:toolbarButtons animated:YES];
-        }
-    }
 }
 
 #pragma mark - Table view data source
@@ -97,7 +35,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"List" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Unit" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -173,25 +111,6 @@
 
 #pragma mark - Fetched results controller
 
--(void)updateFetchResultsControllerPredicate{
-    NSFetchRequest *fetchRequest = [self.fetchedResultsController fetchRequest];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"army == %@",self.army];
-    
-    [fetchRequest setPredicate:predicate];
-    
-    [NSFetchedResultsController deleteCacheWithName:@"Master"];
-    
-    NSError *error;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    [self.tableView reloadData];
-}
-
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
@@ -200,17 +119,19 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Unit" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"army == %@",self.army];
+    
+    [fetchRequest setPredicate:predicate];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"army.name" ascending:YES];
-    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor1, sortDescriptor2];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -308,26 +229,9 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-}
-
-# pragma mark - List New Delegate
--(void)didCreateNew:(NSDictionary *)values{
-        NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:self.managedObjectContext];
-    [object setValuesForKeysWithDictionary:values];
-    [object setValue:self.army forKey:@"army"];
-    // Save the context.
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    if(self.delegate){
+        [self.delegate didSelectUnit:(NSManagedObject*)[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
-    if(_armyPopoverController){
-        [_armyPopoverController dismissPopoverAnimated:YES];
-    }
-    [self.tableView reloadData];
-    
 }
 
 @end

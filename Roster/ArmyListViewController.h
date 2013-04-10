@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ListNewViewController.h"
+#import "ListEditViewController.h"
 #import "Army.h"
 
-@interface ArmyListViewController : UITableViewController
+@interface ArmyListViewController : UITableViewController <NSFetchedResultsControllerDelegate, ListNewDelegate>
 
 @property (strong, nonatomic) Army *army;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editArmyButton;
 

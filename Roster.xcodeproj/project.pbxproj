@@ -30,6 +30,13 @@
 		207755D7171010EE002D9F8E /* SpaceMarines.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755D6171010EE002D9F8E /* SpaceMarines.m */; };
 		207755DA1710DE00002D9F8E /* WargearCharacteristicEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755D91710DE00002D9F8E /* WargearCharacteristicEditViewController.m */; };
 		207755DD1711236A002D9F8E /* ArmyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755DC1711236A002D9F8E /* ArmyListViewController.m */; };
+		207755EA1714210F002D9F8E /* ListUnitEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755E91714210F002D9F8E /* ListUnitEditViewController.m */; };
+		207755F0171421F3002D9F8E /* ListEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755EF171421F3002D9F8E /* ListEditViewController.m */; };
+		207755F3171422E6002D9F8E /* ListNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755F2171422E6002D9F8E /* ListNewViewController.m */; };
+		207755F617142971002D9F8E /* UnitListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755F517142971002D9F8E /* UnitListViewController.m */; };
+		207755F917153925002D9F8E /* ListUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755F817153925002D9F8E /* ListUnit.m */; };
+		207755FD17160056002D9F8E /* ListUnitOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755FC17160056002D9F8E /* ListUnitOptionViewController.m */; };
+		2077560017160546002D9F8E /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 207755FF17160546002D9F8E /* ListModel.m */; };
 		208C8D8E17044E8400D0A8C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8D17044E8400D0A8C0 /* UIKit.framework */; };
 		208C8D9017044E8400D0A8C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D8F17044E8400D0A8C0 /* Foundation.framework */; };
 		208C8D9217044E8400D0A8C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208C8D9117044E8400D0A8C0 /* CoreGraphics.framework */; };
@@ -111,6 +118,20 @@
 		207755D91710DE00002D9F8E /* WargearCharacteristicEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WargearCharacteristicEditViewController.m; sourceTree = "<group>"; };
 		207755DB1711236A002D9F8E /* ArmyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyListViewController.h; sourceTree = "<group>"; };
 		207755DC1711236A002D9F8E /* ArmyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyListViewController.m; sourceTree = "<group>"; };
+		207755E81714210F002D9F8E /* ListUnitEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListUnitEditViewController.h; sourceTree = "<group>"; };
+		207755E91714210F002D9F8E /* ListUnitEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListUnitEditViewController.m; sourceTree = "<group>"; };
+		207755EE171421F3002D9F8E /* ListEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListEditViewController.h; sourceTree = "<group>"; };
+		207755EF171421F3002D9F8E /* ListEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListEditViewController.m; sourceTree = "<group>"; };
+		207755F1171422E6002D9F8E /* ListNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListNewViewController.h; sourceTree = "<group>"; };
+		207755F2171422E6002D9F8E /* ListNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListNewViewController.m; sourceTree = "<group>"; };
+		207755F417142971002D9F8E /* UnitListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitListViewController.h; sourceTree = "<group>"; };
+		207755F517142971002D9F8E /* UnitListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitListViewController.m; sourceTree = "<group>"; };
+		207755F717153925002D9F8E /* ListUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListUnit.h; sourceTree = "<group>"; };
+		207755F817153925002D9F8E /* ListUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListUnit.m; sourceTree = "<group>"; };
+		207755FB17160056002D9F8E /* ListUnitOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListUnitOptionViewController.h; sourceTree = "<group>"; };
+		207755FC17160056002D9F8E /* ListUnitOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListUnitOptionViewController.m; sourceTree = "<group>"; };
+		207755FE17160546002D9F8E /* ListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListModel.h; sourceTree = "<group>"; };
+		207755FF17160546002D9F8E /* ListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListModel.m; sourceTree = "<group>"; };
 		208C8D8917044E8400D0A8C0 /* Roster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C8D8D17044E8400D0A8C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		208C8D8F17044E8400D0A8C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -224,6 +245,8 @@
 				206EE0731705516C001941F1 /* UnitNameViewController.m */,
 				206EE07B1705A583001941F1 /* UnitEditViewController.h */,
 				206EE07C1705A583001941F1 /* UnitEditViewController.m */,
+				207755F417142971002D9F8E /* UnitListViewController.h */,
+				207755F517142971002D9F8E /* UnitListViewController.m */,
 			);
 			name = Unit;
 			sourceTree = "<group>";
@@ -265,6 +288,28 @@
 				207755D6171010EE002D9F8E /* SpaceMarines.m */,
 			);
 			name = Armies;
+			sourceTree = "<group>";
+		};
+		207755E6171420F0002D9F8E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				207755EE171421F3002D9F8E /* ListEditViewController.h */,
+				207755EF171421F3002D9F8E /* ListEditViewController.m */,
+				207755F1171422E6002D9F8E /* ListNewViewController.h */,
+				207755F2171422E6002D9F8E /* ListNewViewController.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		207755FA17153C97002D9F8E /* ListUnit */ = {
+			isa = PBXGroup;
+			children = (
+				207755E81714210F002D9F8E /* ListUnitEditViewController.h */,
+				207755E91714210F002D9F8E /* ListUnitEditViewController.m */,
+				207755FB17160056002D9F8E /* ListUnitOptionViewController.h */,
+				207755FC17160056002D9F8E /* ListUnitOptionViewController.m */,
+			);
+			name = ListUnit;
 			sourceTree = "<group>";
 		};
 		208C8D7E17044E8400D0A8C0 = {
@@ -352,6 +397,8 @@
 			children = (
 				206EE0AD170B993A001941F1 /* Army */,
 				206EE0AC170B992A001941F1 /* Characteristic */,
+				207755E6171420F0002D9F8E /* List */,
+				207755FA17153C97002D9F8E /* ListUnit */,
 				206EE0A8170B98F6001941F1 /* Model */,
 				206EE0AA170B9912001941F1 /* Option */,
 				206EE0AB170B991E001941F1 /* Unit */,
@@ -373,6 +420,10 @@
 				206EE07F170798E3001941F1 /* Unit.m */,
 				206EE09517085A45001941F1 /* Wargear.h */,
 				206EE09617085A45001941F1 /* Wargear.m */,
+				207755FE17160546002D9F8E /* ListModel.h */,
+				207755FF17160546002D9F8E /* ListModel.m */,
+				207755F717153925002D9F8E /* ListUnit.h */,
+				207755F817153925002D9F8E /* ListUnit.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -517,6 +568,13 @@
 				207755D7171010EE002D9F8E /* SpaceMarines.m in Sources */,
 				207755DA1710DE00002D9F8E /* WargearCharacteristicEditViewController.m in Sources */,
 				207755DD1711236A002D9F8E /* ArmyListViewController.m in Sources */,
+				207755EA1714210F002D9F8E /* ListUnitEditViewController.m in Sources */,
+				207755F0171421F3002D9F8E /* ListEditViewController.m in Sources */,
+				207755F3171422E6002D9F8E /* ListNewViewController.m in Sources */,
+				207755F617142971002D9F8E /* UnitListViewController.m in Sources */,
+				207755F917153925002D9F8E /* ListUnit.m in Sources */,
+				207755FD17160056002D9F8E /* ListUnitOptionViewController.m in Sources */,
+				2077560017160546002D9F8E /* ListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

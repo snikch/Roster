@@ -16,22 +16,23 @@
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="army" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Army" inverseName="lists" inverseEntity="Army" syncable="YES"/>
-        <relationship name="listunits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="list" inverseEntity="ListUnit" syncable="YES"/>
+        <relationship name="listunits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListUnit" inverseName="list" inverseEntity="ListUnit" syncable="YES"/>
     </entity>
-    <entity name="ListModel" syncable="YES">
+    <entity name="ListModel" representedClassName="ListModel" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="listunit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="listmodels" inverseEntity="ListUnit" syncable="YES"/>
+        <relationship name="listOptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListOption" inverseName="listModel" inverseEntity="ListOption" syncable="YES"/>
+        <relationship name="listUnit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="listmodels" inverseEntity="ListUnit" syncable="YES"/>
         <relationship name="model" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Model" inverseName="listmodels" inverseEntity="Model" syncable="YES"/>
     </entity>
-    <entity name="ListOption" syncable="YES">
+    <entity name="ListOption" representedClassName="" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="listunit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="listoptions" inverseEntity="ListUnit" syncable="YES"/>
-        <relationship name="options" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="listoptions" inverseEntity="Option" syncable="YES"/>
+        <relationship name="listModel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListModel" inverseName="listOptions" inverseEntity="ListModel" syncable="YES"/>
+        <relationship name="option" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="listoptions" inverseEntity="Option" syncable="YES"/>
     </entity>
-    <entity name="ListUnit" syncable="YES">
+    <entity name="ListUnit" representedClassName="ListUnit" syncable="YES">
         <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="listunits" inverseEntity="List" syncable="YES"/>
-        <relationship name="listmodels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListModel" inverseName="listunit" inverseEntity="ListModel" syncable="YES"/>
-        <relationship name="listoptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListOption" inverseName="listunit" inverseEntity="ListOption" syncable="YES"/>
+        <relationship name="listmodels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListModel" inverseName="listUnit" inverseEntity="ListModel" syncable="YES"/>
+        <relationship name="unit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Unit" inverseName="listUnits" inverseEntity="Unit" syncable="YES"/>
     </entity>
     <entity name="Model" representedClassName="Model" syncable="YES">
         <attribute name="available" attributeType="Integer 16" defaultValueString="10" syncable="YES"/>
@@ -64,7 +65,7 @@
         <attribute name="max" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="groupMembership" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OptionGroupMember" inverseName="option" inverseEntity="OptionGroupMember" syncable="YES"/>
-        <relationship name="listoptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListOption" inverseName="options" inverseEntity="ListOption" syncable="YES"/>
+        <relationship name="listoptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListOption" inverseName="option" inverseEntity="ListOption" syncable="YES"/>
         <relationship name="model" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Model" inverseName="options" inverseEntity="Model" syncable="YES"/>
         <relationship name="replacements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OptionReplacement" inverseName="option" inverseEntity="OptionReplacement" syncable="YES"/>
         <relationship name="wargear" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Wargear" inverseName="options" inverseEntity="Wargear" syncable="YES"/>
@@ -89,6 +90,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="army" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Army" inverseName="units" inverseEntity="Army" syncable="YES"/>
+        <relationship name="listUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="unit" inverseEntity="ListUnit" syncable="YES"/>
         <relationship name="models" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Model" inverseName="unit" inverseEntity="Model" syncable="YES"/>
     </entity>
     <entity name="Wargear" representedClassName="Wargear" syncable="YES">
@@ -110,18 +112,18 @@
         <element name="Army" positionX="261" positionY="189" width="128" height="105"/>
         <element name="CharacteristicTemplate" positionX="160" positionY="192" width="128" height="90"/>
         <element name="List" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="ListModel" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ListModel" positionX="160" positionY="192" width="128" height="105"/>
         <element name="ListOption" positionX="160" positionY="192" width="128" height="90"/>
         <element name="ListUnit" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Model" positionX="160" positionY="192" width="128" height="210"/>
         <element name="ModelCharacteristic" positionX="160" positionY="192" width="128" height="105"/>
         <element name="ModelWargear" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Option" positionX="160" positionY="192" width="128" height="195"/>
-        <element name="OptionReplacement" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Unit" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="Wargear" positionX="160" positionY="192" width="128" height="150"/>
         <element name="OptionGroup" positionX="160" positionY="192" width="128" height="90"/>
         <element name="OptionGroupMember" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="OptionReplacement" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Unit" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Wargear" positionX="160" positionY="192" width="128" height="150"/>
         <element name="WargearCharacteristic" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

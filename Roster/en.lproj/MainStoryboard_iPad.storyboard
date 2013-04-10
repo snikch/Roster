@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="-630"/>
+            <point key="canvasLocation" x="504" y="-645"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="18">
@@ -33,7 +33,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-735" y="-638"/>
+            <point key="canvasLocation" x="-775" y="-1590"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="24">
@@ -86,7 +86,206 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
+            <point key="canvasLocation" x="915" y="-646"/>
+        </scene>
+        <!--List New View Controller-->
+        <scene sceneID="UIB-5M-bon">
+            <objects>
+                <viewController id="HE8-JL-rOp" customClass="ListNewViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ke-3E-Jj5">
+                        <rect key="frame" x="0.0" y="20" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pvb-07-4kl">
+                                <rect key="frame" x="30" y="20" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2iO-5P-Mnn">
+                                <rect key="frame" x="30" y="49" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="OVU-Yu-ENO">
+                                <rect key="frame" x="89" y="17" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="Rrt-uo-wLV">
+                                <rect key="frame" x="89" y="55" width="183" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Luj-Nr-2im">
+                                <rect key="frame" x="16" y="145" width="60" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSave:" destination="HE8-JL-rOp" eventType="touchUpInside" id="VUe-MI-MNj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="infoField" destination="Rrt-uo-wLV" id="FgM-U8-T4I"/>
+                        <outlet property="nameField" destination="OVU-Yu-ENO" id="KtF-dG-iHx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4UK-g6-d54" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2426" y="-1909"/>
+        </scene>
+        <!--Unit List View Controller-->
+        <scene sceneID="E5d-Xs-Ukk">
+            <objects>
+                <tableViewController id="H2o-7j-kFa" customClass="UnitListViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="a9P-bd-yzs">
+                        <rect key="frame" x="0.0" y="20" width="300" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Unit" id="eR9-IK-Onn">
+                                <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="H2o-7j-kFa" id="9HV-jn-RPJ"/>
+                            <outlet property="delegate" destination="H2o-7j-kFa" id="8iM-mx-wX7"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X55-IM-bKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3364" y="-2193"/>
+        </scene>
+        <!--List Unit Edit View Controller-->
+        <scene sceneID="RMG-CE-eQb">
+            <objects>
+                <viewController id="8BU-hq-YzF" customClass="ListUnitEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sqZ-4k-yAb">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8er-Xh-8b1">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="272"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Model" id="LOd-kU-O3i">
+                                        <rect key="frame" x="0.0" y="22" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gnp-ql-HeK">
+                                                    <rect key="frame" x="20" y="6" width="348" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <slider opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="pBF-fB-zps">
+                                                    <rect key="frame" x="437" y="11" width="248" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </slider>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r2r-DL-suf">
+                                                    <rect key="frame" x="343" y="11" width="81" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8BU-hq-YzF" id="cq6-0s-HeX"/>
+                                    <outlet property="delegate" destination="8BU-hq-YzF" id="2HT-ow-xph"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WSY-sZ-Ck8">
+                                <rect key="frame" x="0.0" y="343" width="703" height="361"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableHeaderView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1hd-OE-Zyj">
+                                    <rect key="frame" x="0.0" y="0.0" width="703" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </label>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Option" id="4jd-UK-6cO">
+                                        <rect key="frame" x="0.0" y="54" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GiI-eX-5R1">
+                                                    <rect key="frame" x="20" y="6" width="348" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <slider opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="jjZ-SK-cjt">
+                                                    <rect key="frame" x="437" y="12" width="248" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </slider>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vh8-3W-ofa">
+                                                    <rect key="frame" x="343" y="11" width="81" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a9b-Ku-ato"/>
+                    <connections>
+                        <outlet property="tableView" destination="8er-Xh-8b1" id="czk-ob-eOV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3e-Ze-XyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3336" y="-1549"/>
         </scene>
         <!--Army List View Controller-->
         <scene sceneID="LKG-4x-gYM">
@@ -98,14 +297,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="d1N-XM-9iK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="List" id="d1N-XM-9iK">
                                 <rect key="frame" x="0.0" y="22" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="683" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="ag3-i8-maD" kind="push" identifier="editList" id="WFu-8R-wai"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -119,6 +321,13 @@
                                 <segue destination="1g2-BF-QfP" kind="push" identifier="editArmy" id="gNx-VZ-db7"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fxG-qC-YqZ">
+                            <connections>
+                                <segue destination="HE8-JL-rOp" kind="popover" identifier="addList" popoverAnchorBarButtonItem="fxG-qC-YqZ" id="ZJ3-an-eaj">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editArmyButton" destination="rtI-CI-vws" id="615-6O-FRW"/>
@@ -127,6 +336,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ng-un-QGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1477" y="-1549"/>
+        </scene>
+        <!--List Edit View Controller-->
+        <scene sceneID="Al2-fl-WEO">
+            <objects>
+                <viewController id="ag3-i8-maD" customClass="ListEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aWh-eG-m0z">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rWa-NR-2hM">
+                                <rect key="frame" x="0.0" y="148" width="703" height="556"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListUnit" id="K3P-qi-DQr">
+                                        <rect key="frame" x="0.0" y="22" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="683" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="8BU-hq-YzF" kind="push" identifier="editUnit" id="A7R-hJ-WU8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ag3-i8-maD" id="LYD-Ny-bvs"/>
+                                    <outlet property="delegate" destination="ag3-i8-maD" id="fU8-gC-4Jj"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HYL-EU-gz2">
+                                <rect key="frame" x="36" y="15" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MuS-Xx-Lm9">
+                                <rect key="frame" x="316" y="15" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="47W-Fi-lbN">
+                                <rect key="frame" x="95" y="12" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="8xB-hv-NIH">
+                                <rect key="frame" x="375" y="21" width="289" height="109"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lVU-e6-pnj">
+                        <barButtonItem key="rightBarButtonItem" title="Add Unit" id="PsZ-Xr-5S8">
+                            <connections>
+                                <segue destination="H2o-7j-kFa" kind="popover" identifier="addUnit" popoverAnchorBarButtonItem="PsZ-Xr-5S8" id="IOb-Yg-5KF">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="infoField" destination="8xB-hv-NIH" id="yBA-PN-aek"/>
+                        <outlet property="nameField" destination="47W-Fi-lbN" id="IQy-vj-wqt"/>
+                        <outlet property="tableView" destination="rWa-NR-2hM" id="Rcw-y3-ftV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O1Z-HH-wou" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2453" y="-1549"/>
         </scene>
         <!--Army New View Controller-->
         <scene sceneID="srG-x7-qmp">
@@ -171,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d90-JB-njX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273" y="-616"/>
+            <point key="canvasLocation" x="1457" y="-631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
@@ -231,7 +521,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbi-qF-1LT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="331"/>
+            <point key="canvasLocation" x="1296" y="283"/>
         </scene>
         <!--Unit Name View Controller-->
         <scene sceneID="hjF-YJ-Wnd">
@@ -277,7 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHc-a4-PQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="-70"/>
+            <point key="canvasLocation" x="2208" y="-30"/>
         </scene>
         <!--Unit Edit View Controller-->
         <scene sceneID="0do-J4-0Dn">
@@ -1346,14 +1636,187 @@
             <point key="canvasLocation" x="3960" y="1238"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ArmyListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArmyListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="editArmyButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ArmyNewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArmyNewViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ArmyUnitViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArmyUnitViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addUnitButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="CharacteristicEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CharacteristicEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="valueField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CharacteristicsSelectorEditViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CharacteristicsSelectorEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+            </relationships>
+        </class>
+        <class className="CharacteristicsSelectorListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CharacteristicsSelectorListViewController.h"/>
+        </class>
+        <class className="ListEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListEditViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ListNewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListNewViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ListUnitEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListUnitEditViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressAdd:"/>
+            </relationships>
+        </class>
+        <class className="ModelEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ModelEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="availableSliderDidChange:" candidateClass="UISlider"/>
+                <relationship kind="action" name="didPressAddCharacteristics:"/>
+                <relationship kind="action" name="didPressCancel:"/>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="action" name="includedSliderDidChange:" candidateClass="UISlider"/>
+                <relationship kind="action" name="maxSliderDidChange:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="availableLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="availableSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="charPopOverAnchorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="characteristicsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="costField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="includedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="includedSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maxSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="optionsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="typeField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="OptionEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="availableSliderDidChange:" candidateClass="UISlider"/>
+                <relationship kind="action" name="didPressCancel:"/>
+                <relationship kind="action" name="didPressRemoveGroup:"/>
+                <relationship kind="action" name="didPressRemoveWargear:"/>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="action" name="limitSliderDidChange:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="availableLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="availableSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="costField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="groupLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="isUnitSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="limitLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="limitSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="wargearLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OptionGroupEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionGroupEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="OptionGroupListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionGroupListViewController.h"/>
+        </class>
+        <class className="UnitEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnitEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressAddModel:"/>
+                <relationship kind="action" name="didPressAddOption:"/>
+                <relationship kind="outlet" name="classificationField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="costField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="typeField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="UnitListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnitListViewController.h"/>
+        </class>
+        <class className="UnitNameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnitNameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WargearCharacteristicEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearCharacteristicEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="modifySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="valueField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WargearEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressCancel:"/>
+                <relationship kind="action" name="didPressSave:"/>
+                <relationship kind="outlet" name="hiddenEditPopoverButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="typeField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WargearListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressDone:"/>
+            </relationships>
+        </class>
+        <class className="WargearSelectorViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WargearSelectorViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mcE-e0-03J"/>
         <segue reference="973-cB-Zka"/>
+        <segue reference="mcE-e0-03J"/>
         <segue reference="RRg-Wx-Q6l"/>
         <segue reference="wZC-GX-vME"/>
         <segue reference="dUn-4I-TH4"/>
