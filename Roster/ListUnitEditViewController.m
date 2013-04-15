@@ -7,12 +7,23 @@
 //
 
 #import "ListUnitEditViewController.h"
+#import "ListModel.h"
 
 @interface ListUnitEditViewController ()
 
 @end
 
 @implementation ListUnitEditViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _optionsController = [[ListUnitOptionViewController alloc] init];
+    [self.optionsController setManagedObjectContext:self.managedObjectContext];
+    [self.optionsController setListUnit:self.listUnit];
+    [self.optionsTableView setDataSource:self.optionsController];
+    [self.optionsTableView setDelegate:self.optionsController];
+    [self.optionsController setTableView:self.optionsTableView];
+}
 
 -(void)viewWillDisappear:(BOOL)animated{
     _fetchedResultsController = nil;
@@ -239,15 +250,22 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    ListModel *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSManagedObject *model = (NSManagedObject *)[object valueForKey:@"model"];
     UILabel *label = (UILabel*)[cell viewWithTag:101];
-    label.text = [[object valueForKey:@"model"] valueForKey:@"name"];
+    
+    NSString *name =[[object valueForKey:@"model"] valueForKey:@"name"];
+    int included = [(NSNumber*)[model valueForKey:@"included"] integerValue];
+    int cost = [(NSNumber*)[model valueForKey:@"cost"] integerValue];
+    
+    label.text = [NSString stringWithFormat:@"%@ (%i included, %i pts ea)", name, included, cost];
     
     UISlider *slider = (UISlider*)[cell viewWithTag:102];
     [slider addTarget:self action:@selector(didChangeSlider:) forControlEvents:UIControlEventValueChanged];
     slider.minimumValue = [(NSNumber *)[model valueForKey:@"included"] floatValue];
     slider.maximumValue = [(NSNumber*)[model valueForKey:@"available"] floatValue];
+    [slider setValue:[(NSNumber*)[object valueForKey:@"count"] integerValue] animated:YES];
+    
     UILabel *valueLabel = (UILabel*)[cell viewWithTag:103];
     NSNumber *value = (NSNumber*)[object valueForKey:@"count"];
     valueLabel.text = [NSString stringWithFormat:@"%i", [value integerValue]];

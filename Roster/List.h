@@ -1,16 +1,15 @@
 //
-//  ListModel.h
+//  List.h
 //  Roster
 //
-//  Created by Mal Curtis on 11/04/13.
+//  Created by Mal Curtis on 15/04/13.
 //  Copyright (c) 2013 Mal Curtis. All rights reserved.
 //
 
 #import <CoreData/CoreData.h>
 
-@interface ListModel : NSManagedObject
+@interface List : NSManagedObject
 
--(void)generateListOptions;
 -(int)cost;
 
 @end

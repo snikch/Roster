@@ -11,5 +11,6 @@
 @interface ListUnit : NSManagedObject
 
 -(void)generateListModels;
+-(int)cost;
 
 @end

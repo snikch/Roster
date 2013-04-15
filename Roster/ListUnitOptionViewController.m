@@ -31,22 +31,12 @@
     }
 }
 
-
 #pragma mark - Table view data source
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = NSLocalizedString(@"Options", @"Options");
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo name];
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [[self.fetchedResultsController sections] count];
@@ -94,6 +84,47 @@
     return NO;
 }
 
+
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
 #pragma mark - Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -107,7 +138,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ListOption" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"listUnit == %@",self.listUnit];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"listModel.listUnit == %@",self.listUnit];
     
     [fetchRequest setPredicate:predicate];
     
@@ -115,14 +146,14 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"option.name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"listModel.model.name" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"listModel.model.name" cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -187,23 +218,33 @@
     [self.tableView endUpdates];
 }
 
+/*
+ // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
+ 
+ - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+ {
+ // In the simplest, most efficient, case, reload the table view.
+ [self.tableView reloadData];
+ }
+ */
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSManagedObject *model = (NSManagedObject *)[object valueForKey:@"model"];
+    NSManagedObject *listOption = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSManagedObject *option = (NSManagedObject *)[listOption valueForKey:@"option"];
     UILabel *label = (UILabel*)[cell viewWithTag:101];
-    label.text = [[object valueForKey:@"model"] valueForKey:@"name"];
+    label.text = [NSString stringWithFormat:@"%@ (%i pts)",[option valueForKey:@"name"], [(NSNumber*)[option valueForKey:@"cost"] integerValue]];
     
     UISlider *slider = (UISlider*)[cell viewWithTag:102];
     [slider addTarget:self action:@selector(didChangeSlider:) forControlEvents:UIControlEventValueChanged];
-    slider.minimumValue = 0;
-    float maxValue = [(NSNumber*)[model valueForKey:@"max"] floatValue];
-    if(!maxValue > 0){
-        maxValue = 20;
-    }
-    slider.maximumValue = maxValue;
+    [slider addTarget:self action:@selector(didFinishChangingSlider:) forControlEvents:UIControlEventTouchUpInside];
+    [slider addTarget:self action:@selector(didFinishChangingSlider:) forControlEvents:UIControlEventTouchUpOutside];
+    slider.minimumValue = 0.0f;
+    slider.maximumValue = [(NSNumber*)[option valueForKey:@"max"] floatValue];
+    
     UILabel *valueLabel = (UILabel*)[cell viewWithTag:103];
-    NSNumber *value = (NSNumber*)[object valueForKey:@"count"];
+    NSNumber *value = (NSNumber*)[listOption valueForKey:@"count"];
+    [slider setValue:[value floatValue] animated:NO];
     valueLabel.text = [NSString stringWithFormat:@"%i", [value integerValue]];
 }
 
@@ -219,16 +260,83 @@
 -(void)didChangeSlider:(UISlider*)sender{
     CGPoint hitPoint = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:hitIndex];
+    //    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:hitIndex];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:hitIndex];
     
     int value = (int)(sender.value+0.5);
     NSLog(@"Did change slider to %i", value);
-    [object setValue:[NSNumber numberWithInt:value] forKey:@"count"];
     UILabel *label = (UILabel*)[cell viewWithTag:103];
-    NSString *textValue = [NSString stringWithFormat:@"SSS%i", value];
+    NSString *textValue = [NSString stringWithFormat:@"%i", value];
     label.text = textValue;
 }
 
-@end
+-(void)didFinishChangingSlider:(UISlider*)sender{
+    NSLog(@"Did finish changing slider");
+    CGPoint hitPoint = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
+    NSManagedObject *listOption = [self.fetchedResultsController objectAtIndexPath:hitIndex];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:hitIndex];
+    UISlider *slider = (UISlider*)[cell viewWithTag:102];
+    NSManagedObject *option = (NSManagedObject*)[listOption valueForKey:@"option"];
+    NSManagedObject *groupMembership = (NSManagedObject*)[option valueForKey:@"groupMembership"];
+    NSManagedObject *group = (NSManagedObject*)[groupMembership valueForKey:@"group"];
+    
+    int value = (int)(sender.value+0.5);
+    [slider setValue:value animated:YES];
+    [listOption setValue:[NSNumber numberWithInt:value] forKey:@"count"];
+    
+    if(group == nil){
+        return;
+    }
+    
+    // Find all other listOptions with options in the group
+    NSMutableArray *listOptionsInGroup = [NSMutableArray array];
+    int total = value;
+    for(NSManagedObject *thisListOption in [self.fetchedResultsController fetchedObjects]){
+        NSManagedObject *thisGroupMembership = (NSManagedObject*)[(NSManagedObject*)[thisListOption valueForKey:@"option"] valueForKey:@"groupMembership"];
+        NSManagedObject *thisGroup = (NSManagedObject*)[thisGroupMembership valueForKey:@"group"];
+        if(![thisListOption isEqual:listOption] && [thisGroup isEqual:group]){
+            [listOptionsInGroup addObject:thisListOption];
+            total += [(NSNumber*)[thisListOption valueForKey:@"count"] integerValue];
+        }
+    }
+    
+    int max = [(NSNumber*)[option valueForKey:@"max"] integerValue];
+    
+    NSLog(@"Total: %i Max: %i Count: %i", total, max, listOptionsInGroup.count);
+    
+    // Check if total count is greater than the max
+    if(total <= max){
+        return;
+    }
+    
+    // Reduce the count & slider of other listOptions until total == max
+    while (total > max && listOptionsInGroup.count > 0) {
+        NSManagedObject *object = (NSManagedObject*)[listOptionsInGroup objectAtIndex:0];
+        int thisCount = [(NSNumber*)[object valueForKey:@"count"] integerValue];
+        NSLog(@"Total: %i Max: %i Count: %i ThisCount: %i", total, max, listOptionsInGroup.count, thisCount);
+        
+        int newVal;
+        if ((total - max) > thisCount) {
+            newVal = 0;
+            total -= thisCount;
+        }else{
+            int diff = total - max;
+            total -= diff;
+            newVal = thisCount - diff;
+        }
+        
+        NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:object];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        UISlider *slider = (UISlider*)[cell viewWithTag:102];
+        [object setValue:[NSNumber numberWithInt:newVal] forKey:@"count"];
+        [slider setValue:newVal animated:YES];
+        [listOptionsInGroup removeObject:object];
+        NSLog(@"Total: %i Max: %i Count: %i", total, max, listOptionsInGroup.count);
+        NSLog(@"Changed to %i in %@", newVal, object);
+    }
+    
+    
+}
 
+@end

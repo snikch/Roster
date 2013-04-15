@@ -9,6 +9,7 @@
 #import "ListEditViewController.h"
 #import "ListUnitEditViewController.h"
 #import "ListUnit.h"
+#import "List.h"
 
 @interface ListEditViewController ()
 
@@ -39,11 +40,28 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = [self.list valueForKey:@"name"];
+    self.nameField.text = [self.list valueForKey:@"name"];
+    self.infoField.text = [self.list valueForKey:@"info"];
+    
+    [self.tableView reloadData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self commitChanges];
     _fetchedResultsController = nil;
+}
+
+-(void)commitChanges{
+    [self.list setValue:self.nameField.text forKey:@"name"];
+    [self.list setValue:self.infoField.text forKey:@"info"];
+    // Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
 }
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -253,8 +271,10 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"unit"] valueForKey:@"name"];
+    List *object = (List*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *name = [[object valueForKey:@"unit"] valueForKey:@"name"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i pts)", name, [object cost]];
 }
 
 #pragma mark - Table view delegate

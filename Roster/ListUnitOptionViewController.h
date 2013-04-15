@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListUnitOptionViewController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface ListUnitOptionViewController : UIViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSManagedObject *listUnit;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

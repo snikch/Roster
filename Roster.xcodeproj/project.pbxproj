@@ -59,6 +59,7 @@
 		208C8DCB17044E8400D0A8C0 /* RosterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DCA17044E8400D0A8C0 /* RosterTests.m */; };
 		208C8DDE17052C5600D0A8C0 /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DDD17052C5600D0A8C0 /* Army.m */; };
 		208C8DF117052E5300D0A8C0 /* ArmyNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */; };
+		20A51274171C06CC00CCA2A6 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A51273171C06CC00CCA2A6 /* List.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,8 @@
 		208C8DDD17052C5600D0A8C0 /* Army.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Army.m; sourceTree = "<group>"; };
 		208C8DEF17052E5300D0A8C0 /* ArmyNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyNewViewController.h; sourceTree = "<group>"; };
 		208C8DF017052E5300D0A8C0 /* ArmyNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyNewViewController.m; sourceTree = "<group>"; };
+		20A51272171C06CC00CCA2A6 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		20A51273171C06CC00CCA2A6 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +423,8 @@
 				206EE07F170798E3001941F1 /* Unit.m */,
 				206EE09517085A45001941F1 /* Wargear.h */,
 				206EE09617085A45001941F1 /* Wargear.m */,
+				20A51272171C06CC00CCA2A6 /* List.h */,
+				20A51273171C06CC00CCA2A6 /* List.m */,
 				207755FE17160546002D9F8E /* ListModel.h */,
 				207755FF17160546002D9F8E /* ListModel.m */,
 				207755F717153925002D9F8E /* ListUnit.h */,
@@ -575,6 +580,7 @@
 				207755F917153925002D9F8E /* ListUnit.m in Sources */,
 				207755FD17160056002D9F8E /* ListUnitOptionViewController.m in Sources */,
 				2077560017160546002D9F8E /* ListModel.m in Sources */,
+				20A51274171C06CC00CCA2A6 /* List.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

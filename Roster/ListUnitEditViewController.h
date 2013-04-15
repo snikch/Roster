@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListUnitOptionViewController.h"
 
 @interface ListUnitEditViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
@@ -14,6 +15,9 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) ListUnitOptionViewController *optionsController;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *optionsTableView;
 
 @end

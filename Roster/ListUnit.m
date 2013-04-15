@@ -22,5 +22,18 @@
     }
 }
 
+-(int)cost{
+    int runningCost = 0;
+    
+    NSManagedObject *unit = (NSManagedObject*)[self valueForKey:@"unit"];
+    int unitCost = [(NSNumber*)[unit valueForKey:@"cost"] integerValue];
+    
+    runningCost += unitCost;
+    
+    for (ListModel *listModel in (NSSet*)[self valueForKey:@"listModels"]) {
+        runningCost += [listModel cost];
+    }
+    return runningCost;
+}
 
 @end

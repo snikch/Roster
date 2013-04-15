@@ -12,16 +12,16 @@
         <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="List" syncable="YES">
+    <entity name="List" representedClassName="List" syncable="YES">
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="army" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Army" inverseName="lists" inverseEntity="Army" syncable="YES"/>
-        <relationship name="listunits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListUnit" inverseName="list" inverseEntity="ListUnit" syncable="YES"/>
+        <relationship name="listUnits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListUnit" inverseName="list" inverseEntity="ListUnit" syncable="YES"/>
     </entity>
     <entity name="ListModel" representedClassName="ListModel" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="listOptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListOption" inverseName="listModel" inverseEntity="ListOption" syncable="YES"/>
-        <relationship name="listUnit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="listmodels" inverseEntity="ListUnit" syncable="YES"/>
+        <relationship name="listUnit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="listModels" inverseEntity="ListUnit" syncable="YES"/>
         <relationship name="model" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Model" inverseName="listmodels" inverseEntity="Model" syncable="YES"/>
     </entity>
     <entity name="ListOption" representedClassName="" syncable="YES">
@@ -30,8 +30,8 @@
         <relationship name="option" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="listoptions" inverseEntity="Option" syncable="YES"/>
     </entity>
     <entity name="ListUnit" representedClassName="ListUnit" syncable="YES">
-        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="listunits" inverseEntity="List" syncable="YES"/>
-        <relationship name="listmodels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListModel" inverseName="listUnit" inverseEntity="ListModel" syncable="YES"/>
+        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="listUnits" inverseEntity="List" syncable="YES"/>
+        <relationship name="listModels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListModel" inverseName="listUnit" inverseEntity="ListModel" syncable="YES"/>
         <relationship name="unit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Unit" inverseName="listUnits" inverseEntity="Unit" syncable="YES"/>
     </entity>
     <entity name="Model" representedClassName="Model" syncable="YES">
@@ -62,7 +62,7 @@
         <attribute name="available" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="isUnit" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="max" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="max" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="groupMembership" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OptionGroupMember" inverseName="option" inverseEntity="OptionGroupMember" syncable="YES"/>
         <relationship name="listoptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListOption" inverseName="option" inverseEntity="ListOption" syncable="YES"/>

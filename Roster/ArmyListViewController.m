@@ -8,6 +8,7 @@
 
 #import "ArmyListViewController.h"
 #import "ArmyUnitViewController.h"
+#import "List.h"
 
 @interface ArmyListViewController ()
 
@@ -45,6 +46,10 @@
     [super viewDidLoad];
     [self configureView];
     [self updateFetchResultsControllerPredicate];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -293,8 +298,10 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    List *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSString *name = [[object valueForKey:@"name"] description];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i pts)", name, [object cost]];
 }
 
 #pragma mark - Table view delegate

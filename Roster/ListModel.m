@@ -18,4 +18,26 @@
     }
 }
 
+-(int)cost{
+    int runningCost = 0;
+    int numModels = [(NSNumber*)[self valueForKey:@"count"] integerValue];
+    
+    NSManagedObject *model = (NSManagedObject*)[self valueForKey:@"model"];
+    int numIncludedModels = [(NSNumber*)[model valueForKey:@"included"] integerValue];
+    int modelCost = [(NSNumber*)[model valueForKey:@"cost"] integerValue];
+    
+    if(numModels > numIncludedModels){
+        runningCost += (numModels - numIncludedModels) * modelCost;
+    }
+    
+    for (NSManagedObject *listOption in (NSSet*)[self valueForKey:@"listOptions"]) {
+        NSManagedObject *option = (NSManagedObject*)[listOption valueForKey:@"option"];
+        int optionCost = [(NSNumber*)[option valueForKey:@"cost"] integerValue];
+        int optionCount = [(NSNumber*)[listOption valueForKey:@"count"] integerValue];
+        if (optionCount > 0){
+            runningCost += optionCount * optionCost;
+        }
+    }
+    return runningCost;
+}
 @end
