@@ -23,7 +23,7 @@
 
 @implementation OptionEditViewController
 
-@synthesize nameField, costField;
+@synthesize nameField, costField, infoView;
 @synthesize availableLabel, wargearLabel, limitLabel, groupLabel;
 @synthesize isUnitSwitch;
 @synthesize availableSlider, limitSlider;
@@ -57,10 +57,7 @@
         vc.managedObjectContext = self.managedObjectContext;
         vc.model = [_option valueForKey:@"model"];
         
-        NSManagedObject *groupMembership = [_option valueForKey:@"groupMembership"];
-        if(groupMembership){
-            vc.group = [groupMembership valueForKey:@"group"];
-        }
+        vc.group = [_option valueForKey:@"group"];
     }
 }
 
@@ -114,12 +111,13 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self commitChanges];
+    _fetchedResultsController = nil;
 }
 
 -(void)applyModelValues{
     nameField.text = [_option valueForKey:@"name"];
     costField.text = [NSString stringWithFormat:@"%i", [(NSNumber *)[_option valueForKey:@"cost"] intValue]];
+    infoView.text = [_option valueForKey:@"info"];
     
     availableLabel.text = [NSString stringWithFormat:@"%i", [(NSNumber*)[_option valueForKey:@"available"] intValue]];
     limitLabel.text = [NSString stringWithFormat:@"%i", [(NSNumber*)[_option valueForKey:@"max"] intValue]];
@@ -135,9 +133,8 @@
         wargearLabel.text = @"(no attached wargear)";
     }
     
-    NSManagedObject *groupMembership = [_option valueForKey:@"groupMembership"];
-    if(groupMembership){
-        NSManagedObject *group = [groupMembership valueForKey:@"group"];
+    NSManagedObject *group = [_option valueForKey:@"group"];
+    if(group){
         self.groupLabel.text = [group valueForKey:@"name"];
     }else{
         self.groupLabel.text = @"Single";
@@ -146,7 +143,10 @@
 }
 
 -(void)commitChanges{
+    NSLog(@"Commiting changes");
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
     [_option setValue:nameField.text forKey:@"name"];
+//    [_option setValue:infoView.text forKey:@"info"];
     [_option setValue:[NSNumber numberWithBool:isUnitSwitch.isOn] forKey:@"isUnit"];
     [_option setValue:[NSNumber numberWithInt:(int)(availableSlider.value + 0.5)] forKey:@"available"];
 
@@ -171,7 +171,6 @@
     // Create new records
     for(NSManagedObject *modelWargear in self.selectedWargear){
         NSManagedObject *optionReplacement = [NSEntityDescription insertNewObjectForEntityForName:@"OptionReplacement" inManagedObjectContext:self.managedObjectContext];
-        NSLog(@"Adding model wargear %@", modelWargear);
         [optionReplacement setValue:_option forKey:@"option"];
         [optionReplacement setValue:modelWargear forKey:@"modelWargear"];
     }
@@ -179,24 +178,24 @@
     /** Manage Group Membership
      * Update max limit for all group members
      */
-    NSManagedObject *groupMembership = [_option valueForKey:@"groupMembership"];
+    NSManagedObject *group = [_option valueForKey:@"group"];
     NSArray *members;
-    if(groupMembership){
+    if(group){
         NSMutableArray *tempMembers = [NSMutableArray array];
-        for(NSManagedObject *member in [[groupMembership valueForKey:@"group"] valueForKey:@"members"]){
-            [tempMembers addObject:[member valueForKey:@"option"]];
+        // Options already contains the current _option
+        for(NSManagedObject *option in [group valueForKey:@"options"]){
+            [tempMembers addObject:option];
         }
         members = [tempMembers copy];
     }else{
         members = @[_option];
     }
-    NSLog(@"Saving for all group members %@", members);
     for (NSManagedObject *option in members){
         [option setValue:[NSNumber numberWithInt:(int)(limitSlider.value + 0.5)] forKey:@"max"];
     }
+    NSLog(@"Saved");
 
-    
-    if (![self.fetchedResultsController performFetch:&error]) {
+    if (![self.managedObjectContext save:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -380,7 +379,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Models"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -451,14 +450,7 @@
 -(void)didSelectOptionGroup:(NSManagedObject *)group{
     [_groupPopoverController dismissPopoverAnimated:YES];
     
-    NSManagedObject *groupMembership = [_option valueForKey:@"groupMembership"];
-    if(groupMembership){
-        [self.managedObjectContext deleteObject:groupMembership];
-    }
-    groupMembership = [NSEntityDescription insertNewObjectForEntityForName:@"OptionGroupMember" inManagedObjectContext:self.managedObjectContext];
-    
-    [groupMembership setValue:group forKey:@"group"];
-    [groupMembership setValue:_option forKey:@"option"];
+    [_option setValue:group forKey:@"group"];
     
     // Save the context.
     NSError *error = nil;
@@ -472,9 +464,9 @@
 }
 
 -(IBAction)didPressRemoveGroup:(id)sender{
-    NSManagedObject *groupMembership = [_option valueForKey:@"groupMembership"];
-    if(groupMembership){
-        [self.managedObjectContext deleteObject:groupMembership];
+    NSManagedObject *group = [_option valueForKey:@"group"];
+    if(group){
+        [_option setValue:NULL forKey:@"group"];
         NSError *error = nil;
         if (![self.managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.

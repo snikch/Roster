@@ -53,10 +53,7 @@
 }
 
 -(void)addToGroup:(NSManagedObject *)group{
-    NSManagedObjectContext *context = [group managedObjectContext];
-    NSManagedObject *groupMembership = [NSEntityDescription insertNewObjectForEntityForName:@"OptionGroupMember" inManagedObjectContext:context];
-    [groupMembership setValue:self forKey:@"option"];
-    [groupMembership setValue:group forKey:@"group"];
+    [self setValue:group forKey:@"group"];
 }
 
 @end

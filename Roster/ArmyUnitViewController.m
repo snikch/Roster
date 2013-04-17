@@ -220,7 +220,7 @@
     
     [fetchRequest setPredicate:predicate];
     
-    [NSFetchedResultsController deleteCacheWithName:@"Army"];
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
     
     NSError *error;
     if (![self.fetchedResultsController performFetch:&error]) {
@@ -255,7 +255,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Army"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     

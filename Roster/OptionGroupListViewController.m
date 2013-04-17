@@ -123,7 +123,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Wargear"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -193,13 +193,13 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *modelNames;
-    NSArray *members = [object valueForKey:@"members"];
+    NSArray *members = [object valueForKey:@"options"];
     if(members.count == 0){
         modelNames = @"No options in group";
     }else{
         NSMutableArray *names = [NSMutableArray array];
         for(NSManagedObject *member in members){
-            [names addObject:[[member valueForKey:@"option"] valueForKey:@"name"]];
+            [names addObject:[member valueForKey:@"name"]];
         }
         modelNames = [names componentsJoinedByString:@", "];
     }

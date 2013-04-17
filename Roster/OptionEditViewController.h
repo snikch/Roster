@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *costField;
 @property (strong, nonatomic) IBOutlet UISwitch *isUnitSwitch;
+@property (strong, nonatomic) IBOutlet UITextView *infoView;
 
 @property (strong, nonatomic) IBOutlet UILabel *wargearLabel;
 @property (strong, nonatomic) IBOutlet UILabel *availableLabel;

@@ -65,11 +65,12 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"ME will appear");
     [super viewWillAppear:animated];
+    
     [self applyModelValues];
     [self updateFetchResultsControllerPredicate];
     [self characteristicsController];
-    NSLog(@"ME will appear");
 }
 
 -(void)applyModelValues{
@@ -303,7 +304,7 @@
     
     [fetchRequest setPredicate:predicate];
     
-    [NSFetchedResultsController deleteCacheWithName:@"Models"];
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
     
     NSError *error;
     if (![self.optionsResultsController performFetch:&error]) {
@@ -337,7 +338,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Options"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.optionsResultsController = aFetchedResultsController;
     

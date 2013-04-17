@@ -278,8 +278,7 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:hitIndex];
     UISlider *slider = (UISlider*)[cell viewWithTag:102];
     NSManagedObject *option = (NSManagedObject*)[listOption valueForKey:@"option"];
-    NSManagedObject *groupMembership = (NSManagedObject*)[option valueForKey:@"groupMembership"];
-    NSManagedObject *group = (NSManagedObject*)[groupMembership valueForKey:@"group"];
+    NSManagedObject *group = (NSManagedObject*)[option valueForKey:@"group"];
     
     int value = (int)(sender.value+0.5);
     [slider setValue:value animated:YES];
@@ -293,8 +292,8 @@
     NSMutableArray *listOptionsInGroup = [NSMutableArray array];
     int total = value;
     for(NSManagedObject *thisListOption in [self.fetchedResultsController fetchedObjects]){
-        NSManagedObject *thisGroupMembership = (NSManagedObject*)[(NSManagedObject*)[thisListOption valueForKey:@"option"] valueForKey:@"groupMembership"];
-        NSManagedObject *thisGroup = (NSManagedObject*)[thisGroupMembership valueForKey:@"group"];
+        NSManagedObject *thisOption = (NSManagedObject*)[thisListOption valueForKey:@"option"];
+        NSManagedObject *thisGroup = (NSManagedObject*)[thisOption valueForKey:@"group"];
         if(![thisListOption isEqual:listOption] && [thisGroup isEqual:group]){
             [listOptionsInGroup addObject:thisListOption];
             total += [(NSNumber*)[thisListOption valueForKey:@"count"] integerValue];

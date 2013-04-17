@@ -10,7 +10,7 @@
 
 #import "UnitListViewController.h"
 
-@interface ListEditViewController : UIViewController <UnitListDelegate>
+@interface ListEditViewController : UIViewController <UnitListDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

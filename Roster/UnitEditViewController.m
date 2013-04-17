@@ -218,7 +218,7 @@
     
     [modelsFetchRequest setPredicate:predicate];
     
-    [NSFetchedResultsController deleteCacheWithName:@"Models"];
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
     
     NSError *error;
     if (![self.modelsResultsController performFetch:&error]) {
@@ -252,7 +252,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Models"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.modelsResultsController = aFetchedResultsController;
     

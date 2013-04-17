@@ -257,13 +257,16 @@
     NSString *name =[[object valueForKey:@"model"] valueForKey:@"name"];
     int included = [(NSNumber*)[model valueForKey:@"included"] integerValue];
     int cost = [(NSNumber*)[model valueForKey:@"cost"] integerValue];
+    int available = [(NSNumber*)[model valueForKey:@"available"] integerValue];
+    int max = [(NSNumber*)[model valueForKey:@"max"] integerValue];
+    int realMax = (max + included) < available ? (max+included) : available;
     
     label.text = [NSString stringWithFormat:@"%@ (%i included, %i pts ea)", name, included, cost];
     
     UISlider *slider = (UISlider*)[cell viewWithTag:102];
     [slider addTarget:self action:@selector(didChangeSlider:) forControlEvents:UIControlEventValueChanged];
     slider.minimumValue = [(NSNumber *)[model valueForKey:@"included"] floatValue];
-    slider.maximumValue = [(NSNumber*)[model valueForKey:@"available"] floatValue];
+    slider.maximumValue = realMax;
     [slider setValue:[(NSNumber*)[object valueForKey:@"count"] integerValue] animated:YES];
     
     UILabel *valueLabel = (UILabel*)[cell viewWithTag:103];
