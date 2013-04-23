@@ -10,6 +10,8 @@
 
 @implementation Model
 
+@dynamic name;
+
 -(NSMutableArray*)wargear{
     NSMutableArray *wargearArray = [NSMutableArray array];
     for(NSManagedObject *object in [(NSSet*)[self valueForKey:@"modelWargear"] allObjects]){
@@ -23,6 +25,11 @@
     NSManagedObject *modelWargear = [NSEntityDescription insertNewObjectForEntityForName:@"ModelWargear" inManagedObjectContext:self.managedObjectContext];
     [modelWargear setValue:wargear forKey:@"wargear"];
     [modelWargear setValue:self forKey:@"model"];
+}
+-(void)addMultipleWargear:(NSArray*)wargears{
+    for (Wargear *wargear in wargears) {
+        [self addWargear:wargear];
+    }
 }
 
 -(void)addCharacteristics:(NSArray*)characteristics{
@@ -41,5 +48,55 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+}
+
+-(NSArray*)characteristicsWithOption:(Option*)option{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ModelCharacteristic" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"model = %@", self];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES];
+    [request setSortDescriptors:@[sort]];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    NSMutableArray *characteristics = [NSMutableArray array];
+    for (NSManagedObject *characteristic in results) {
+        [characteristics addObject:[characteristic dictionaryWithValuesForKeys:@[@"name", @"value"]]];
+    }
+    
+    if(option != nil && option.wargear != nil){
+        for (NSManagedObject *wargearCharacteristic in option.wargear.characteristics) {
+            // Loop through characteristics and apply differences
+            BOOL replaced = false;
+            NSString *name;
+            NSString *wargearName;
+            for (NSManagedObject *characteristic in characteristics) {
+                name = (NSString*)[characteristic valueForKey:@"name"];
+                wargearName = (NSString*)[wargearCharacteristic valueForKey:@"name"];
+                if( [wargearName isEqualToString:name]){
+                    replaced = true;
+                    if([(NSNumber*)[wargearCharacteristic valueForKey:@"modify"] boolValue]){
+                        [characteristic setValue:[wargearCharacteristic valueForKey:@"value"] forKey:@"value"];
+                    }else{
+                        [characteristic setValue:[wargearCharacteristic valueForKey:@"value"] forKey:@"value"];
+                    }
+                    
+                }
+            }
+        }
+    }
+    return characteristics;
 }
 @end

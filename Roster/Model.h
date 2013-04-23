@@ -8,11 +8,16 @@
 
 #import <CoreData/CoreData.h>
 #import "Wargear.h"
+#import "Option.h"
 
 @interface Model : NSManagedObject
 
+@property (strong) NSString *name;
+
 -(NSMutableArray*)wargear;
 -(void)addWargear:(Wargear*)wargear;
+-(void)addMultipleWargear:(NSArray*)wargears;
 -(void)addCharacteristics:(NSArray*)characteristics;
+-(NSArray*)characteristicsWithOption:(Option*)option;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "ArmyListViewController.h"
 #import "ArmyUnitViewController.h"
+#import "ListSummaryViewController.h"
+#import "ListPointsSummaryViewController.h"
 #import "List.h"
 
 @interface ArmyListViewController ()
@@ -35,10 +37,21 @@
         _armyPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
     }else if ([[segue identifier] isEqualToString:@"editList"]) {
         ListEditViewController *vc = (ListEditViewController *)[segue destinationViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [vc setManagedObjectContext:self.managedObjectContext];
         [vc setList: object];
+    }else if ([[segue identifier] isEqualToString:@"showListSummary"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        List *list = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        
+        UITabBarController *tc = (UITabBarController *)[segue destinationViewController];
+
+        UINavigationController *nc1 = (UINavigationController *)[tc.viewControllers objectAtIndex:0];        ListSummaryViewController *vc1 = (ListSummaryViewController *)[nc1.viewControllers objectAtIndex:0];
+        UINavigationController *nc2 = (UINavigationController *)[tc.viewControllers objectAtIndex:1];
+        ListPointsSummaryViewController *vc2 = (ListPointsSummaryViewController *)[nc2.viewControllers objectAtIndex:0];
+        [vc1 setList: list];
+        [vc2 setList: list];
     }
     
 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200590F7172273BA007B4471 /* ListSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200590F6172273BA007B4471 /* ListSummaryViewController.m */; };
+		200590FB17227446007B4471 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 200590FA17227446007B4471 /* Database.m */; };
+		2046FC4717253C2800DA5059 /* UIViewController+CloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2046FC4617253C2800DA5059 /* UIViewController+CloseButton.m */; };
+		2046FC4A17253CA200DA5059 /* ListPointsSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2046FC4917253CA200DA5059 /* ListPointsSummaryViewController.m */; };
+		2046FC4D172541E400DA5059 /* ListUnitSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2046FC4C172541E400DA5059 /* ListUnitSummaryViewController.m */; };
+		2046FC5117261D9D00DA5059 /* CharacteristicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2046FC5017261D9D00DA5059 /* CharacteristicsView.m */; };
 		206EE0741705516C001941F1 /* UnitNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE0731705516C001941F1 /* UnitNameViewController.m */; };
 		206EE07D1705A583001941F1 /* UnitEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE07C1705A583001941F1 /* UnitEditViewController.m */; };
 		206EE080170798E3001941F1 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 206EE07F170798E3001941F1 /* Unit.m */; };
@@ -73,6 +79,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		200590F5172273BA007B4471 /* ListSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSummaryViewController.h; sourceTree = "<group>"; };
+		200590F6172273BA007B4471 /* ListSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSummaryViewController.m; sourceTree = "<group>"; };
+		200590F917227446007B4471 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		200590FA17227446007B4471 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		2046FC4517253C2800DA5059 /* UIViewController+CloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CloseButton.h"; sourceTree = "<group>"; };
+		2046FC4617253C2800DA5059 /* UIViewController+CloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CloseButton.m"; sourceTree = "<group>"; };
+		2046FC4817253CA200DA5059 /* ListPointsSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPointsSummaryViewController.h; sourceTree = "<group>"; };
+		2046FC4917253CA200DA5059 /* ListPointsSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPointsSummaryViewController.m; sourceTree = "<group>"; };
+		2046FC4B172541E400DA5059 /* ListUnitSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListUnitSummaryViewController.h; sourceTree = "<group>"; };
+		2046FC4C172541E400DA5059 /* ListUnitSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListUnitSummaryViewController.m; sourceTree = "<group>"; };
+		2046FC4F17261D9D00DA5059 /* CharacteristicsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicsView.h; sourceTree = "<group>"; };
+		2046FC5017261D9D00DA5059 /* CharacteristicsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicsView.m; sourceTree = "<group>"; };
 		206EE06E17054B90001941F1 /* ArmyUnitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyUnitViewController.h; sourceTree = "<group>"; };
 		206EE0721705516C001941F1 /* UnitNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitNameViewController.h; sourceTree = "<group>"; };
 		206EE0731705516C001941F1 /* UnitNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitNameViewController.m; sourceTree = "<group>"; };
@@ -192,6 +210,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2046FC4317253C0200DA5059 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2046FC4517253C2800DA5059 /* UIViewController+CloseButton.h */,
+				2046FC4617253C2800DA5059 /* UIViewController+CloseButton.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		2046FC4E17261D8E00DA5059 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2046FC4F17261D9D00DA5059 /* CharacteristicsView.h */,
+				2046FC5017261D9D00DA5059 /* CharacteristicsView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		206EE09E1708ECEB001941F1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +236,8 @@
 				206EE0AF170C0BBA001941F1 /* CustomKeyboard.m */,
 				206EE09F1708ECF5001941F1 /* Seeder.h */,
 				206EE0A01708ECF5001941F1 /* Seeder.m */,
+				200590F917227446007B4471 /* Database.h */,
+				200590FA17227446007B4471 /* Database.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -300,6 +338,12 @@
 				207755EF171421F3002D9F8E /* ListEditViewController.m */,
 				207755F1171422E6002D9F8E /* ListNewViewController.h */,
 				207755F2171422E6002D9F8E /* ListNewViewController.m */,
+				200590F5172273BA007B4471 /* ListSummaryViewController.h */,
+				200590F6172273BA007B4471 /* ListSummaryViewController.m */,
+				2046FC4817253CA200DA5059 /* ListPointsSummaryViewController.h */,
+				2046FC4917253CA200DA5059 /* ListPointsSummaryViewController.m */,
+				2046FC4B172541E400DA5059 /* ListUnitSummaryViewController.h */,
+				2046FC4C172541E400DA5059 /* ListUnitSummaryViewController.m */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -349,6 +393,8 @@
 		208C8D9517044E8400D0A8C0 /* Roster */ = {
 			isa = PBXGroup;
 			children = (
+				2046FC4E17261D8E00DA5059 /* Views */,
+				2046FC4317253C0200DA5059 /* Categories */,
 				206EE09E1708ECEB001941F1 /* Helpers */,
 				208C8DDB17052C4500D0A8C0 /* Models */,
 				208C8DD41705047F00D0A8C0 /* Controllers */,
@@ -581,6 +627,12 @@
 				207755FD17160056002D9F8E /* ListUnitOptionViewController.m in Sources */,
 				2077560017160546002D9F8E /* ListModel.m in Sources */,
 				20A51274171C06CC00CCA2A6 /* List.m in Sources */,
+				200590F7172273BA007B4471 /* ListSummaryViewController.m in Sources */,
+				200590FB17227446007B4471 /* Database.m in Sources */,
+				2046FC4717253C2800DA5059 /* UIViewController+CloseButton.m in Sources */,
+				2046FC4A17253CA200DA5059 /* ListPointsSummaryViewController.m in Sources */,
+				2046FC4D172541E400DA5059 /* ListUnitSummaryViewController.m in Sources */,
+				2046FC5117261D9D00DA5059 /* CharacteristicsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

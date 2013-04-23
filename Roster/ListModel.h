@@ -7,8 +7,11 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "Model.h"
 
 @interface ListModel : NSManagedObject
+
+@property(strong) Model *model;
 
 -(void)generateListOptions;
 -(int)cost;

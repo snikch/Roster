@@ -10,4 +10,6 @@
 
 @implementation Unit
 
+@dynamic name;
+
 @end

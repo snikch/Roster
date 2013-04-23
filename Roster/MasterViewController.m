@@ -51,8 +51,7 @@
 }
 
 -(void)didPressReload{
-    AppDelegate *ad = [[UIApplication sharedApplication] delegate];
-    [ad reset];
+    [[Database database] reset];
     [self.tableView reloadData];
 }
 - (void)insertNewObject:(id)sender

@@ -10,6 +10,8 @@
 
 @implementation ListModel
 
+@dynamic model;
+
 -(void)generateListOptions{
     for(NSManagedObject *option in (NSSet*)[(NSManagedObject*)[self valueForKey:@"model"] valueForKey:@"options"]){
         NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"ListOption" inManagedObjectContext:self.managedObjectContext];

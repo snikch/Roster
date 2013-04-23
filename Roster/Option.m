@@ -7,9 +7,10 @@
 //
 
 #import "Option.h"
-#import "Wargear.h"
 
 @implementation Option
+
+@dynamic wargear;
 
 -(NSMutableArray*)replacesWargear{
     NSMutableArray *wargearArray = [NSMutableArray array];

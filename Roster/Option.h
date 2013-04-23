@@ -7,8 +7,11 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "Wargear.h"
 
 @interface Option : NSManagedObject
+
+@property (strong) Wargear *wargear;
 
 -(NSMutableArray*)replacesWargear;
 -(void)replacesWargear:(NSManagedObject*)wargear;

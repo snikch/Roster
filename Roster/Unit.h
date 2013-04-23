@@ -10,4 +10,6 @@
 
 @interface Unit : NSManagedObject
 
+@property (strong) NSString *name;
+
 @end

@@ -31,6 +31,7 @@
     
     NSLog(@"Seeding wargear into army: %@", _army);
     [self seedWargear];
+    [self seedTroops];
     [self seedElites];
     
     // Save the context.
@@ -46,7 +47,7 @@
 -(void)seedWargear{
     NSDictionary *names = @{@"Assault cannon": @"", @"Astartes grenade launcher": @"", @"Autocannon": @"", @"Auxiliary grenade launcher": @"", @"Bolt pistol": @"", @"Boltgun": @"", @"Conversion beamer": @"", @"Cyclone missile launcher": @"", @"Deathwind launcher": @"", @"Dragonfire bolts": @"", @"Flamer": @"", @"Flamestorm": @"", @"Heavy bolter": @"", @"Heavy flamer": @"", @"Hellfire round": @"", @"Hellfire shell": @"", @"Kraken bolt": @"", @"Lascannon": @"", @"Meltagun": @"", @"Missile launcher": @"", @"Multi-melta": @"", @"Plasma cannon": @"", @"Plasma gun": @"", @"Plasma pistol": @"", @"Shotgun": @"", @"Sniper rifle": @"", @"Storm bolter": @"", @"Thunderfire cannon": @"", @"Typhoon missile launcher": @"", @"Vengeance round": @"",
     
-    @"Terminator armour": @"", @"Power fist": @"", @"Power sword": @"", @"Chainfist": @"", @"Lightning claw": @"", @"Thunder hammer and storm shield": @"", @"Power armour": @"", @"Special issue ammunition": @"", @"Frag and krak grenades": @"", @"Power weapon": @"", @"Melta bombs": @"", @"Combi-melta": @"", @"Combi-flamer": @"", @"Combi-plasma": @"", @"Chainsword": @""};
+    @"Terminator armour": @"", @"Power fist": @"", @"Power sword": @"", @"Chainfist": @"", @"Lightning claw": @"", @"Thunder hammer and storm shield": @"", @"Power armour": @"", @"Special issue ammunition": @"", @"Frag and krak grenades": @"", @"Power weapon": @"", @"Melta bombs": @"", @"Combi-melta": @"", @"Combi-flamer": @"", @"Combi-plasma": @"", @"Chainsword": @"", @"Teleport homer": @""};
     for(NSString *key in names){
         
         NSManagedObject *wargear = [NSEntityDescription insertNewObjectForEntityForName:@"Wargear" inManagedObjectContext:self.managedObjectContext];
@@ -56,10 +57,80 @@
     }
 }
 
+-(void)seedTroops{
+    [self tacticalSquad];
+}
+
 -(void)seedElites{
     [self terminatorSquad];
     [self terminatorAssaultSquad];
     [self sternguardVeteranSquad];
+}
+
+-(void)tacticalSquad{
+    Unit *unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:self.managedObjectContext];
+    [unit setValue:_army forKey:@"army"];
+    [unit setValue:@"Tactical Squad" forKey:@"name"];
+    [unit setValue:@"Troops" forKey:@"classification"];
+    [unit setValue:@"Infantry" forKey:@"type"];
+    [unit setValue:[NSNumber numberWithInt: 90] forKey:@"cost"];
+    
+    // Captain
+    Model *captain = [NSEntityDescription insertNewObjectForEntityForName:@"Model" inManagedObjectContext:self.managedObjectContext];
+    [captain setValue:unit forKey:@"unit"];
+    [captain setValue:@"Space Marine Sergeant" forKey:@"name"];
+    [captain setValue:[NSNumber numberWithInt:1] forKey:@"included"];
+    [captain setValue:[NSNumber numberWithInt:0] forKey:@"max"];
+    [captain setValue:[NSNumber numberWithInt:0] forKey:@"cost"];
+    
+    [captain addMultipleWargear:@[[self wargear:@"Power armour"], [self wargear:@"Bolt pistol"], [self wargear:@"Frag and krak grenades"], [self wargear:@"Boltgun"]]];
+    
+    [captain addCharacteristics:@[@[@"WS",@"4"], @[@"BS", @"4"], @[@"S", @"4"], @[@"T", @"4"], @[@"W", @"1"], @[@"I", @"4"], @[@"A", @"2"],@[@"Ld", @"9"], @[@"Sv", @"3+"]]];
+    
+    
+    [self replace:@[@"Bolt pistol", @"Boltgun"] on:captain with:@{@"Chainsword": @0, @"Combi-melta": @10, @"Combi-flamer": @10, @"Combi-plasma": @10, @"Storm bolter": @10, @"Plasma pistol": @15, @"Power weapon": @15, @"Power fist": @25} max:1 as:@"Weapons"];
+    
+    [self newOptionNamed:@"Melta bombs" costing:5 max:1 model:captain wargear:@"Melta bombs" group:nil];
+    [self newOptionNamed:@"Teleport homer" costing:15 max:1 model:captain wargear:@"Teleport homer" group:nil];
+    
+    // Model    
+    Model *model  = [NSEntityDescription insertNewObjectForEntityForName:@"Model" inManagedObjectContext:self.managedObjectContext];
+    [model setValue:unit forKey:@"unit"];
+    [model setValue:@"Space Marine" forKey:@"name"];
+    [model setValue:[NSNumber numberWithInt:16] forKey:@"cost"];
+    [model setValue:[NSNumber numberWithInt:4] forKey:@"included"];
+    [model setValue:[NSNumber numberWithInt:5] forKey:@"max"];
+    
+    [model addMultipleWargear:@[[self wargear:@"Power armour"], [self wargear:@"Bolt pistol"], [self wargear:@"Frag and krak grenades"], [self wargear:@"Boltgun"]]];
+    [model addCharacteristics:@[@[@"WS",@"4"], @[@"BS", @"4"], @[@"S", @"4"], @[@"T", @"4"], @[@"W", @"1"], @[@"I", @"4"], @[@"A", @"1"],@[@"Ld", @"8"], @[@"Sv", @"3+"]]];
+    
+    // Light Weapons
+    NSManagedObject *group = [NSEntityDescription insertNewObjectForEntityForName:@"OptionGroup" inManagedObjectContext:self.managedObjectContext];
+    [group setValue:model forKey:@"model"];
+    [group setValue:@"Weapons" forKey:@"name"];
+    
+    Option *flamer = [self newOptionNamed:@"Flamer" costing:0 max:1 model:model wargear:@"Flamer" group:group];
+    Option *meltagun = [self newOptionNamed:@"Meltagun" costing:5 max:1 model:model wargear:@"Meltagun" group:group];
+    Option *plasmagun = [self newOptionNamed:@"Plasma gun" costing:10 max:1 model:model wargear:@"Plasma gun" group:group];
+    [flamer replacesWargear:[self wargear:@"Boltgun"]];
+    [meltagun replacesWargear:[self wargear:@"Boltgun"]];
+    [plasmagun replacesWargear:[self wargear:@"Boltgun"]];
+    
+    // Heavy Weapons
+    group = [NSEntityDescription insertNewObjectForEntityForName:@"OptionGroup" inManagedObjectContext:self.managedObjectContext];
+    [group setValue:model forKey:@"model"];
+    [group setValue:@"Heavy Weapons" forKey:@"name"];
+    
+    Option *heavybolter = [self newOptionNamed:@"Heavy bolter" costing:0 max:1 model:model wargear:@"Heavy bolter" group:group];
+    [heavybolter replacesWargear:[_wargear valueForKey:@"Boltgun"]];
+    Option *multimelta = [self newOptionNamed:@"Multi-melta" costing:0 max:1 model:model wargear:@"Multi-melta" group:group];
+    [multimelta replacesWargear:[_wargear valueForKey:@"Boltgun"]];
+    Option *missilelauncher = [self newOptionNamed:@"Missile launcher" costing:0 max:1 model:model wargear:@"Missile launcher" group:group];
+    [missilelauncher replacesWargear:[_wargear valueForKey:@"Boltgun"]];
+    Option *plasmacannon = [self newOptionNamed:@"Plasma cannon" costing:5 max:1 model:model wargear:@"Plasma cannon" group:group];
+    [plasmacannon replacesWargear:[_wargear valueForKey:@"Boltgun"]];
+    Option *lascannon = [self newOptionNamed:@"Lascannon" costing:10 max:1 model:model wargear:@"Lascannon" group:group];
+    [lascannon replacesWargear:[_wargear valueForKey:@"Boltgun"]];
 }
 
 -(void)terminatorSquad{
@@ -69,7 +140,7 @@
     Unit *unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:self.managedObjectContext];
     [unit setValue:_army forKey:@"army"];
     [unit setValue:@"Terminator Squad" forKey:@"name"];
-    [unit setValue:@"Elite" forKey:@"classification"];
+    [unit setValue:@"Elites" forKey:@"classification"];
     [unit setValue:@"Infantry" forKey:@"type"];
     [unit setValue:[NSNumber numberWithInt: 200] forKey:@"cost"];
     
@@ -127,7 +198,7 @@
     Unit *unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:self.managedObjectContext];
     [unit setValue:_army forKey:@"army"];
     [unit setValue:@"Terminator Assault Squad" forKey:@"name"];
-    [unit setValue:@"Elite" forKey:@"classification"];
+    [unit setValue:@"Elites" forKey:@"classification"];
     [unit setValue:@"Infantry" forKey:@"type"];
     [unit setValue:[NSNumber numberWithInt: 200] forKey:@"cost"];
     
@@ -166,7 +237,7 @@
     Unit *unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:self.managedObjectContext];
     [unit setValue:_army forKey:@"army"];
     [unit setValue:@"Sternguard Veteran Squad" forKey:@"name"];
-    [unit setValue:@"Elite" forKey:@"classification"];
+    [unit setValue:@"Elites" forKey:@"classification"];
     [unit setValue:@"Infantry" forKey:@"type"];
     [unit setValue:[NSNumber numberWithInt: 125] forKey:@"cost"];
     
@@ -268,6 +339,25 @@
         [option addToGroup:group];
     }
     return option;
+}
+
+-(Wargear*)wargear:(NSString*)name{
+    return [_wargear valueForKey:name];
+}
+
+-(void)replace:(NSArray*)replacements on:(Model*)model with:(NSDictionary*)values max:(int)max as:(NSString*)name{
+    NSManagedObject *group = [NSEntityDescription insertNewObjectForEntityForName:@"OptionGroup" inManagedObjectContext:self.managedObjectContext];
+    [group setValue:model forKey:@"model"];
+    [group setValue:name forKey:@"name"];
+    
+    for (NSString *wargearName in values) {
+        Option *option = [self newOptionNamed:wargearName
+                                      costing:[(NSNumber*)[values valueForKey:wargearName] integerValue]
+                                          max:max model:model wargear:wargearName group:group];
+        for (NSString *replacementName in replacements) {
+            [option replacesWargear:[self wargear:replacementName]];
+        }
+    }
 }
 
 

@@ -11,6 +11,8 @@
 
 @implementation ListUnit
 
+@dynamic unit;
+
 -(void)generateListModels{
     for(NSManagedObject *model in (NSSet*)[(NSManagedObject*)[self valueForKey:@"unit"] valueForKey:@"models"]){
         ListModel *object = (ListModel*)[NSEntityDescription insertNewObjectForEntityForName:@"ListModel" inManagedObjectContext:self.managedObjectContext];
