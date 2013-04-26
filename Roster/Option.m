@@ -11,6 +11,8 @@
 @implementation Option
 
 @dynamic wargear;
+@dynamic name;
+@dynamic cost;
 
 -(NSMutableArray*)replacesWargear{
     NSMutableArray *wargearArray = [NSMutableArray array];

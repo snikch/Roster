@@ -8,6 +8,7 @@
 
 #import "ListPointsSummaryViewController.h"
 #import "ListUnit.h"
+#import "ListOption.h"
 
 @interface ListPointsSummaryViewController ()
 
@@ -15,6 +16,67 @@
 
 @implementation ListPointsSummaryViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self configure];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ (%@): %i pts", self.list.name, self.list.army.name, self.list.cost];
+}
+
+-(void)configure{
+    _extras = [NSMutableDictionary dictionary];
+    _cellHeights = [NSMutableDictionary dictionary];
+    for (ListUnit *listUnit in [self.fetchedResultsController fetchedObjects]) {
+        NSLog(@"Working out listUnit: %@", listUnit.unit.name);
+        NSMutableArray *strings = [NSMutableArray array];
+        NSMutableArray *optionsStrings = [NSMutableArray array];
+        [strings addObject:[NSString stringWithFormat:@"Base Cost: %i pts\nModels:", [listUnit.unit.cost integerValue]]];
+        
+        // Space Marine Squad: 280 pts
+        // Base Cost: 200 pts
+        // Models:
+        //  10x Space Marine (5 included + 5 @ 16 pts ea): 80pts
+        //  1x Space Marine Sergeant (1 included): 0 pts
+        // Options:
+        //  1x Flamer (1 @ 5 pts ea): 5 pts
+        //  1x Heavy Bolter (1 @ 15 pts ea):
+        for (ListModel *listModel in listUnit.listModels) {
+            int included = [listModel.model.included integerValue];
+            int count = [listModel.count integerValue];
+            int extra = count - included;
+            int cost = [listModel.model.cost integerValue];
+            //  10x Space Marine (5 included + 5 @ 16 pts ea): 80pts
+            NSString *extraString = extra > 0 ? [NSString stringWithFormat:@" + %i @ %i pts each", extra, cost] : @"";
+            NSString *modelString = [NSString stringWithFormat:@"\n\t%ix %@ (%i included%@): %i pts", count, listModel.model.name, included, extraString, cost * extra];
+            [strings addObject:modelString];
+            for (ListOption *listOption in listModel.listOptions) {
+                count = [listOption.count integerValue];
+                if(count > 0 ){
+                    cost = [listOption.option.cost integerValue];
+                    [optionsStrings addObject:
+                     [NSString stringWithFormat:@"\n\t%ix %@ (%i pts ea): %i pts", count, listOption.option.name, cost, cost * count]];
+                }
+            }
+        }
+        
+        if(optionsStrings.count > 0){
+            [strings addObject:[NSString stringWithFormat:@"\nOptions:%@", [optionsStrings componentsJoinedByString:@""]]];
+        }
+        
+        NSString *extra = [strings componentsJoinedByString:@""];
+        CGSize size = CGSizeMake(400 - 8 - 8, 100000);
+        UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 400, 10000)];
+        size.height = [extra sizeWithFont:textField.font constrainedToSize:size].height + 8 + 8;
+        NSString *key = [[[listUnit objectID] URIRepresentation] absoluteString];
+        NSLog(@"Height: %i for key %@", (int)size.height , key);
+        
+        [_extras setObject:extra forKey:key];
+        [_cellHeights setObject:[NSNumber numberWithFloat:size.height] forKey:key];
+    }
+}
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -22,20 +84,24 @@
 }
 
 #pragma mark - Table view data source
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = NSLocalizedString(@"Models", @"Models");
-            break;
-        default:
-            sectionName = @"";
-            break;
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSString *key = [[[object objectID] URIRepresentation] absoluteString];
+    NSNumber *extrasHeight = [_cellHeights valueForKey:key];
+    if(extrasHeight == nil){
+        extrasHeight = [NSNumber numberWithInt:44];
     }
-    return sectionName;
+    float height = [extrasHeight floatValue] + 44.0;
+    NSLog(@"Height for row at %i: %i: for key %@", indexPath.row, [extrasHeight integerValue], key);
+    return height;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo name];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [[self.fetchedResultsController sections] count];
@@ -104,8 +170,9 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"unit.name" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor];
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"unit.classification" ascending:YES];
+    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"unit.name" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor1, sortDescriptor2];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -189,7 +256,19 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     ListUnit *listUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = listUnit.unit.name;
+    NSString *key = [[[listUnit objectID] URIRepresentation] absoluteString];
+
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 400, 44)];
+    title.text = [NSString stringWithFormat:@"%@: %i pts", listUnit.unit.name, listUnit.cost];
+    
+    NSNumber *height = [_cellHeights valueForKey:key];
+    UITextView *extras = [[UITextView alloc] initWithFrame:CGRectMake(20, 44, 400, [height integerValue])];
+    [extras setScrollEnabled:NO];
+    [extras setUserInteractionEnabled:NO];
+    [extras setText:(NSString*)[_extras valueForKey:key]];
+    
+    [cell addSubview:title];
+    [cell addSubview:extras];
     
 }
 

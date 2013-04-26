@@ -8,6 +8,8 @@
 
 #import "CharacteristicsView.h"
 
+#define MIN_WIDTH 44.0
+
 @implementation CharacteristicsView
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,25 +35,46 @@
     _labels = [NSMutableArray array];
     
     int count = 0;
-    int cellWidth = 44;
+    int runningTotal = 0;
     
     for (NSDictionary *characteristic in _characteristics) {
-        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(count*cellWidth, 0, cellWidth, 20)];
-        UILabel *value = [[UILabel alloc] initWithFrame:CGRectMake(count*cellWidth, 20, cellWidth, 20)];
+        int thisWidth = MIN_WIDTH;
+        NSString *name = [characteristic valueForKey:@"name"];
+        NSString *value = [characteristic valueForKey:@"value"];
+        CGRect frame = CGRectMake(runningTotal, 0, thisWidth, 20);
+        UILabel *nameLabel = [[UILabel alloc] initWithFrame:frame];
+        UIFont *font = nameLabel.font;
         
-        name.text = [characteristic valueForKey:@"name"];
-        value.text = [characteristic valueForKey:@"value"];
+        float nameWidth = [name sizeWithFont:font].width + 16;
+        float valueWidth = [value sizeWithFont:font].width + 16;
+        float maxWidth = nameWidth > valueWidth ? nameWidth : valueWidth;
         
-        [name setTextAlignment:NSTextAlignmentCenter];
-        [value setTextAlignment:NSTextAlignmentCenter];
+        if(maxWidth > thisWidth){
+            thisWidth = maxWidth;
+        }
+        frame.size.width = thisWidth;
+        nameLabel.frame = frame;
         
-        [self addSubview:name];
-        [self addSubview:value];
+        UILabel *valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(runningTotal, 20, thisWidth, 20)];
+        
+        nameLabel.text = name;
+        valueLabel.text = value;
+        
+        [nameLabel setTextAlignment:NSTextAlignmentCenter];
+        [valueLabel setTextAlignment:NSTextAlignmentCenter];
+        
+        [self addSubview:nameLabel];
+        [self addSubview:valueLabel];
         
         NSArray *labels = @[name, value];
         [_labels addObject:labels];
         count++;
+        runningTotal += thisWidth;
     }
+    CGRect viewFrame = self.frame;
+    viewFrame.size.width = runningTotal;
+    self.frame = viewFrame;
+    
 }
 
 +(id)viewWithCharacteristics:(NSArray*)characteristics{

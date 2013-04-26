@@ -14,6 +14,9 @@
 
 @property (strong, nonatomic) ListUnit *listUnit;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSArray *listModels;
+
+@property (strong, nonatomic) NSMutableDictionary *cellHeights;
+@property (strong, nonatomic) NSMutableDictionary *extras;
 
 @end

@@ -9,77 +9,65 @@
 #import "ListUnitSummaryViewController.h"
 #import "CharacteristicsView.h"
 #import "ListModel.h"
+#import "ListOption.h"
+#import "ModelSummaryCell.h"
 
 @interface ListUnitSummaryViewController ()
 
-@property (strong, nonatomic) NSMutableDictionary *cellHeights;
 @property (strong, nonatomic) NSMutableDictionary *characteristics;
-//@property (strong, nonatomic) NSMutableDictionary *;
 
 @end
 
 @implementation ListUnitSummaryViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    [self buildValues];
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self configure];
 }
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    _fetchedResultsController = nil;
-}
-
--(void)buildValues{
-    _cellHeights = [NSMutableDictionary dictionary];
-    _characteristics = [NSMutableDictionary dictionary];
-    for (ListModel *listModel in [self.fetchedResultsController fetchedObjects]) {
-        NSString *key = [[[listModel objectID] URIRepresentation] absoluteString];
-        [_characteristics setValue:[listModel.model characteristicsWithOption:nil] forKey:key];
-        [_cellHeights setValue:[NSNumber numberWithInt:44] forKey:key];
+-(void)configureModels{
+    NSMutableArray *temp = [NSMutableArray array];
+    for (ListModel *listModel in _listUnit.listModels) {
+        NSMutableArray *tempOptions = [NSMutableArray array];
+        for (ListOption *listOption in listModel.listOptions) {
+            if ([listOption.count integerValue] > 0) {
+                [tempOptions addObject:listOption];
+            }
+        }
+        [temp addObject:@{@"model": listModel, @"options": [tempOptions copy]}];
     }
+    _listModels = [temp copy];
+}
+-(void)configure{
+    [self configureModels];
+       
 }
 
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = NSLocalizedString(@"Models", @"Models");
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
+    ListModel *listModel = [[_listModels objectAtIndex:section] valueForKey:@"model"];
+    return listModel.model.name;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return [_listModels count];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSManagedObject *listModel = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *key = [[[listModel objectID] URIRepresentation] absoluteString];
-    NSNumber *height = [_cellHeights valueForKey:key];
-    if(height == nil){
-        height = [NSNumber numberWithInt:44];
-    }
-    return [height floatValue];
+    return 44.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    NSLog(@"%d rows in section", [sectionInfo numberOfObjects]);
-    return [sectionInfo numberOfObjects];
+    NSDictionary *sectionInfo = [_listModels objectAtIndex:section];
+    NSArray *options = [sectionInfo valueForKey:@"options"];
+    return [options count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Model" forIndexPath:indexPath];
+    ModelSummaryCell *cell = (ModelSummaryCell*)[tableView dequeueReusableCellWithIdentifier:@"Model" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -90,133 +78,44 @@
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        
-        NSError *error = nil;
-        if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-}
-
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // The table view should not be re-orderable.
     return NO;
 }
 
-#pragma mark - Fetched results controller
-
-- (NSFetchedResultsController *)fetchedResultsController
+- (void)configureCell:(ModelSummaryCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
+    NSDictionary *sectionInfo = [_listModels objectAtIndex:indexPath.section];
+    NSArray *options = [sectionInfo valueForKey:@"options"];
+    ListModel *listModel = [sectionInfo valueForKey:@"model"];
+    NSLog(@"options %@", options);
+    CharacteristicsView *charactericView;
+    
+    if(indexPath.row == 0){
+        cell.textLabel.text = listModel.model.name;
+        NSLog(@"Model chars: %@", [listModel.model characteristicsWithOption:nil]);
+        
+        charactericView = [CharacteristicsView viewWithCharacteristics:[listModel.model characteristicsWithOption:nil]];
+        
+        CGRect newFrame = charactericView.frame;
+        newFrame.origin.x = cell.frame.size.width - newFrame.size.width;
+        charactericView.frame = newFrame;
+        
+    }else{
+        ListOption *listOption = [options objectAtIndex:indexPath.row-1];
+        cell.textLabel.text = listOption.option.name;
+        charactericView = [CharacteristicsView viewWithCharacteristics:[listModel.model characteristicsWithOption:listOption.option]];
+        
+        CGRect newFrame = charactericView.frame;
+        newFrame.origin.x = cell.frame.size.width - newFrame.size.width;
+        charactericView.frame = newFrame;
     }
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ListModel" inManagedObjectContext:[Database context]];
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"listUnit == %@",self.listUnit];
-    
-    [fetchRequest setPredicate:predicate];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"model.name" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[Database context] sectionNameKeyPath:nil cacheName:@"Master"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return _fetchedResultsController;
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
+    if(cell.characteristicsView != nil){
+        [cell.characteristicsView removeFromSuperview];
     }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView endUpdates];
-}
-
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    ListModel *listModel = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = listModel.model.name;
-    NSLog(@"Model chars: %@", [listModel.model characteristicsWithOption:nil]);
-    
-    CharacteristicsView *charactericView = [CharacteristicsView viewWithCharacteristics:[listModel.model characteristicsWithOption:nil]];
-    
-    CGRect newFrame = charactericView.frame;
-    newFrame.origin.x = cell.frame.size.width - newFrame.size.width;
-    charactericView.frame = newFrame;
+    [cell setCharacteristicsView:charactericView];
     
     [cell addSubview:charactericView];
 }

@@ -8,10 +8,12 @@
 
 #import <CoreData/CoreData.h>
 #import "Unit.h"
+#import "ListModel.h"
 
 @interface ListUnit : NSManagedObject
 
 @property(strong) Unit *unit;
+@property(strong) NSSet *listModels;
 
 -(void)generateListModels;
 -(int)cost;

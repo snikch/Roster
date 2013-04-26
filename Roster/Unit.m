@@ -11,5 +11,7 @@
 @implementation Unit
 
 @dynamic name;
+@dynamic imageUrl;
+@dynamic cost;
 
 @end

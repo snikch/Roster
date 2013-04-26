@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C3012" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Army" representedClassName="Army">
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="army" inverseEntity="List" syncable="YES"/>
         <relationship name="units" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Unit" inverseName="army" inverseEntity="Unit" syncable="YES"/>
@@ -24,7 +25,7 @@
         <relationship name="listUnit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListUnit" inverseName="listModels" inverseEntity="ListUnit" syncable="YES"/>
         <relationship name="model" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Model" inverseName="listmodels" inverseEntity="Model" syncable="YES"/>
     </entity>
-    <entity name="ListOption" representedClassName="" syncable="YES">
+    <entity name="ListOption" representedClassName="ListOption" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="listModel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListModel" inverseName="listOptions" inverseEntity="ListModel" syncable="YES"/>
         <relationship name="option" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="listoptions" inverseEntity="Option" syncable="YES"/>
@@ -83,6 +84,7 @@
     <entity name="Unit" representedClassName="Unit" syncable="YES">
         <attribute name="classification" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -103,10 +105,10 @@
         <attribute name="modify" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="wargear" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Wargear" inverseName="characteristics" inverseEntity="Wargear" syncable="YES"/>
+        <relationship name="wargear" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wargear" inverseName="characteristics" inverseEntity="Wargear" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Army" positionX="261" positionY="189" width="128" height="105"/>
+        <element name="Army" positionX="261" positionY="189" width="128" height="120"/>
         <element name="CharacteristicTemplate" positionX="160" positionY="192" width="128" height="90"/>
         <element name="List" positionX="160" positionY="192" width="128" height="105"/>
         <element name="ListModel" positionX="160" positionY="192" width="128" height="105"/>
@@ -118,7 +120,7 @@
         <element name="Option" positionX="160" positionY="192" width="128" height="210"/>
         <element name="OptionGroup" positionX="160" positionY="192" width="128" height="90"/>
         <element name="OptionReplacement" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Unit" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Unit" positionX="160" positionY="192" width="128" height="180"/>
         <element name="Wargear" positionX="160" positionY="192" width="128" height="150"/>
         <element name="WargearCharacteristic" positionX="160" positionY="192" width="128" height="105"/>
     </elements>

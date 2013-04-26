@@ -11,6 +11,9 @@
 
 @implementation List
 
+@dynamic name;
+@dynamic army;
+
 -(int)cost{
     int runningCost = 0;
     

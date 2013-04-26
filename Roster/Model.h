@@ -13,6 +13,8 @@
 @interface Model : NSManagedObject
 
 @property (strong) NSString *name;
+@property (strong) NSNumber *cost;
+@property (strong) NSNumber *included;
 
 -(NSMutableArray*)wargear;
 -(void)addWargear:(Wargear*)wargear;

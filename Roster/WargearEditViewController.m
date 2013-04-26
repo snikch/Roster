@@ -266,9 +266,9 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if([(NSNumber*)[object valueForKey:@"modify"] isEqualToNumber:[NSNumber numberWithBool:YES]]){
-        cell.textLabel.text = [NSString stringWithFormat:@"Modify %@ by %@", [object valueForKey:@"name"], [object valueForKey:@"value"]];
+        cell.textLabel.text = [NSString stringWithFormat:@"Modify %@: %@", [object valueForKey:@"name"], [object valueForKey:@"value"]];
     }else{
-        cell.textLabel.text = [NSString stringWithFormat:@"Change %@ to %@", [object valueForKey:@"name"], [object valueForKey:@"value"]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", [object valueForKey:@"name"], [object valueForKey:@"value"]];
     }
 }
 
@@ -288,8 +288,14 @@
     if(characteristic == nil){
         characteristic = [NSEntityDescription insertNewObjectForEntityForName:@"WargearCharacteristic" inManagedObjectContext:self.managedObjectContext];
         [characteristic setValue:_wargear forKey:@"wargear"];
+//        NSMutableSet *characteristics = [NSMutableSet setWithSet:[_wargear mutableSetValueForKey:@"characteristics"]];
+//        NSLog(@"Characteristics: %@", characteristics);
+//        [characteristics addObject:characteristic];
+//        NSLog(@"Characteristics: %@", characteristics);
+//
+//        [_wargear setValue:characteristics forKey:@"characteristics"];
     }
-    
+    NSLog(@"Did create characteristic");
     [characteristic setValuesForKeysWithDictionary:values];
     [characteristic setValue:[NSNumber numberWithBool:[[NSNumber numberWithBool:YES] isEqualToNumber:(NSNumber*)[values valueForKey:@"modify"]]] forKey:@"modify"];
     

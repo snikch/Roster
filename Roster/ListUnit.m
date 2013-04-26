@@ -7,11 +7,12 @@
 //
 
 #import "ListUnit.h"
-#import "ListModel.h"
+
 
 @implementation ListUnit
 
 @dynamic unit;
+@dynamic listModels;
 
 -(void)generateListModels{
     for(NSManagedObject *model in (NSSet*)[(NSManagedObject*)[self valueForKey:@"unit"] valueForKey:@"models"]){

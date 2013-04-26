@@ -7,8 +7,12 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "Army.h"
 
 @interface List : NSManagedObject
+
+@property (strong) NSString *name;
+@property (strong) Army *army;
 
 -(int)cost;
 

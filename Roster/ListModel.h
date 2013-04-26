@@ -12,6 +12,8 @@
 @interface ListModel : NSManagedObject
 
 @property(strong) Model *model;
+@property(strong) NSNumber *count;
+@property(strong) NSSet *listOptions;
 
 -(void)generateListOptions;
 -(int)cost;

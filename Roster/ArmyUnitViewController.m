@@ -9,6 +9,7 @@
 #import "ArmyUnitViewController.h"
 #import "UnitNameViewController.h"
 #import "UnitEditViewController.h"
+#import "UIImageView+WebCache.h"
 
 #import "Unit.h"
 
@@ -40,15 +41,6 @@
     }
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,12 +53,27 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-   }
+    }
+    [self applyValues];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     _fetchedResultsController = nil;
+    [self commitChanges];
+}
+
+-(void)applyValues{
+    self.nameField.text = _army.name;
+    if(_army.imageUrl){
+        [self.imageView setImageWithURL:[NSURL URLWithString:_army.imageUrl] placeholderImage:nil options:SDWebImageProgressiveDownload progressBarInfo:nil];
+        
+    }
+}
+
+-(void)commitChanges{
+    _army.name = _nameField.text;
+    [[Database database] saveContext];
 }
 
 -(void)configureView{
@@ -78,7 +85,7 @@
         [self.navigationItem setRightBarButtonItems:toolbarButtons animated:NO];
     }else{
         
-        // This is how you remove the button from the toolbar and animate it        
+        // This is how you remove the button from the toolbar and animate it
         // This is how you add the button to the toolbar and animate it
         if (![toolbarButtons containsObject:self.addUnitButton]) {
             [toolbarButtons addObject:self.addUnitButton];
@@ -177,49 +184,49 @@
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Fetched results controller
 
 -(void)updateFetchResultsControllerPredicate{
     NSFetchRequest *fetchRequest = [self.fetchedResultsController fetchRequest];
-
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"army == %@",self.army];
     
     [fetchRequest setPredicate:predicate];
@@ -344,13 +351,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark - FilePicker
+
+- (void)FPPickerController:(FPPickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    _imageView.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
+    [_army setValue:[info objectForKey:@"FPPickerControllerRemoteURL"] forKey:@"imageUrl"];
+    [[self imagePopoverController] dismissPopoverAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

@@ -10,4 +10,7 @@
 
 @implementation Army
 
+@dynamic name;
+@dynamic imageUrl;
+
 @end

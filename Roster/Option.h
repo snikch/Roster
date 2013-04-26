@@ -12,6 +12,8 @@
 @interface Option : NSManagedObject
 
 @property (strong) Wargear *wargear;
+@property (strong) NSNumber *cost;
+@property (strong) NSString *name;
 
 -(NSMutableArray*)replacesWargear;
 -(void)replacesWargear:(NSManagedObject*)wargear;

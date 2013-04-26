@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) NSMutableDictionary *cellHeights;
+@property (strong, nonatomic) NSMutableDictionary *extras;
 @end

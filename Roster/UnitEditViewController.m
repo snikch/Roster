@@ -7,6 +7,7 @@
 //
 
 #import "UnitEditViewController.h"
+#import "UIImageView+WebCache.h"
 
 #import "ModelEditViewController.h"
 #import "Model.h"
@@ -43,6 +44,10 @@
     classificationField.text = [_unit valueForKey:@"classification"];
     infoField.text = [_unit valueForKey:@"info"];
     typeField.text = [_unit valueForKey:@"type"];
+    if(_unit.imageUrl){
+        [self.imageView setImageWithURL:[NSURL URLWithString:_unit.imageUrl] placeholderImage:nil options:SDWebImageProgressiveDownload progressBarInfo:nil];
+        
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -317,5 +322,17 @@
 {
     [self.tableView endUpdates];
 }
+
+#pragma mark - FilePicker
+
+- (void)FPPickerController:(FPPickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    _imageView.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
+    [_unit setValue:[info objectForKey:@"FPPickerControllerRemoteURL"] forKey:@"imageUrl"];
+    [[self imagePopoverController] dismissPopoverAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

@@ -45,9 +45,54 @@
 }
 
 -(void)seedWargear{
-    NSDictionary *names = @{@"Assault cannon": @"", @"Astartes grenade launcher": @"", @"Autocannon": @"", @"Auxiliary grenade launcher": @"", @"Bolt pistol": @"", @"Boltgun": @"", @"Conversion beamer": @"", @"Cyclone missile launcher": @"", @"Deathwind launcher": @"", @"Dragonfire bolts": @"", @"Flamer": @"", @"Flamestorm": @"", @"Heavy bolter": @"", @"Heavy flamer": @"", @"Hellfire round": @"", @"Hellfire shell": @"", @"Kraken bolt": @"", @"Lascannon": @"", @"Meltagun": @"", @"Missile launcher": @"", @"Multi-melta": @"", @"Plasma cannon": @"", @"Plasma gun": @"", @"Plasma pistol": @"", @"Shotgun": @"", @"Sniper rifle": @"", @"Storm bolter": @"", @"Thunderfire cannon": @"", @"Typhoon missile launcher": @"", @"Vengeance round": @"",
+    NSDictionary *names = @{
+        @"Assault cannon":@{@"c": @{@"Range": @"24\"", @"Strength": @"6", @"AP": @"4", @"Type": @"Heavy 4, Rending"}},
+        @"Astartes grenade launcher":@{@"c": @{}},
+        @"Autocannon":@{@"c": @{}},
+        @"Auxiliary grenade launcher":@{@"c": @{}},
+        @"Bolt pistol":@{@"c": @{@"Range": @"12\"", @"Strength": @"4", @"AP": @"5", @"Type": @"Pistol"}},
+        @"Boltgun":@{@"c": @{@"Range": @"24\"", @"Strength": @"4", @"AP": @"5", @"Type": @"Raipd Fire"}},
+        @"Conversion beamer":@{@"c": @{}},
+        @"Cyclone missile launcher":@{@"c": @{}},
+        @"Deathwind launcher":@{@"c": @{}},
+        @"Dragonfire bolts":@{@"c": @{}},
+        @"Flamer":@{@"c": @{@"Range": @"Template", @"Strength": @"4", @"AP": @"5", @"Type": @"Assault 1"}},
+        @"Flamestorm":@{@"c": @{}},
+        @"Heavy bolter":@{@"c": @{@"Range": @"36\"", @"Strength": @"5", @"AP": @"4", @"Type": @"Heavy 3"}},
+        @"Heavy flamer":@{@"c": @{@"Range": @"Template", @"Strength": @"5", @"AP": @"4", @"Type": @"Assault 1"}},
+        @"Hellfire round":@{@"c": @{}},
+        @"Hellfire shell":@{@"c": @{}},
+        @"Kraken bolt":@{@"c": @{}},
+        @"Lascannon":@{@"c": @{@"Range": @"48\"", @"Strength": @"9", @"AP": @"2", @"Type": @"Heavy 1"}},
+        @"Meltagun":@{@"c": @{@"Range": @"12\"", @"Strength": @"8", @"AP": @"1", @"Type": @"Assault 1, Melta"}},
+        @"Missile launcher":@{@"c": @{}},
+        @"Multi-melta":@{@"c": @{@"Range": @"24\"", @"Strength": @"8", @"AP": @"1", @"Type": @"Heavy 1, Melta"}},
+        @"Plasma cannon":@{@"c": @{@"Range": @"36\"", @"Strength": @"7", @"AP": @"2", @"Type": @"Heavy 1, Blast, Gets Hot!"}},
+        @"Plasma gun":@{@"c": @{@"Range": @"24\"", @"Strength": @"7", @"AP": @"2", @"Type": @"Rapid Fire, Gets Hot!"}},
+        @"Plasma pistol":@{@"c": @{@"Range": @"12\"", @"Strength": @"7", @"AP": @"2", @"Type": @"Pistol, Gets Hot!"}},
+        @"Shotgun":@{@"c": @{}},
+        @"Sniper rifle":@{@"c": @{}},
+        @"Storm bolter":@{@"c": @{@"Range": @"24\"", @"Strength": @"4", @"AP": @"5", @"Type": @"Assault 2"}},
+        @"Thunderfire cannon":@{@"c": @{}},
+        @"Typhoon missile launcher":@{@"c": @{}},
+        @"Vengeance round":@{@"c": @{}},
     
-    @"Terminator armour": @"", @"Power fist": @"", @"Power sword": @"", @"Chainfist": @"", @"Lightning claw": @"", @"Thunder hammer and storm shield": @"", @"Power armour": @"", @"Special issue ammunition": @"", @"Frag and krak grenades": @"", @"Power weapon": @"", @"Melta bombs": @"", @"Combi-melta": @"", @"Combi-flamer": @"", @"Combi-plasma": @"", @"Chainsword": @"", @"Teleport homer": @""};
+        @"Terminator armour":@{@"c": @{}},
+        @"Power fist":@{@"c": @{}},
+        @"Power sword":@{@"c": @{}},
+        @"Chainfist":@{@"c": @{}},
+        @"Lightning claw":@{@"c": @{}},
+        @"Thunder hammer and storm shield":@{@"c": @{}},
+        @"Power armour":@{@"c": @{}},
+        @"Special issue ammunition":@{@"c": @{}},
+        @"Frag and krak grenades":@{@"c": @{}},
+        @"Power weapon":@{@"c": @{}},
+        @"Melta bombs":@{@"c": @{}},
+        @"Combi-melta":@{@"c": @{}},
+        @"Combi-flamer":@{@"c": @{}},
+        @"Combi-plasma":@{@"c": @{}},
+        @"Chainsword":@{@"c": @{}},
+        @"Teleport homer": @""};
     for(NSString *key in names){
         
         NSManagedObject *wargear = [NSEntityDescription insertNewObjectForEntityForName:@"Wargear" inManagedObjectContext:self.managedObjectContext];

@@ -23,7 +23,7 @@
     if(_wargearCharacteristic){
         _nameField.text = [_wargearCharacteristic valueForKey:@"name"];
         _valueField.text = [_wargearCharacteristic valueForKey:@"value"];
-        [_modifySwitch setOn:(BOOL)[_wargearCharacteristic valueForKey:@"name"] animated:NO];
+        [_modifySwitch setOn:(BOOL)[_wargearCharacteristic valueForKey:@"modify"] animated:NO];
     }
 }
 

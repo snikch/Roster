@@ -10,6 +10,6 @@
 
 @interface Wargear : NSManagedObject
 
--(NSArray*)characteristics;
+@property (strong) NSSet *characteristics;
 
 @end

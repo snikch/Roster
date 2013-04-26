@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+ImagePicker.h"
 
 #import "Unit.h"
 
@@ -24,9 +25,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *classificationField;
 @property (strong, nonatomic) IBOutlet UITextField *typeField;
 @property (strong, nonatomic) IBOutlet UITextView *infoField;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 -(void)setUnit:(Unit *)unit;
 
+-(IBAction)didPressAddImage:(id)sender;
 -(IBAction)didPressAddModel:(id)sender;
 -(IBAction)didPressAddOption:(id)sender;
 

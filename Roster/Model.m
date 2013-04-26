@@ -11,6 +11,8 @@
 @implementation Model
 
 @dynamic name;
+@dynamic cost;
+@dynamic included;
 
 -(NSMutableArray*)wargear{
     NSMutableArray *wargearArray = [NSMutableArray array];
@@ -73,20 +75,21 @@
     }
     NSMutableArray *characteristics = [NSMutableArray array];
     for (NSManagedObject *characteristic in results) {
-        [characteristics addObject:[characteristic dictionaryWithValuesForKeys:@[@"name", @"value"]]];
+        [characteristics addObject:[[characteristic dictionaryWithValuesForKeys:@[@"name", @"value"]] mutableCopy]];
     }
-    
+    NSLog(@"Characteristics %@", characteristics);
     if(option != nil && option.wargear != nil){
         for (NSManagedObject *wargearCharacteristic in option.wargear.characteristics) {
             // Loop through characteristics and apply differences
             BOOL replaced = false;
             NSString *name;
             NSString *wargearName;
-            for (NSManagedObject *characteristic in characteristics) {
+            for (NSMutableDictionary *characteristic in characteristics) {
                 name = (NSString*)[characteristic valueForKey:@"name"];
                 wargearName = (NSString*)[wargearCharacteristic valueForKey:@"name"];
                 if( [wargearName isEqualToString:name]){
                     replaced = true;
+                    NSLog(@"Characteristic %@", characteristic);
                     if([(NSNumber*)[wargearCharacteristic valueForKey:@"modify"] boolValue]){
                         [characteristic setValue:[wargearCharacteristic valueForKey:@"value"] forKey:@"value"];
                     }else{

@@ -11,5 +11,7 @@
 @interface Unit : NSManagedObject
 
 @property (strong) NSString *name;
+@property (strong) NSString *imageUrl;
+@property (strong) NSNumber *cost;
 
 @end

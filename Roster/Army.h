@@ -10,4 +10,7 @@
 
 @interface Army : NSManagedObject
 
+@property (strong) NSString *name;
+@property (strong) NSString *imageUrl;
+
 @end

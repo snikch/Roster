@@ -8,7 +8,6 @@
 
 #import "ListSummaryViewController.h"
 #import "ListUnitSummaryViewController.h"
-
 #import "ListUnit.h"
 
 @interface ListSummaryViewController ()

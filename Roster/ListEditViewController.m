@@ -29,7 +29,7 @@
         _unitPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
     }else if ([[segue identifier] isEqualToString:@"editUnit"]) {
         ListUnitEditViewController *vc = (ListUnitEditViewController *)[segue destinationViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [vc setManagedObjectContext:self.managedObjectContext];
         [vc setListUnit: object];
@@ -305,6 +305,8 @@
         [_unitPopoverController dismissPopoverAnimated:YES];
     }
     [self.tableView reloadData];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[self.fetchedResultsController indexPathForObject:object]];
+    [self performSegueWithIdentifier:@"editUnit" sender:cell];
 }
 
 @end

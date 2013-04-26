@@ -38,6 +38,14 @@
         [characteristic setValue:@"Vehicle" forKey:@"type"];
         [characteristic setValue:[NSNumber numberWithFloat:count] forKey:@"sortOrder"];
     }
+    count = 0;
+    for(NSString *name in @[@"Range", @"Strength", @"AP", @"Type"]){
+        count++;
+        NSManagedObject *characteristic = [NSEntityDescription insertNewObjectForEntityForName:@"CharacteristicTemplate" inManagedObjectContext:context];
+        [characteristic setValue:name forKey:@"name"];
+        [characteristic setValue:@"Weapon" forKey:@"type"];
+        [characteristic setValue:[NSNumber numberWithFloat:count] forKey:@"sortOrder"];
+    }
     
     SpaceMarines *sp = [[SpaceMarines alloc] init];
     sp.managedObjectContext = context;

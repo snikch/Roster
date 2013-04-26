@@ -11,6 +11,8 @@
 @implementation ListModel
 
 @dynamic model;
+@dynamic count;
+@dynamic listOptions;
 
 -(void)generateListOptions{
     for(NSManagedObject *option in (NSSet*)[(NSManagedObject*)[self valueForKey:@"model"] valueForKey:@"options"]){
