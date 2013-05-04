@@ -13,5 +13,7 @@
 @dynamic name;
 @dynamic imageUrl;
 @dynamic cost;
+@dynamic army;
+@dynamic classification;
 
 @end

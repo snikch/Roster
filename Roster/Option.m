@@ -11,6 +11,7 @@
 @implementation Option
 
 @dynamic wargear;
+@dynamic model;
 @dynamic name;
 @dynamic cost;
 

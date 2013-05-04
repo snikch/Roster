@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document signature="Army Builder Data">
+  <linkset id="rgUT_Korvy">
+    <link option="gn6_IndCha" priority="305" nature="auto" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_ATSKNF" priority="305" nature="auto" textcost=" " index="3">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_UTJmU" priority="900" display="1" nature="auto" textcost=" " index="1">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpace" priority="901" category="unittype" index="2">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="rvSR_RaiT" index="7">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="rvSR_SwiS" index="6">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    </linkset>
+  <option id="rvSR_RaiT" name="Raiding Tactics" abbrev="" description="Raiding Tactics (see IA vol. 8, pg. 112)." category="skills" footnote="yes" priority="305" nature="auto" cost="0" costtype="single" textcost=" ">
+    <live>!ruleset.ro_CompOut</live>
+    </option>
+  <option id="rvSR_SwiS" name="Swift Strike" abbrev="" description="Swift Strike (see IA vol.8, pg. 112)." category="skills" footnote="yes" priority="305" nature="auto" cost="0" costtype="single" textcost=" ">
+    <live>!ruleset.ro_CompOut</live>
+    </option>
+  <unit id="rgKorvydae" name="Shadow Captain Korvydae (IA)" cost="155." statset="unit" maxsize="1" startsize="1">
+    <statval stat="At" value="3"/>
+    <statval stat="BS" value="5"/>
+    <statval stat="In" value="5"/>
+    <statval stat="Ld" value="10"/>
+    <statval stat="Save" value="2"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="6"/>
+    <statval stat="Wo" value="3"/>
+    <linkref id="rgUT_Korvy"/>
+    <linkref id="gnWarlord"/>
+    <link option="gnRef" name="(IA8, pg. 112)" priority="0" index="8"></link>
+    <link option="gnKrakG_E" priority="3" nature="auto" category="wargear" textcost=" " index="3">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnMeltaB_E" priority="3" nature="auto" category="wargear" textcost=" " index="18">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="auto" category="wargear" textcost=" " index="5">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnArtArm" priority="5" nature="auto" cost="0." textcost=" " hide="yes" index="13">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnArtArm" priority="5" nature="auto" cost="0." textcost=" " index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnIronHalo" priority="5" nature="auto" cost="0." textcost=" " index="1">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnIronHalo" priority="5" nature="auto" cost="0." textcost=" " hide="yes" index="14">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_JumpP" priority="5" nature="auto" cost="0." textcost=" " index="16">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_JumpP" priority="5" nature="auto" cost="0." textcost=" " hide="yes" index="17">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWar" priority="8" index="12">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltP" priority="55" nature="auto" category="weapons" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_TH" priority="55" nature="auto" cost="0." category="weapons" textcost=" " index="2">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_TH" priority="55" nature="auto" cost="0." category="weapons" textcost=" " hide="yes" index="15">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="56" index="11">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <tag group="race" tag="sm"/>
+    <tag group="rgTagsG" tag="Korvydae"/>
+    <tag group="smTags" tag="Captain"/>
+    <tag group="Group" tag="HQ"/>
+    <tag group="limited" tag="unique"/>
+    <tag group="race" tag="rg"/>
+    <member><![CDATA[((ruleset.ro_spec | ruleset.ro_Apoc) & roster.rg | ruleset.smChSiege) | (ruleset.ro_ImpArm & (ruleset.ro_spec | ruleset.ro_Apoc) & roster.sm) | (ruleset.ro_ApocHE & (roster.ig | roster.ohw | roster.cd | roster.chA | roster.de | roster.ne | roster.ork | roster.ta | roster.ty5 | roster.el)) | (ruleset.ro_ApocTA & (roster.ig | roster.ohw)) | (ruleset.ro_ApocDA & (roster.ig | roster.ohw))]]></member>
+    <postlinks>~ Procedure call for setting bonus attacks, adjusting strength, etc.
+call sm5EAdjCCW</postlinks>
+    </unit>
+  <scripts></scripts>
+  <rule id="rgKorvydae" message="You must have at least one Scout Squad." summary="You must have at least one Scout Squad.">
+    <test/>
+    <valid><![CDATA[if (tagcount[rgTagsG.Korvydae] = 0) then
+   @valid = 1
+   done
+else
+   if (tagcount[smTags.ScoutSqd] > 0) then
+      @valid = 1
+   else
+      @valid = 0
+   endif
+endif]]></valid>
+    </rule>
+  </document>

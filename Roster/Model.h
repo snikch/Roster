@@ -8,6 +8,7 @@
 
 #import <CoreData/CoreData.h>
 #import "Wargear.h"
+#import "Unit.h"
 #import "Option.h"
 
 @interface Model : NSManagedObject
@@ -15,6 +16,9 @@
 @property (strong) NSString *name;
 @property (strong) NSNumber *cost;
 @property (strong) NSNumber *included;
+@property (strong) NSNumber *max;
+@property (strong) NSNumber *available;
+@property (strong) Unit *unit;
 
 -(NSMutableArray*)wargear;
 -(void)addWargear:(Wargear*)wargear;

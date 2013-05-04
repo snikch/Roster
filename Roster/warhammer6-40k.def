@@ -1,0 +1,2700 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="definition.xsl" type="text/xsl"?>
+<document signature="Army Builder Definition">
+  <game game="Warhammer 40 000 6th Edition" publisher="Games Workshop" website="http://www.games-workshop.com" copyright="(c) Games Workshop" deflang="en" languages="en"/>
+  <author author="The AB40k Team" email="datafiles@ab40k.org" website="http://www.ab40k.org"/>
+  <release major="1" minor="17" required="3.2"><![CDATA[{macro color2}{b}Welcome to v1.17 of the Warhammer 40,000 6th Edition files for Army Builder 3.x{/b}{text 010101}
+
+{b}Important Disclaimer{/b}
+The data file you are about to open was created by volunteers, neither employed by nor affiliated with Lone Wolf Development, LLC.  The data file authors work without compensation and have made this data file available for non-commercial purposes only.  The data files are provided solely for the purposes of enhancing your enjoyment of Games Workshop's products, including but not limited to evaluation, educational purposes, and providing legitimate purchasers of the original copyrighted works with a less cumbersome means to play Warhammer, Warhammer 40k and other Games Workshop games.  No challenge to Games Workshop's copyrights is intended, and the authors have taken pains to include only so much of the game mechanics as will allow users of the Army Builder(R) Brand of roster creation software to create rosters more efficiently than they otherwise could when armed with paper, pencil and a pocket calculator.  You will not find game rules in these data files, and thus you will not be able to play Warhammer, Warhammer 40k and other Games Workshop games unless you have obtained the corresponding rule books.  If you do not legally own a copy of the appropriate rule book(s) you are instructed to discontinue your use of these data files and delete them immediately following your evaluation and/or critique of the game system.  These data files are not endorsed by Games Workshop.  Games Workshop trademarks as used herein refer to Games Workshop's products and no affiliation with Games Workshop is implied or should be assumed.  Your use of this data file is at your own risk and all warranties are explicitly disclaimed.  Clicking "OK" below indicates your acceptance of these terms.
+
+In this release: Bugfixes and corrections to continue the 6th edition datafile release.
+
+{b}New Users please note:{/b}
+Many sub lists have been incorporated into the main list - to use these (and change the scenario etc) you need to change the rulesets that apply to your roster (click the button with the clipboard, or "change rules" in the roster menu).
+
+Have fun,
+The AB40k Team
+
+{b}AB 40K Files 6th Edition Revision History:{/b}
+v1.00: 04 August 12: Initial 6th edition release.
+v1.01: 11 August 12: Updating files for 6th edition compliance.
+v1.02: 16 August 12: Updating files for 6th edition compliance.
+v1.03: 19 August 12: Updating files for 6th Edition compliance.
+v1.04: 23 August 12: Updating files for 6th Edition compliance.
+v1.05: 27 August 12: Updating files for 6th Edition compliance.
+v1.06: 12 September 12: Updating files for 6th Edition compliance.
+v1.06: 25 September 12: Updating files for 6th Edition compliance.
+v1.07:
+v1.08: 27 October 12: Updating files for 6E compliance. Addition of Codex Chaos Space Marines.
+v1.09: 28 October 12: Updating files for 6E compliance. Bugfixes and corrections for new Chaos Space Marines.
+v1.10: 14 November 12: Updating files for 6E compliance. Bugfixes and corrections for new Chaos Space Marines.
+v1.11: 21 November 12: Updating files for 6E compliance. Bugfixes and corrections for new Chaos Space Marines.
+v1.12: 28 November 12: Updating files for 6E compliance. Bugfixes and corrections for new Chaos Space Marines.
+v1.13: 12 February 13: Addition of Codex Dark Angels. Updating files for 6E compliance. Bugfixes and corrections.
+v1.14: 14 February 13: Updating files for 6E compliance. Bugfixes and corrections for new Dark Angels.
+v1.15: 18 February 13: Updating files for 6E compliance. Bugfixes and corrections for new Dark Angels.
+v1.16: 25 February 13: Updating files for 6E compliance. Bugfixes and corrections for new Dark Angels.
+v1.17: 8 April 13: Addition of Chaos Daemons, Imperial Armour 1 (second edition), Death from the Skies, Updates, bugfixes and corrections.]]>
+    <launch><![CDATA[{b}Welcome to the Warhammer 40,000 6th Edition data files!{/b}
+
+Please ensure you read the 40k file FAQ in relation to the forthcoming 'blank' files
+
+For more info on how to use the files please go to the address below or from within AB: Help > Visit Datafile Authors Website
+
+To contact us or for technical support for these files please go to http://www.ab40k.org or http://support.wolflair.com/index.php?name=MDForum&file=index
+
+Please remember that many sub-races, scenarios and other rule settings are accessible via the rules button (that's the one with the little clipboard on it).]]></launch>
+    </release>
+  <structure roster="roster" folder="AB40k6" prefix="40k" raceterm="army" unitterm="unit" itemterm="item" squadterm="squad" ptsplural="points" ptssingle="point" ptsabbrev="pts" squadname="40K unit" ldrname="Leader" ldrabbrev="Ldr" usesquads="yes"></structure>
+  <tools/>
+  <external learntip="Click here to learn more about what&apos;s shown in the image below."/>
+  <reference id="s_jetb" contents="Unit moves as a jetbike, as described on page 54 of the main rulebook."></reference>
+  <reference id="s_fast" contents="Vehicle is considered fast, as described in the main rulebook."></reference>
+  <reference id="s_infl" contents="Unit may infiltrate when allowed, as described on page 75 of the main rulebook."></reference>
+  <reference id="s_deep" contents="Unit may deploy via deep-strike when allowed, as described on page 84 of the rulebook."></reference>
+  <reference id="s_fear" contents="Unit is fearless as described in the main rulebook, as described in the main rulebook."></reference>
+  <reference id="s_mnst" contents="Unit follows the Monstrous Creature rules as described on page 55 of the main rulebook."></reference>
+  <reference id="s_counter" contents="The unit may counter attack as defined on page 74 of the rulebook."></reference>
+  <reference id="s_feel" contents="The unit may ignore some wounds as explained on page 74 of the rulebook."></reference>
+  <reference id="s_fleet" contents="The unit is fleet, as defined on page 74 of the rulebook."></reference>
+  <reference id="s_furious" contents="The unit has a ferocious charge, as explained on page 74 of the rulebook."></reference>
+  <reference id="s_hitrun" contents="The unit may hit and run, as explained on page 74 of the rulebook."></reference>
+  <reference id="s_mvcover" contents="The unit has little difficulty moving through difficulkt terrain, as explained on page 75 of the rulebook."></reference>
+  <reference id="s_night" contents="The unit has night vision (or acute senses) that allow it to detect targets from further away, as explained on page 75 of the rulebook."></reference>
+  <reference id="s_prefer" contents="There is an enemy that the unit is particularly good at fighting, see page 75 of the main rulebook."></reference>
+  <reference id="s_scouts" contents="The unit is always in the vanguard of the army (see page 75 of the main rulebook)."></reference>
+  <reference id="s_rider" contents="The members of the unit are skilled rider as defined on page 75 of the main rulebook."></reference>
+  <reference id="s_slow" contents="The unit is slow and purposeful, as defined on page 75 of the main rulebook."></reference>
+  <reference id="s_small" contents="The unit presents a small target, as defined on page 75 of the main rulebook."></reference>
+  <reference id="s_stealth" contents="The unit is stealthy as defined on page 75 of the main rulebook."></reference>
+  <reference id="s_stubbrn" contents="The unit is stubborn, as defined on page 75 of the main rulebook."></reference>
+  <reference id="s_swarm" contents="The unit is made up of swarms of critters (see page 75 of the main rulebook)."></reference>
+  <reference id="s_tankhun" contents="The unit is skilled at killing vehicles, as explained on page 76 of the main rulebook."></reference>
+  <reference id="s_truegri" contents="The unit benefits from &apos;True Grit&apos; as defined on page 76 of the main rulebook."></reference>
+  <reference id="s_turbo" contents="The unit can boost their speed as explained on page 76 of the rulebook."></reference>
+  <reference id="s_vuln" contents="The unit is vulnerable to area of effect weapons as explained on page 76 of the main rulebook."></reference>
+  <reference id="s_artille" contents="The rules for Artillery are laid out on page 56 of the main rulebook."></reference>
+  <reference id="s_cavalry" contents="The rules for Cavalry/Beasts are laid out on page 57 of the main rulebook."></reference>
+  <reference id="s_bikes" contents="The unit is mounted on bikes, using the rules on page 53 of the main rulebook."></reference>
+  <reference id="s_psyker" contents="The model is a psyker (see page 52 of the main rulebook)."></reference>
+  <reference id="s_indchar" contents="The model is an independent character, using the rules on pages 50-51 of the main rulebook."></reference>
+  <reference id="s_transpo" contents="The vehicle may carry other models (see page 62 of the main rulebook)."></reference>
+  <reference id="w_ordbar" contents="See page 31 of the main rulebook."></reference>
+  <reference id="w_ordnce" contents="See pages 29 &amp; 66 of the main rulebook."></reference>
+  <reference id="w_barrage" contents="The weapon fires over intervening terrain (see page 31 of the main rulebook)."></reference>
+  <reference id="w_blast" contents="The weapon uses the blast marker (see page 30 of the main rulebook)."></reference>
+  <reference id="w_hot" contents="The weapon can overheat (see page 30 of the main rulebook)"></reference>
+  <reference id="w_melta" contents="See page 31 of the main rulebook."></reference>
+  <reference id="w_templat" contents="The weapon uses the flamer template (see apge 31 of the main rulebook)."></reference>
+  <reference id="w_twin" contents="The weapon is twin linked (see page 30 of the main rulebook)."></reference>
+  <reference id="w_pinning" contents="the weapon can cause pinning (see 32 of the main rulebook)."></reference>
+  <reference id="w_rending" contents="The weapon can easily tear through armour (see page 32 of the main rulebook)."></reference>
+  <reference id="w_sniper" contents="The weapon is very accurate (see page 32 of the main rulebook)."></reference>
+  <reference id="w_lance" contents="The weapon is effective against vehicles (see page 32 of the main rulebook)."></reference>
+  <reference id="w_rapid" contents="The weapon uses the rapid fire rules as detailed on page 29 of the main rulebook."></reference>
+  <reference id="w_pistol" contents="This weapon uses the rules for pistols from page 29 of the main rulebook."></reference>
+  <reference id="w_assault" contents="This weapon uses the assault weapon rules from page 29 of the main rulebook."></reference>
+  <reference id="w_heavy" contents="This weapon follws the rules for heavy weapons as detailed on page 29 of the main rulebook."></reference>
+  <reference id="s_opentop" contents="Vehicle has an opened top, which makes it more vulnerible.  See page 59 of the main rule book."></reference>
+  <reference id="s_tank" contents="Vehicle is a tank, which allows it to make tank shock attacks.  See page 60 of the main rule book."></reference>
+  <reference id="s_walker" contents="Vehicle is a Walker.  See page 60, and 72 of main rule book."></reference>
+  <reference id="c_HQ" contents="Headquarters"></reference>
+  <reference id="c_Elite" contents="Elite"></reference>
+  <reference id="c_Fast" contents="Fast Attack"></reference>
+  <reference id="c_Troops" contents="Troops"></reference>
+  <reference id="s_jump" contents="Unit moves as if with Jump Packs, as described on page 55 of the main rulebook."></reference>
+  <reference id="c_Heavy" contents="Heavy Support"></reference>
+  <reference id="c_SpHeavy" contents="Super-Heavy"></reference>
+  <reference id="c_Advisor" contents="Advisor"></reference>
+  <reference id="s_skimmer" contents="Vehicle is a skimmer, as described on pg 61 the main rulebook."></reference>
+  <reference id="c_Form" contents="Formation"></reference>
+  <reference id="c_Legend" contents="Legendary Units"></reference>
+  <reference id="c_Other" contents="Other Units"></reference>
+  <reference id="c_Asset" contents="Asset"></reference>
+  <reference id="c_Strat" contents="Strategems"></reference>
+  <reference id="c_Fort" contents="Fortification"></reference>
+  <macro id="s_psyker" contents="{ref s_psyker}Psyker{ref}"></macro>
+  <macro id="s_indchar" contents="{ref s_indchar}Independent Character{ref}"></macro>
+  <macro id="s_transpo" contents="{ref s_transpo}Transport Vehicle{ref}"></macro>
+  <macro id="s_jetb" contents="{ref s_jetb}Jetbikes{ref}"></macro>
+  <macro id="s_fast" contents="{ref s_fast}Fast Vehicle{ref}"></macro>
+  <macro id="s_infl" contents="{ref s_infl}Infiltrate{ref}"></macro>
+  <macro id="s_fear" contents="{ref s_fear}Fearless{ref}"></macro>
+  <macro id="s_deep" contents="{ref s_deep}Deep Strike{ref}"></macro>
+  <macro id="s_mnst" contents="{ref s_mnst}Monstrous Creature{ref}"></macro>
+  <macro id="n_HQ" contents="{ref c_HQ}{bmp HQ}{ref}"></macro>
+  <macro id="n_Elite" contents="{ref c_Elite}{bmp Elite}{ref}"></macro>
+  <macro id="n_Troop" contents="{ref c_Troops}{bmp Troops}{ref}"></macro>
+  <macro id="n_Fast" contents="{ref c_Fast}{bmp Fast}{ref}"></macro>
+  <macro id="n_Heavy" contents="{ref c_Heavy}{bmp Heavy}{ref}"></macro>
+  <macro id="s_jump" contents="{ref s_jump}Jump Packs{ref}"></macro>
+  <macro id="w_blast" contents="{ref w_blast}Blast{ref}"></macro>
+  <macro id="w_hot" contents="{ref w_hot}Gets hot!{ref}"></macro>
+  <macro id="w_twin" contents="{ref w_twin}Twin Linked{ref}"></macro>
+  <macro id="w_melta" contents="{ref w_melta}Melta{ref}"></macro>
+  <macro id="w_templat" contents="{ref w_templat}Template{ref}"></macro>
+  <macro id="w_barrage" contents="{ref w_barrage}Barrage{ref}"></macro>
+  <macro id="w_ordbar" contents="{ref w_ordbar}Ordnance Barrage{ref}"></macro>
+  <macro id="w_ordnce" contents="{ref w_ordnce}Ordnace{ref}"></macro>
+  <macro id="w_pinning" contents="{ref w_pinning}Pinning{ref}"></macro>
+  <macro id="w_sniper" contents="{ref w_sniper}Sniper{ref}"></macro>
+  <macro id="w_rending" contents="{ref w_rending}Rending{ref}"></macro>
+  <macro id="w_lance" contents="{ref w_lance}Lance{ref}"></macro>
+  <macro id="s_counter" contents="{ref s_counter}Counter Attack{ref}"></macro>
+  <macro id="w_rapid" contents="{ref w_rapid}Rapid Fire{ref}"></macro>
+  <macro id="s_feel" contents="{ref s_feel}Feel no pain{ref}"></macro>
+  <macro id="s_fleet" contents="{ref s_fleet}Fleet{ref}"></macro>
+  <macro id="s_furious" contents="{ref s_furious}Furious Charge{ref}"></macro>
+  <macro id="w_pistol" contents="{ref w_pistol}Pistol{ref}"></macro>
+  <macro id="w_assault" contents="{ref w_assault}Assault{ref}"></macro>
+  <macro id="w_heavy" contents="{ref w_heavy}Heavy{ref}"></macro>
+  <macro id="s_opentop" contents="{ref s_opentop}Open Topped{ref}"></macro>
+  <macro id="s_walker" contents="{ref s_walker}Walker{ref}"></macro>
+  <macro id="s_hitrun" contents="{ref s_hitrun}Hit &amp; Run{ref}"></macro>
+  <macro id="s_mvcover" contents="{ref s_mvcover}Move through cover{ref}"></macro>
+  <macro id="s_night" contents="{ref s_night}Night vision/Acute senses{ref}"></macro>
+  <macro id="s_prefer" contents="{ref s_prefer}Prefered Enemy{ref}"></macro>
+  <macro id="s_scouts" contents="{ref s_scouts}Scouts{ref}"></macro>
+  <macro id="s_rider" contents="{ref s_rider}Skilled Riders{ref}"></macro>
+  <macro id="n_SprHvy" contents="{ref c_SpHeavy}{bmp superheavy}{ref}"></macro>
+  <macro id="s_slow" contents="{ref s_slow}Slow and purposeful{ref}"></macro>
+  <macro id="s_small" contents="{ref s_small}Small target{ref}"></macro>
+  <macro id="n_Advisor" contents="{ref c_Advisor}{bmp Blank}{ref}"></macro>
+  <macro id="s_stealth" contents="{ref s_stealth}Stealth{ref}"></macro>
+  <macro id="s_stubbrn" contents="{ref s_stubborn}Stubborn{ref}"></macro>
+  <macro id="s_skimmer" contents="{ref s_skimmer}Skimmer{ref}"></macro>
+  <macro id="s_swarm" contents="{ref s_swarm}Swarms{ref}"></macro>
+  <macro id="c_Form" contents="{ref c_Form}Formation{ref}"></macro>
+  <macro id="s_tankhun" contents="{ref s_tankhun}Tankhunters{ref}"></macro>
+  <macro id="c_Legend" contents="{ref c_Legend}Legendary Units{ref}"></macro>
+  <macro id="s_truegri" contents="{ref s_truegri}True Grit{ref}"></macro>
+  <macro id="c_Other" contents="{ref c_Other}Other Units{ref}"></macro>
+  <macro id="s_turbo" contents="{ref s_turbo}Turbo Booster{ref}"></macro>
+  <macro id="c_Asset" contents="{ref c_Asset}Asset{ref}"></macro>
+  <macro id="s_vuln" contents="{ref s_vuln}Vulnerable to blasts/templates{ref}"></macro>
+  <macro id="c_Strat" contents="{ref c_Strat}Strategems{ref}"></macro>
+  <macro id="s_artille" contents="{ref s_artille}Artillery{ref}"></macro>
+  <macro id="s_every" contents="{ref s_every}{b}Every Man for Himself{/b}{ref}"></macro>
+  <macro id="s_duel" contents="{ref s_duel}{b}Duel to the Death{/b}{ref}"></macro>
+  <macro id="s_instant" contents="{ref s_instant}{b}Instant Victory{/b}{ref}"></macro>
+  <macro id="s_CQA_A" contents="{ref s_CQA_A}{b}No Outflanking{/b}{ref}"></macro>
+  <macro id="s_CQA_D" contents="{ref s_CQA_D}{b}Defensive Fire{/b}{ref}"></macro>
+  <macro id="color2" contents="{text custom2}" terminate="no"></macro>
+  <macro id="color1" contents="{text custom1}" terminate="no"></macro>
+  <macro id="color3" contents="{text custom3}" terminate="no"></macro>
+  <macro id="color4" contents="{text custom4}" terminate="no"></macro>
+  <macro id="color5" contents="{text custom5}" terminate="no"></macro>
+  <macro id="color6" contents="{text custom6}" terminate="no"></macro>
+  <macro id="s_cavalry" contents="{ref s_cavalry}Cavalry{ref}"></macro>
+  <macro id="n_Fort" contents="{ref c_Fort}{bmp Fort}{ref}"></macro>
+  <macro id="s_bikes" contents="{ref s_bikes}Bikers{ref}"></macro>
+  <group id="WS" width="5" name="Stat - Weapons Skill" heading="WS" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="BS" width="5" name="Stat - BS" heading="BS" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="St" width="5" name="Stat - Strength" heading="S" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="To" width="5" name="Stat - Toughness" heading="T" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Wo" width="5" name="Stat - Wounds" heading="Wo" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="In" width="5" name="Stat - Initiative" heading="I" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="At" width="5" name="Stat - Attacks" heading="A" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Ld" width="5" name="Stat - Leadership" heading="Ld" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Save" width="5" name="Stat - Armour Save" heading="Save" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Front" width="5" name="Stat - Front Armour" heading="Front" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Side" width="5" name="Stat - Side Armour" heading="Side" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="statAdj" width="5" name="RST - Stat adj">
+    <value id="BSM1" name="decrease BS by 1"/>
+    <value id="BSM2" name="decrease BS by 2"/>
+    <value id="BSM3" name="decrease BS by 3"/>
+    <value id="BSP1" name="add 1 to BS"/>
+    <value id="BSP2" name="add 2 to BS"/>
+    <value id="BSP3" name="add 3 to BS"/>
+    <value id="WSM1" name="decrease WS by 1"/>
+    <value id="WSM2" name="decrease WS by 2"/>
+    <value id="WSM3" name="decrease WS by 3"/>
+    <value id="WSP1" name="add 1 to WS"/>
+    <value id="WSP2" name="add 2 to WS"/>
+    <value id="WSP3" name="add 3 to WS"/>
+    <value id="addCCW" name="add a CCW attack"/>
+    <value id="baseAtM1" name="decrease base At by 1"/>
+    <value id="baseAtM2" name="decrease base At by 2"/>
+    <value id="baseAtM3" name="decrease base At by 3"/>
+    <value id="baseAtP1" name="increase base At by 1"/>
+    <value id="baseAtP2" name="increase base At by 2"/>
+    <value id="baseAtP3" name="increase base At by 3"/>
+    <value id="baseBSM1" name="decrease base BS by 1"/>
+    <value id="baseBSM2" name="decrease base BS by 2"/>
+    <value id="baseBSM3" name="decrease base BS by 3"/>
+    <value id="baseBSP1" name="increase base BS by 1"/>
+    <value id="baseBSP2" name="increase base BS by 2"/>
+    <value id="baseBSP3" name="increase base BS by 3"/>
+    <value id="baseInM1" name="decrease base In by 1"/>
+    <value id="baseInM2" name="decrease base In by 2"/>
+    <value id="baseInM3" name="decrease base In by 3"/>
+    <value id="baseInP1" name="increase base In by 1"/>
+    <value id="baseInP2" name="increase base In by 2"/>
+    <value id="baseInP3" name="increase base In by 3"/>
+    <value id="baseLdM1" name="decrease base Ld by 1"/>
+    <value id="baseLdM2" name="decrease base Ld by 2"/>
+    <value id="baseLdM3" name="decrease base Ld by 3"/>
+    <value id="baseLdP1" name="increase base Ld by 1"/>
+    <value id="baseLdP2" name="increase base Ld by 2"/>
+    <value id="baseLdP3" name="increase base Ld by 3"/>
+    <value id="baseStM1" name="decrease base St by 1"/>
+    <value id="baseStM2" name="decrease base St by 2"/>
+    <value id="baseStM3" name="decrease base St by 3"/>
+    <value id="baseStP1" name="increase base St by 1"/>
+    <value id="baseStP2" name="increase base St by 2"/>
+    <value id="baseStP3" name="increase base St by 3"/>
+    <value id="baseWSM1" name="decrease base WS by 1"/>
+    <value id="baseWSM2" name="decrease base WS by 2"/>
+    <value id="baseWSM3" name="decrease base WS by 3"/>
+    <value id="baseWSP1" name="increase base WS by 1"/>
+    <value id="baseWSP2" name="increase base WS by 2"/>
+    <value id="baseWSP3" name="increase base WS by 3"/>
+    <value id="baseWoM1" name="decrease base Wo by 1"/>
+    <value id="baseWoM2" name="decrease base Wo by 2"/>
+    <value id="baseWoM3" name="decrease base Wo by 3"/>
+    <value id="baseWoP1" name="increase base Wo by 1"/>
+    <value id="baseWoP2" name="increase base Wo by 2"/>
+    <value id="baseWoP3" name="increase base Wo by 3"/>
+    <value id="chainF" name="chain fist"/>
+    <value id="forceW" name="force weapon"/>
+    <value id="gnSkill" name="skill counter"/>
+    <value id="gn6_SpecWp" name="Specialist Weapon"/>
+    <value id="gn6_melee" name="Melee weapon"/>
+    <value id="gn6_pistol" name="Pistol"/>
+    <value id="gn6_spcwpn" name="Specialist Weapon"/>
+    <value id="init1" name="initiative 1"/>
+    <value id="inv2" name="invunerable save 2"/>
+    <value id="inv3" name="invunerable save 3"/>
+    <value id="inv4" name="invunerable save 4"/>
+    <value id="inv5" name="invunerable save 5"/>
+    <value id="inv6" name="invunerable save 6"/>
+    <value id="lightC" name="lightning claw"/>
+    <value id="minusStr1" name="-1 strength"/>
+    <value id="minusStr2" name="-2 strength"/>
+    <value id="minusStr3" name="-3 strength"/>
+    <value id="plusAtk1" name="plus 1 attack"/>
+    <value id="plusAtk2" name="plus two attacks"/>
+    <value id="plusHP1" name="+1 HP"/>
+    <value id="plusHP2" name="+2 HP"/>
+    <value id="plusIni1" name="+1 Initiative"/>
+    <value id="plusIni2" name="+2 Initiative"/>
+    <value id="plusStr1" name="+1 strength"/>
+    <value id="plusStr2" name="+2 strength"/>
+    <value id="plusStr3" name="+3 strength"/>
+    <value id="poisonW" name="poisoned weapon"/>
+    <value id="powerF" name="powerFist"/>
+    <value id="powerW" name="power weapon"/>
+    <value id="rendingW" name="rending weapon"/>
+    <value id="runStatAdj" name="run the statAdj script"/>
+    <value id="save2" name="save 2"/>
+    <value id="save3" name="save 3"/>
+    <value id="save4" name="save 4"/>
+    <value id="save5" name="save 5"/>
+    <value id="save6" name="save 6"/>
+    <value id="specialWpn" name="special weapon"/>
+    <value id="str1" name="strength 1"/>
+    <value id="thunderH" name="thunder hammer"/>
+    <value id="toElite" name="change to elite"/>
+    <value id="toFast" name="change to fast attack"/>
+    <value id="toHQ" name="change to HQ"/>
+    <value id="toHeavy" name="change to heavy"/>
+    <value id="toNone" name="change to no group"/>
+    <value id="toTroop" name="change to troop"/>
+    <value id="witchB" name="witch blade"/>
+    <value id="xStr2" name="x2 strength"/>
+    <value id="xStr3" name="x3 strength"/>
+    </group>
+  <group id="gnAcc" width="5" name="RST - General acc" accrue="yes">
+    <value id="chFortRed" name="child of Fortress of Redemption"/>
+    <value id="gnAPForm" name="apocalypse formation"/>
+    <value id="gnCap10" name="capacity 10"/>
+    <value id="gnCap12" name="capacity 12"/>
+    <value id="gnCap15" name="capacity 15"/>
+    <value id="gnCap16" name="capacity 16"/>
+    <value id="gnCap20" name="capacity 20"/>
+    <value id="gnCap5" name="capacity 5"/>
+    <value id="gnCap6" name="capacity 6"/>
+    <value id="gnCap7" name="capacity 7"/>
+    <value id="gnCap8" name="capacity 8"/>
+    <value id="gnCap9" name="capacity 9"/>
+    <value id="gnLdr" name="squad leader"/>
+    <value id="gnLdrOK" name="unit allowed squad leader"/>
+    <value id="gnNameChar"/>
+    <value id="gnNonHQ" name="Non-compulsory HQ unit"/>
+    <value id="gnNonTroop" name="Non-compulsory Troop unit"/>
+    <value id="gnPsyPower" name="has a psychic power"/>
+    <value id="gnRAW_ST" name="RAW Strength Adjustment"/>
+    <value id="gnTpt" name="is a transport"/>
+    <value id="gnTptHvy" name="is a heavy choice and transport"/>
+    <value id="gnTptOk" name="unit allowed transport"/>
+    <value id="gn6_Bike" name="has Space Marine Bike"/>
+    <value id="gn6_JumpP" name="has Jump Pack"/>
+    <value id="gn6_PsyCod"/>
+    <value id="gn6_Psy6E"/>
+    <value id="gn6_Walker" name="Walker"/>
+    <value id="gn6_spcwpn" name="Specialist Weapon"/>
+    <value id="isMount" name="unit is a mount"/>
+    <value id="is_FlyAce" name="Flyer Ace"/>
+    <value id="is_Psyker" name="is a psyker"/>
+    <value id="is_Warlord" name="is Warlord"/>
+    <value id="noCount" name="do not include in model count statcalc"/>
+    <value id="noNamed" name="do not allow named characters"/>
+    <value id="noTptCap" name="ignore for transport capacity limits"/>
+    <value id="noWarlord" name="unit may not be a Warlord"/>
+    <value id="no_FlyAce" name="no Flyer Ace"/>
+    <value id="no_Psyker" name="no general Psychic optiosn"/>
+    <value id="showBiom" name="Show Biomancy Psychic Powers"/>
+    <value id="showCSM" name="Show Chaos Space Marine Traits"/>
+    <value id="showCmnd" name="Show Command Traits"/>
+    <value id="showDA" name="Show Dark Angel Traits"/>
+    <value id="showDivin" name="Show Diviniation Psychic Powers"/>
+    <value id="showHvyBlt" name="show Heavy Bolter"/>
+    <value id="showIcarus" name="Icarus LC"/>
+    <value id="showKStorm" name="show Krakstorm Missile"/>
+    <value id="showNurgle" name="Show Nurgle Psychic Powers"/>
+    <value id="showPers" name="Show Personal Traits"/>
+    <value id="showPyro" name="Show Pyromancy Psychic Powers"/>
+    <value id="showQuadG" name="show Quad-gun"/>
+    <value id="showSlaane" name="Show Slaanesh Psychic Powers"/>
+    <value id="showStrat" name="Show Strategic Traits"/>
+    <value id="showTelek" name="Show Telekinesis Psychic Powers"/>
+    <value id="showTelep" name="Show Telepathic Psychic Powers"/>
+    <value id="showTraits" name="Show All Traits"/>
+    <value id="showTzeent" name="Show Tzeentch Psychic Powers"/>
+    </group>
+  <group id="filter" width="5" name="RST - Filters">
+    <value id="advisors" name="advisors etc"/>
+    <value id="generic" name="generic units"/>
+    <value id="invalid" name="invalid unit in current ruleset"/>
+    <value id="vdr" name="vdr units"/>
+    </group>
+  <group id="Rear" width="5" name="Stat - Rear Armour" heading="Rear" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Transport" width="5" name="Stat - Transport cap" heading="Trans" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes">
+    <value id="Blank"/>
+    </group>
+  <group id="Internal" width="12" name="RST - Internals" visible="no" duplicates="yes" dynamic="yes" global="yes">
+    <value id="allycd"/>
+    <value id="allychA"/>
+    <value id="imperials"/>
+    <value id="specchars"/>
+    </group>
+  <group id="AlterComp" width="5" name="RST - Alter group" visible="no" duplicates="yes" filter="no" dynamic="yes" global="yes">
+    <value id="EliteUM1"/>
+    <value id="FastUM1"/>
+    <value id="FastUM2"/>
+    <value id="FastUP1"/>
+    <value id="HQLM1"/>
+    <value id="HeavyUM1"/>
+    <value id="HeavyUM2"/>
+    <value id="HeavyUP1"/>
+    <value id="TroopUP1"/>
+    </group>
+  <group id="gnSkills" width="5" name="RST - Skills" visible="no" filter="no">
+    <value id="gnAS" name="acute senses"/>
+    <value id="gnATSKNF" name="and they shall know no fear"/>
+    <value id="gnCA" name="counter attack"/>
+    <value id="gnEW" name="eternal warrior"/>
+    <value id="gnF" name="fearless"/>
+    <value id="gnFC" name="furious charge"/>
+    <value id="gnFNP" name="feel no pain"/>
+    <value id="gnFl" name="fleet"/>
+    <value id="gnHR" name="hit &amp; run"/>
+    <value id="gnI" name="infiltrate"/>
+    <value id="gnMTC" name="move through cover"/>
+    <value id="gnNV" name="night vision"/>
+    <value id="gnPE" name="preferred enemy"/>
+    <value id="gn6_Rage" name="rage"/>
+    <value id="gn6_Relent" name="relentless"/>
+    <value id="gnS" name="scouts"/>
+    <value id="gnSAP" name="slow and purpouseful"/>
+    <value id="gnSR" name="skilled rider"/>
+    <value id="gnST" name="small targets"/>
+    <value id="gnSt" name="stealth"/>
+    <value id="gnStu" name="stubborn"/>
+    <value id="gnSwa" name="swarms"/>
+    <value id="gnTB" name="turbo-boosters"/>
+    <value id="gnTG" name="true grit"/>
+    <value id="gn6_TH" name="tank hunters"/>
+    <value id="gnVTB" name="vulnerable to blast"/>
+    </group>
+  <group id="UnitTags" width="12" name="RST - Unit Tags" visible="no" duplicates="yes" dynamic="yes">
+    <value id="ATasStar" name="Use an Asterisk in At"/>
+    <value id="AtasDash" name="Use a Dash in At"/>
+    <value id="BSasDash" name="Use a Dash in BS"/>
+    <value id="InasDash" name="Use a Dash in In"/>
+    <value id="LDasDash" name="Use a Dash in Ld"/>
+    <value id="StasDash" name="Use a Dash in St"/>
+    <value id="StasX" name="Strength as X"/>
+    <value id="WSasDash" name="Use a Dash in WS"/>
+    <value id="artillery" name="Unit Type: Artillery"/>
+    <value id="beasts" name="Unit Type: Beasts"/>
+    <value id="bikes" name="Unit Type: Bikes"/>
+    <value id="cavalry" name="Unit Type: Cavalry"/>
+    <value id="character" name="Character"/>
+    <value id="dummy"/>
+    <value id="ejetbike" name="Unit Type: Eldar Jetbike"/>
+    <value id="fast" name="Vehicle Type: Fast"/>
+    <value id="fastopen" name="Vehicle Type: Fast, Open-topped"/>
+    <value id="flyer" name="Vehicle Type: Flyer"/>
+    <value id="flyerhov" name="Vehicle Type: Flyer w/Hover mode"/>
+    <value id="flymonster" name="Unit Type: Flying Monsterous creature"/>
+    <value id="gn6_PsyCod" name="Codex Psychic Powers"/>
+    <value id="gn6_Psy6E" name="6E Rulebook Psychic Powers"/>
+    <value id="infantry" name="Unit Type: Infantry"/>
+    <value id="infjetpack" name="Unit Type: Infantry (Jetpack)"/>
+    <value id="jetbike" name="Unit Type: Jetbikes"/>
+    <value id="jetmonster" name="Unit Type: Jet Pack Monsterous Creature"/>
+    <value id="jetpack" name="Unit Type: Jetpack units"/>
+    <value id="jetpackinf"/>
+    <value id="jumpmonste" name="Unit Type: Jump Monstrous Creature"/>
+    <value id="jumpunits" name="Unit Type: Jump Units"/>
+    <value id="monsterous" name="Unit Type: Monsterous Creature"/>
+    <value id="opentop" name="Vehicle Type: Open-Topped"/>
+    <value id="plusD3" name="+ D3 attacks"/>
+    <value id="plusD6" name="+ D6 attacks"/>
+    <value id="plus1astAt" name="adds one asterisk to Attacks"/>
+    <value id="plus1att" name="+1 attack"/>
+    <value id="plus2astAt" name="adds two asterisks to Attacks"/>
+    <value id="plus2astSt" name="adds two asterisks to Strength"/>
+    <value id="plus2attE" name="adds +2 attacks only at end"/>
+    <value id="plus3att" name="+3 Attacks"/>
+    <value id="skimmer" name="Vehicle Type: Skimmer"/>
+    <value id="skimtank" name="Vehicle Type: Skimmer Tank"/>
+    <value id="suphvyfly" name="Vehicle Type: Superheavy Flyer"/>
+    <value id="suphvytank" name="Vehicle Type: Superheavy Tank"/>
+    <value id="suphvywalk" name="Vehicle Type: Superheavy Walker"/>
+    <value id="tank" name="Vehicle Type: Tank"/>
+    <value id="transport" name="Vehicle Type: Transport"/>
+    <value id="walker" name="Vehicle Type: Walker"/>
+    <value id="warlord" name="Warlord"/>
+    <value id="wsD3" name="D3 WS"/>
+    <value id="3Str" name="3 digit strength display"/>
+    <value id="3attackSt" name="3 digit stat for attacks"/>
+    </group>
+  <group id="entity" width="8" name="Stat - Nature" visible="no" mincount="1" alignment="center">
+    <value id="item" name="Wargear"/>
+    <value id="unit" name="Unit"/>
+    </group>
+  <group id="HP" width="5" name="Stat - Hull Points" heading="HP" duplicates="yes" maxcount="1" sequence="textvalue" alignment="center" dynamic="yes"></group>
+  <group id="Group" width="5" name="RST - Group" heading="Grp" maxcount="1" sequence="explicit" alignment="center" default="Troop">
+    <value id="Advisor" name="{macro n_Advisor}" order="2"/>
+    <value id="Assets" name="{macro c_Asset}" order="8"/>
+    <value id="Elite" name="{macro n_Elite}" order="2"/>
+    <value id="Fast" name="{macro n_Fast}" order="4"/>
+    <value id="Formation" name="{macro c_Form}" order="8"/>
+    <value id="Fort" name="{macro n_Fort}" order="6"/>
+    <value id="HQ" name="{macro n_HQ}" order="1"/>
+    <value id="Heavy" name="{macro n_Heavy}" order="5"/>
+    <value id="Legend" name="{macro c_Legend}" order="8"/>
+    <value id="None" heading="-" abbrev="-"/>
+    <value id="Strategems" name="{macro c_Strat}" order="8"/>
+    <value id="SuperHeavy" name="{macro n_SprHvy}" order="7"/>
+    <value id="Troop" name="{macro n_Troop}" order="3"/>
+    </group>
+  <group id="limited" width="5" name="RST - Limits">
+    <value id="limitI1" name="limit of one item per roster"/>
+    <value id="limitI2" name="limit of two items per roster"/>
+    <value id="limitI3" name="limit of three items per roster"/>
+    <value id="limitI4" name="limit of four items per roster"/>
+    <value id="limitI5" name="limit of five items per roster"/>
+    <value id="limit1" name="limit of one unit per roster"/>
+    <value id="limit2" name="limit of two units per roster"/>
+    <value id="limit3" name="limit of three units per roster"/>
+    <value id="limit4" name="limit of four units per roster"/>
+    <value id="limit5" name="limit of five units per roster"/>
+    <value id="rstr1000" name="1000 point limit"/>
+    <value id="rstr1500" name="1500 point limit"/>
+    <value id="rstr2000" name="2000 point limit"/>
+    <value id="unique" name="Unique entity"/>
+    </group>
+  <group id="gnAllyGrp" width="5" name="Allied Group" accrue="yes">
+    <value id="gnAllyElit"/>
+    <value id="gnAllyFast"/>
+    <value id="gnAllyHQ"/>
+    <value id="gnAllyHvy"/>
+    <value id="gnAllyTrp" name="Allied Troop"/>
+    <value id="gnFreeHQ"/>
+    </group>
+  <ruleset id="sc_normal" name="Normal Mission" description="Standard minimum troop choices" default="yes">
+    <legality>!ruleset.ro_PS</legality>
+    </ruleset>
+  <ruleset id="ro_GenUnit" name="Generic Unit" description="Allows a blank unit to be added to a roster"></ruleset>
+  <ruleset id="ro_NCM" name="Non-Codex Materials" description="Units that are from a Non-Codex Source (WD, GW website, trial or non-updated for 5th edition source)."></ruleset>
+  <ruleset id="ro_norules" name="Hide Race Rules" description="Hide/show race special rules"></ruleset>
+  <ruleset id="ro_COD" name="Cities of Death" description="Allows strategems from Cities of Death."></ruleset>
+  <ruleset id="ro_CompOut" name="Competition Output" description="Streamlines output for competition lists, make sure to deselect Settings... Roster Construction Settings... Display Squad Titles"></ruleset>
+  <ruleset id="ro_BM" name="Battle Missions" description="Allows Special Missions from Battle Missions."></ruleset>
+  <ruleset id="sc_KillT" name="Battle Missions - Kill Team" description="Kill Teams from Battle Missions.">
+    <legality>ruleset.ro_BM</legality>
+    <outputnote index="0" text="{macro s_every}: Each model acts independently and may split its fire and attacks (BM, pp. 90-91).">
+      <legality>ruleset.sc_KillT</legality>
+      </outputnote>
+    </ruleset>
+  <ruleset id="ro_4th" name="4th Edition" description="4th Edition Rules" type="base"></ruleset>
+  <ruleset id="sc_Heroes" name="Battle Missions - Clash of Heroes" description="Clash of Heroes from Battle Missions.">
+    <legality>ruleset.ro_BM</legality>
+    <outputnote index="0" text="{macro s_instant}: If a Named Character is killed, the opponent instantly wins (BM, pp. 94-95).">
+      <legality>ruleset.sc_Heroes</legality>
+      </outputnote>
+    <outputnote index="1" text="{macro s_duel}: A Named Character&apos;s last wound may only be taken by the opposing Named Character (BM, pp. 94-95).">
+      <legality>ruleset.sc_Heroes</legality>
+      </outputnote>
+    </ruleset>
+  <ruleset id="ro_spec" name="Named or Special Characters" description="Shows / hides Named or Special Characters" default="yes">
+    <entityhide><![CDATA[gnAcc.gnNameChar & !gnAcc.gnNameChar]]></entityhide>
+    </ruleset>
+  <ruleset id="sc_CQA_A" name="Battle Missions - Close Quarters Action - Attacker" description="Close Quarters Action from Battle Missions (M750433).">
+    <legality>ruleset.ro_BM</legality>
+    <outputnote index="0" text="Attackers force must be 50% larger than the Defenders force.">
+      <legality>ruleset.sc_CQA_A</legality>
+      </outputnote>
+    <outputnote index="1" text="{macro s_CQA_A}: Attackers may not Outflank (BM, M750433).">
+      <legality>ruleset.sc_CQA_A</legality>
+      </outputnote>
+    <outputnote index="2" text="{macro s_CQA_D}: Defender and Attacker exchange Shooting Phases (BM, M750433).">
+      <legality>ruleset.sc_CQA_A</legality>
+      </outputnote>
+    </ruleset>
+  <ruleset id="sc_CQA_D" name="Battle Missions - Close Quarters Action - Defender" description="Close Quarters Action from Battle Missions (M750433).">
+    <legality>ruleset.ro_BM</legality>
+    <outputnote index="0" text="Defenders force must be 2/3 the size of the Attackers force.">
+      <legality>ruleset.sc_CQA_D</legality>
+      </outputnote>
+    <outputnote index="1" text="{macro s_CQA_D}: Defender and Attacker exchange Shooting Phases (BM, M750433).">
+      <legality>ruleset.sc_CQA_D</legality>
+      </outputnote>
+    <outputnote index="2" text="{macro s_CQA_A}: Attackers may not Outflank (BM, M750433).">
+      <legality>ruleset.sc_CQA_D</legality>
+      </outputnote>
+    </ruleset>
+  <ruleset id="ro_dwatch" name="Deathwatch" description="Adds Deathwatch Kill Team and Deathwatch Veteran Upgrades."></ruleset>
+  <ruleset id="ro_Apoc" name="Apocalypse" description="Allows datafaxes and strategems from Apocalypse."></ruleset>
+  <ruleset id="ro_SpHd" name="Spearhead" description="Allows Spearheads (WD365, pp. xx-yy &amp; GW Website)."></ruleset>
+  <ruleset id="sc_ia9_BA" name="Boarding Assault Mission" description="Savage Boarding Assault with command of a vital area of a star vessel in combat at stake.">
+    <legality>ruleset.ro_NCM</legality>
+    </ruleset>
+  <ruleset id="sc_ia9_BVA" name="Blood in the Void - Attacker" description="Defending force for Space Boarding Actions.">
+    <legality><![CDATA[ruleset.ro_NCM & !ruleset.ro_PS]]></legality>
+    </ruleset>
+  <ruleset id="sc_ia9_BVD" name="Blood in the Void - Defender" description="Defending force for Space Boarding Actions.">
+    <legality><![CDATA[ruleset.ro_NCM & !ruleset.ro_PS]]></legality>
+    </ruleset>
+  <ruleset id="ro_camp" name="Campaign Skills" description="Shows / hides campaign skills for units"></ruleset>
+  <ruleset id="sc_BattleA" name="Planetstrike - Attacker" description="Attacking force in Planetstrike Missions.">
+    <legality>ruleset.ro_PS</legality>
+    </ruleset>
+  <ruleset id="sc_BattleD" name="Planetstrike - Defender" description="Defending force in Planetstrike Missions.">
+    <legality>ruleset.ro_PS</legality>
+    </ruleset>
+  <ruleset id="sc_Patrol" name="School League / Patrol Clash" description="School League, for small clashes between patrols.">
+    <legality>!ruleset.ro_PS</legality>
+    </ruleset>
+  <ruleset id="ro_ApocDA" name="Trusted and Distrusted Allies" description="Allow trusted and distrusted allies (p198)">
+    <legality>ruleset.ro_Apoc</legality>
+    </ruleset>
+  <ruleset id="ro_ApocHE" name="Trusted, Distrusted and Hated Enemy Allies" description="Allow trusted, distrusted and hated enemy allies (p198)">
+    <legality>ruleset.ro_Apoc</legality>
+    </ruleset>
+  <ruleset id="ro_ApocTA" name="Trusted Allies only" description="Only allow trusted allies (p198)" default="yes">
+    <legality>ruleset.ro_Apoc</legality>
+    </ruleset>
+  <ruleset id="ro_ImpArm" name="Imperial Armour" description="Allows options from the Imperial Armour books."></ruleset>
+  <ruleset id="gnVersion" name="1.17 For Bug Reports/www.ab40k.org" description="File Version: 1.17 For Bug Reports/www.ab40k.org" default="yes"></ruleset>
+  <ruleset id="ro_bFormat" name="for AB 3.2" description="Corrects options display for new AB version." type="core" default="yes"></ruleset>
+  <ruleset id="ro_PS" name="Planetstrike" description="Allows terrain and strategems from Planetstrike."></ruleset>
+  <ruleset id="ro_AllyAoC" name="Allies of Convenience" description="Level of Alliance - Allies of Convenience."></ruleset>
+  <ruleset id="ro_AllyBB" name="Battle Brothers" description="Level of Alliance - Battle Brothers." default="yes"></ruleset>
+  <ruleset id="ro_AllyCtA" name="Come the Apocalpyse" description="Level of Alliance - Come the Apocalpyse."></ruleset>
+  <ruleset id="ro_AllyDA" name="Desperate Allies" description="Level of Alliance - Desperate Allies."></ruleset>
+  <ruleset id="ro_2ndPrim" name="Second Primary Detachment" description="At 2000 points and higher, doubles FOC slots and allows a 2nd Allied Detachment."></ruleset>
+  <ruleset id="ro_2ndAlly" name="Second Allied Detachment" description="At 2000 points and higher, allows a 2nd Allied Detachment.">
+    <legality>ruleset.ro_2ndPrim</legality>
+    </ruleset>
+  <context id="format" name="d-1. Formatting" type="any">
+    <set id="ro_CompOut"/>
+    </context>
+  <context id="apocAlly" name="b-3. Apocalypse Allies">
+    <set id="ro_ApocTA"/>
+    <set id="ro_ApocDA"/>
+    <set id="ro_ApocHE"/>
+    <legality>ruleset.ro_Apoc</legality>
+    </context>
+  <context id="scenario" name="a-1. Scenario">
+    <set id="sc_normal"/>
+    <set id="sc_Patrol"/>
+    <set id="sc_ia9_BA"/>
+    <set id="sc_BattleA"/>
+    <set id="sc_BattleD"/>
+    <set id="sc_Heroes"/>
+    <set id="sc_KillT"/>
+    <set id="sc_CQA_A"/>
+    <set id="sc_CQA_D"/>
+    <set id="sc_ia9_BVA"/>
+    <set id="sc_ia9_BVD"/>
+    </context>
+  <context id="40kAlly" name="b-2. Levels of Alliance">
+    <set id="ro_AllyBB"/>
+    <set id="ro_AllyAoC"/>
+    <set id="ro_AllyDA"/>
+    <set id="ro_AllyCtA"/>
+    </context>
+  <context id="roster" name="b-1. Roster Options" type="any">
+    <set id="ro_2ndPrim"/>
+    <set id="ro_2ndAlly"/>
+    <set id="ro_Apoc"/>
+    <set id="ro_BM"/>
+    <set id="ro_COD"/>
+    <set id="ro_GenUnit"/>
+    <set id="ro_ImpArm"/>
+    <set id="ro_NCM"/>
+    <set id="ro_PS"/>
+    <set id="ro_SpHd"/>
+    <set id="ro_spec"/>
+    </context>
+  <context id="gnVersion" name="c-1. File Version">
+    <set id="gnVersion"/>
+    </context>
+  <unitstat id="St" name="St">
+    <finalize><![CDATA[~ multi strength display (3 characters original value) are split down into x/y/z where xyz is the original value
+
+var statStr as string
+var multiStr as string
+statStr = @text
+
+~ trap str over 10
+if (statStr > 10) then
+
+  var statStrI as number
+  statStrI = 10
+  @text = statStrI
+endif
+
+~if tagged, display zero as X
+if (tagis[UnitTags.StasX] > 0) then
+  @text = "X"
+endif
+
+~if tagged, add two asterisks to end of stat
+if (tagis[UnitTags.plus2astSt] > 0) then
+
+~deal with base stat
+  if (statStr < 5) then
+    @text = statStr
+
+~deal with current stat
+  else
+    @text = statStr & "**"
+
+  endif
+endif
+
+var val as number
+val = @value
+
+~if less than zero, set to zero
+if (val < 0) then
+
+  @value = 0
+  @text = "0"
+elseif (tagis[UnitTags.StasDash] > 0) then
+
+  @text = "-"
+endif]]></finalize>
+    </unitstat>
+  <unitstat id="Wo" name="Wo"></unitstat>
+  <unitstat id="Ld" name="Ld">
+    <finalize><![CDATA[~ ammend leadership to show D6 + x
+var val as number
+var ldText as string
+
+val = @value
+
+~ check to see if leadership is over 12, if so deduct 12 from it
+if (val > 12) then
+
+  val = val - 12
+  ldText = "D6+" & val
+else
+
+  ldText = val
+endif
+
+@text = ldText
+
+~if tagged, display zero as -
+if (tagis[UnitTags.LDasDash] > 0) then
+  @text = "-"
+endif]]></finalize>
+    </unitstat>
+  <unitstat id="Save" name="Save">
+    <finalize><![CDATA[var val as number
+val = @value
+
+if (val < 7) then
+@text = @text & "+"
+endif
+
+if (val = 0) then
+
+  @text = "-"
+endif
+
+if (val > 6) then
+
+  val = val - 10
+  @text = val & "(i)"
+endif ]]></finalize>
+    </unitstat>
+  <unitstat id="Front" name="FA">
+    <finalize><![CDATA[if (roster.output = 0) then
+   @text = "{macro color1}" & @text & "{text 010101}"
+endif]]></finalize>
+    </unitstat>
+  <unitstat id="Side" name="SA">
+    <finalize><![CDATA[if (roster.output = 0) then
+   @text = "{macro color1}" & @text & "{text 010101}"
+ endif]]></finalize>
+    </unitstat>
+  <unitstat id="Group" name="Grp" maxlength="50" usestags="yes"></unitstat>
+  <unitstat id="Rear" name="RA">
+    <finalize><![CDATA[if (roster.output = 0) then
+   @text = "{macro color1}" & @text & "{text 010101}"
+ endif]]></finalize>
+    </unitstat>
+  <unitstat id="To" name="To"></unitstat>
+  <unitstat id="WS" name="WS">
+    <finalize><![CDATA[var val as number
+val = @value
+
+if (tagis[UnitTags.wsD?] > 0) then
+
+  var WS as number
+  WS = tagvalue[UnitTags.wsD?]
+  @text = "D" & WS & "+" & val
+endif
+
+~if less than zero, set to zero
+if (val < 0) then
+
+  @value = 0
+  @text = "0"
+endif
+
+var val as number
+val = @value
+
+~if tagged, display zero as -
+if (tagis[UnitTags.WSasDash] > 0) then
+  @text = "-"
+endif]]></finalize>
+    </unitstat>
+  <unitstat id="gearlimit" name="gearlimit" accumulate="yes" private="yes"></unitstat>
+  <unitstat id="Aco" name="Acolytes" private="yes"></unitstat>
+  <unitstat id="BS" name="BS">
+    <finalize><![CDATA[var val as number
+val = @value
+
+~if less than zero, set to zero
+if (val < 0) then
+
+  @value = 0
+  @text = "0"
+elseif (tagis[UnitTags.BSasDash] > 0) then
+
+  @text = "-"
+endif
+
+if (roster.output = 0) then
+   @text = "{macro color1}" & @text & "{text 010101}"
+ endif]]></finalize>
+    </unitstat>
+  <unitstat id="In" name="In">
+    <finalize><![CDATA[var val as number
+val = @value
+
+~if less than zero, set to zero
+if (val < 0) then
+
+  @value = 0
+  @text = "0"
+elseif (tagis[UnitTags.InasDash] > 0) then
+
+  @text = "-"
+endif]]></finalize>
+    </unitstat>
+  <unitstat id="At" name="At">
+    <finalize><![CDATA[~to deal allow for DX attacks - make the initial stat value 20+X (so 26=>D6)
+~ multi attacks (3 characters original value) are split down into x\y\z where xyz is the original value
+
+var statStr as string
+var statVal as number
+var val as number
+val = @value
+statStr = @text
+statVal = length(statStr)
+
+if (tagis[UnitTags.3attackSt] = 1) then
+
+  if (statVal = 3) then
+
+    ~ deal with multi-listed attacks
+    var digitA as string
+    var digitB as string
+    var digitC as string
+
+    digitA = left(statStr,1)
+    digitB = mid(statStr,1,1)
+    digitC = right(statStr,1)
+
+    @text = digitA & "/" & digitB & "/" & digitC
+
+  endif
+
+elseif (val > 20) then
+
+  val = val - 20
+  if (tagis[UnitTags.plus1att] > 0) then
+
+    @text = "D" & val & "+1"
+  elseif (tagis[UnitTags.plus2att] > 0) then
+
+    @text = "D" & val & "+2"
+  elseif (tagis[UnitTags.plus3att] > 0) then
+
+    @text = "D" & val & "+3"
+
+  else
+    @text = "D" & val
+  endif
+
+elseif (tagis[UnitTags.plus1att] > 0) then
+
+  @text = val & "+1"
+elseif (tagis[UnitTags.plus2att] > 0) then
+
+  @text = val & "+2"
+elseif (tagis[UnitTags.plus3att] > 0) then
+
+  @text = val & "+3"
+elseif (tagis[UnitTags.plusD6] > 0) then
+
+  @text = val & "+D6"
+elseif (tagis[UnitTags.plusD3] > 0) then
+
+  @text = val & "+D3"
+endif
+
+~if tagged, display zero as -
+if (tagis[UnitTags.AtasDash] > 0) then
+  @text = "-"
+endif
+
+~if tagged, display zero as -
+if (tagis[UnitTags.ATasStar] > 0) then
+  @text = "*"
+endif
+
+~if tagged, add one asterisk to end of stat
+if (tagis[UnitTags.plus1astAt] > 0) then
+~deal with base stat
+  if (statStr < 5) then
+    @text = statStr
+
+~deal with current stat
+  else
+    @text = statStr & "*"
+
+  endif
+endif
+
+~if tagged, add two asterisks to end of stat
+if (tagis[UnitTags.plus2astAt] > 0) then
+~deal with base stat
+  if (statStr < 5) then
+    @text = statStr
+
+~deal with current stat
+  else
+    @text = statStr & "**"
+
+  endif
+endif
+~if tagged, add two asterisks to end of stat
+if (tagis[UnitTags.plus2attE] > 0) then
+~deal with base stat
+  if (statStr < 5) then
+    @text = statStr
+
+~deal with current stat
+  else
+    @text = statStr & "+2"
+
+  endif
+endif]]></finalize>
+    </unitstat>
+  <unitstat id="gnTptCap" name="Gn Tpt Cap" showbase="no" accumulate="yes" private="yes"></unitstat>
+  <unitstat id="HP" name="HP">
+    <finalize><![CDATA[if (roster.output = 0) then
+   @text = "{macro color1}" & @text & "{text 010101}"
+ endif]]></finalize>
+    </unitstat>
+  <unitstat id="gnMultiStr" name="GnMultiStr" showbase="no" private="yes">
+    <comment>used when a model has two weapons which alter the strength, works in combination with gnStatAdj to display strength as x/y/z</comment>
+    </unitstat>
+  <unitstat id="gnStatA" name="GN Stat A" showbase="no" private="yes"></unitstat>
+  <unitstat id="gnStatB" name="GN Stat B" showbase="no" private="yes"></unitstat>
+  <unitstat id="gnStatC" name="GN Stat C" showbase="no" private="yes"></unitstat>
+  <unitstat id="psStrat" name="Strat PS" showbase="no" accumulate="yes" private="yes"></unitstat>
+  <unitstat id="gnStatD" name="GN Stat D" showbase="no" private="yes"></unitstat>
+  <unitstat id="baStrat" name="Strat BA" showbase="no" accumulate="yes" private="yes"></unitstat>
+  <unitstat id="gn6_PsyPow" name="Psychic Powers" showbase="no" accumulate="yes" private="yes"></unitstat>
+  <statset id="artilleryA">
+    <stat id="Group"/>
+    <stat id="BS"/>
+    <stat id="To"/>
+    <stat id="Wo"/>
+    <stat id="Save"/>
+    </statset>
+  <statset id="artillery">
+    <stat id="Group"/>
+    <stat id="To"/>
+    <stat id="Wo"/>
+    <stat id="Save"/>
+    </statset>
+  <statset id="container">
+    <stat id="Group" identity="yes"/>
+    </statset>
+  <statset id="deAsdrubae">
+    <stat id="Group"/>
+    <stat id="WS"/>
+    <stat id="BS"/>
+    <stat id="St"/>
+    <stat id="Front" identity="yes"/>
+    <stat id="Side" identity="yes"/>
+    <stat id="Rear" identity="yes"/>
+    <stat id="In"/>
+    <stat id="At"/>
+    </statset>
+  <statset id="none">
+    <stat id="Group"/>
+    </statset>
+  <statset id="unit" default="yes">
+    <stat id="Group"/>
+    <stat id="WS"/>
+    <stat id="BS"/>
+    <stat id="St"/>
+    <stat id="To"/>
+    <stat id="Wo"/>
+    <stat id="In"/>
+    <stat id="At"/>
+    <stat id="Ld"/>
+    <stat id="Save" identity="yes"/>
+    </statset>
+  <statset id="vehicle">
+    <stat id="Group"/>
+    <stat id="BS"/>
+    <stat id="Front" identity="yes"/>
+    <stat id="Side" identity="yes"/>
+    <stat id="Rear" identity="yes"/>
+    <stat id="HP"/>
+    </statset>
+  <statset id="Nuahadu">
+    <comment>This is for the Eldar Character Nuahadu</comment>
+    <stat id="Group"/>
+    <stat id="BS" identity="yes"/>
+    <stat id="St" identity="yes"/>
+    <stat id="WS" identity="yes"/>
+    <stat id="Front" identity="yes"/>
+    <stat id="Side" identity="yes"/>
+    <stat id="Rear" identity="yes"/>
+    <stat id="In" identity="yes"/>
+    <stat id="At" identity="yes"/>
+    </statset>
+  <statset id="ccvehicle">
+    <stat id="Group"/>
+    <stat id="WS"/>
+    <stat id="BS"/>
+    <stat id="St"/>
+    <stat id="In"/>
+    <stat id="At"/>
+    <stat id="Front" identity="yes"/>
+    <stat id="Side" identity="yes"/>
+    <stat id="Rear" identity="yes"/>
+    <stat id="HP"/>
+    </statset>
+  <category id="honoursV" name="Honours Vehicle" abbrev="Honours"></category>
+  <category id="honoursNV" name="Honours Non-Vehicles" abbrev="Honours"></category>
+  <category id="klRules" name="Rules" abbrev="Rules"></category>
+  <category id="taUpgrade" name="Upgrades" abbrev="Upgrade"></category>
+  <category id="chRoster" name="Roster Change" abbrev="Roster"></category>
+  <category id="chUpgrade" name="Add On" abbrev="Add On"></category>
+  <category id="psychic" name="Psychic Powers" abbrev="Psychic"></category>
+  <category id="ne5e_pwrs" name="Manifestations of Power"></category>
+  <category id="transport" name="Transport" abbrev="Trans"></category>
+  <category id="gn6_FlyAce" name="Flyer Aces" abbrev="FlyAce"></category>
+  <category id="vehicle" name="Vehicle Upgrades" abbrev="Veh Upg"></category>
+  <category id="gn6_traits" name="Warlord Traits" abbrev="Traits"></category>
+  <category id="Saga" name="Saga" abbrev="Saga"></category>
+  <category id="skills" name="Special Rules" abbrev="Spcl Rules"></category>
+  <category id="tau6_VBS" name="Vehicle Battle Systems" abbrev="VBS"></category>
+  <category id="tau6_SS" name="Signature System" abbrev="SS"></category>
+  <category id="tau_SupS" name="Support Systems" abbrev="SupS"></category>
+  <category id="skill" name="Skills" abbrev="Skills"></category>
+  <category id="wargear" name="Wargear" abbrev="War"></category>
+  <category id="special" name="Special Equipment" abbrev="Spec"></category>
+  <category id="weapons" name="Weapons" abbrev="Weapons" default="yes"></category>
+  <category id="close" name="Close Combat Weapons" abbrev="Close"></category>
+  <category id="ranged" name="Ranged Weapons" abbrev="Range"></category>
+  <category id="gnUnitUpg" name="Unit Upgrades" abbrev="UnitUpgr"></category>
+  <category id="tau6_Dro" name="Drones" abbrev="Drones"></category>
+  <category id="add" name="Add Units" abbrev="Add Unit"></category>
+  <category id="child" name="Characters" abbrev="Char"></category>
+  <category id="leader" name="leader" abbrev="Ldr" leader="yes"></category>
+  <category id="stats" name="Stats" abbrev="Stats"></category>
+  <category id="assets" name="Assets" abbrev="Assets"></category>
+  <category id="DGifts" name="Daemonic Gifts" abbrev="Gifts"></category>
+  <category id="btVows" name="Vows" abbrev="Vows"></category>
+  <category id="Biomorph" name="Weapons &amp; Biomorphs" abbrev="Wep &amp; Bio"></category>
+  <category id="terrain" name="Terrain Type" abbrev="Terrain"></category>
+  <category id="unittype" name="Unit Type" abbrev="Unit Type"></category>
+  <category id="reference" name="Reference" abbrev="Reference"></category>
+  <category id="gn6_Basic" name="Basic" abbrev="Basic" default="yes"></category>
+  <exclusion id="frag_01" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_11c" minimum="1" maximum="1"></exclusion>
+  <exclusion id="range_0ma" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_46" minimum="4" maximum="6"></exclusion>
+  <exclusion id="range_02b" minimum="0" maximum="2"></exclusion>
+  <exclusion id="range_0me" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_01a" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_04f" minimum="0" maximum="4"></exclusion>
+  <exclusion id="twohand" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_01t" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_03f" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_ma" minimum="#" maximum="#"></exclusion>
+  <exclusion id="range_04" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_02" minimum="0" maximum="2"></exclusion>
+  <exclusion id="range_11a" minimum="1" maximum="1"></exclusion>
+  <exclusion id="range_gnB" minimum="0" maximum="@gnStatB"></exclusion>
+  <exclusion id="range_03h" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_PsyP" minimum="@gn6_PsyPow" maximum="@gn6_PsyPow"></exclusion>
+  <exclusion id="range_420" minimum="4" maximum="20"></exclusion>
+  <exclusion id="range_06a" minimum="0" maximum="6"></exclusion>
+  <exclusion id="range_510" minimum="5" maximum="10" message="A minimum of 5 and maximum of 10 must be taken"></exclusion>
+  <exclusion id="range_08" minimum="0" maximum="8"></exclusion>
+  <exclusion id="range_16" minimum="1" maximum="6"></exclusion>
+  <exclusion id="range_11e" minimum="1" maximum="1"></exclusion>
+  <exclusion id="range_02a" minimum="0" maximum="2"></exclusion>
+  <exclusion id="range_11d" minimum="1" maximum="1"></exclusion>
+  <exclusion id="range_22b" minimum="2" maximum="2"></exclusion>
+  <exclusion id="range_mb" minimum="#" maximum="#"></exclusion>
+  <exclusion id="range_012a" minimum="0" maximum="12"></exclusion>
+  <exclusion id="range_220" minimum="2" maximum="20"></exclusion>
+  <exclusion id="range_01c" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_520" minimum="5" maximum="20"></exclusion>
+  <exclusion id="range_01" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_04a" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_04c" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_3m" minimum="3" maximum="#"></exclusion>
+  <exclusion id="range_m" minimum="#" maximum="#"></exclusion>
+  <exclusion id="range_06" minimum="0" maximum="6"></exclusion>
+  <exclusion id="range_110b" minimum="1" maximum="10"></exclusion>
+  <exclusion id="range_320" minimum="3" maximum="20"></exclusion>
+  <exclusion id="range_44" minimum="4" maximum="4"></exclusion>
+  <exclusion id="range_gnA" minimum="0" maximum="@gnStatA"></exclusion>
+  <exclusion id="range_04e" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_05a" minimum="0" maximum="5"></exclusion>
+  <exclusion id="range_gnC" minimum="0" maximum="@gnStatC"></exclusion>
+  <exclusion id="range_01s" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_110a" minimum="1" maximum="10"></exclusion>
+  <exclusion id="range_11b" minimum="1" maximum="1"></exclusion>
+  <exclusion id="range_0mb" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_110" minimum="1" maximum="10"></exclusion>
+  <exclusion id="range_07" minimum="0" maximum="7"></exclusion>
+  <exclusion id="range_01b" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_03e" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_12" minimum="1" maximum="2"></exclusion>
+  <exclusion id="range_03d" minimum="0" maximum="3"></exclusion>
+  <exclusion id="onehand" minimum="0" maximum="2"></exclusion>
+  <exclusion id="range_312" minimum="3" maximum="12"></exclusion>
+  <exclusion id="range_66" minimum="6" maximum="6"></exclusion>
+  <exclusion id="range_0m" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_09" minimum="0" maximum="9"></exclusion>
+  <exclusion id="range_35" minimum="3" maximum="5"></exclusion>
+  <exclusion id="range_03c" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_01f" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_01h" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_04b" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_0mg" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_48" minimum="4" maximum="8"></exclusion>
+  <exclusion id="krak_01" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_0mi" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_020" minimum="0" maximum="20"></exclusion>
+  <exclusion id="range_14" minimum="1" maximum="4"></exclusion>
+  <exclusion id="range_0mj" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_36" minimum="3" maximum="6"></exclusion>
+  <exclusion id="range_1m" minimum="1" maximum="#"></exclusion>
+  <exclusion id="range_88" minimum="8" maximum="8"></exclusion>
+  <exclusion id="range_01g" minimum="0" maximum="1"></exclusion>
+  <exclusion id="threehand" minimum="2" maximum="3"></exclusion>
+  <exclusion id="melta_01" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_0mh" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_04h" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_24a" minimum="2" maximum="4"></exclusion>
+  <exclusion id="range_26" minimum="2" maximum="6"></exclusion>
+  <exclusion id="range_03" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_13a" minimum="1" maximum="3"></exclusion>
+  <exclusion id="psychic_01" minimum="0" maximum="1"></exclusion>
+  <exclusion id="gear" minimum="0" maximum="@gearlimit" message="Wargear limit exceeded"></exclusion>
+  <exclusion id="range_33a" minimum="3" maximum="3"></exclusion>
+  <exclusion id="range_05" minimum="0" maximum="5"></exclusion>
+  <exclusion id="range_411" minimum="4" maximum="11"></exclusion>
+  <exclusion id="range_03g" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_11" minimum="1" maximum="1"></exclusion>
+  <exclusion id="range_01d" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_010" minimum="0" maximum="10"></exclusion>
+  <exclusion id="range_03a" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_04g" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_04d" minimum="0" maximum="4"></exclusion>
+  <exclusion id="range_24" minimum="2" maximum="4"></exclusion>
+  <exclusion id="range_02c" minimum="0" maximum="2"></exclusion>
+  <exclusion id="range_01e" minimum="0" maximum="1"></exclusion>
+  <exclusion id="transport" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_03b" minimum="0" maximum="3"></exclusion>
+  <exclusion id="range_310" minimum="3" maximum="10"></exclusion>
+  <exclusion id="range_22" minimum="2" maximum="2"></exclusion>
+  <exclusion id="range_13" minimum="1" maximum="3"></exclusion>
+  <exclusion id="range_mm" minimum="#" maximum="#"></exclusion>
+  <exclusion id="range_0md" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_01pp" minimum="0" maximum="1"></exclusion>
+  <exclusion id="range_0mf" minimum="0" maximum="#"></exclusion>
+  <exclusion id="range_012" minimum="0" maximum="12"></exclusion>
+  <exclusion id="range_39" minimum="3" maximum="9"></exclusion>
+  <exclusion id="range_02d" minimum="0" maximum="2"></exclusion>
+  <exclusion id="range_33" minimum="3" maximum="3"></exclusion>
+  <exclusion id="range_gnA1" minimum="@gnStatA" maximum="@gnStatA"></exclusion>
+  <exclusion id="range_0mc" minimum="0" maximum="#"></exclusion>
+  <profile id="deElite" name="{macro n_Elite}" heading="Elite" dynamic="yes" minvalue="0" maxvalue="3" maxbar="6" minthresh="-" maxthresh="3 units">
+    <active>!(ruleset.ro_Apoc)</active>
+    <qualify>Group.Elite</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 6
+endif
+
+if (tagis[ruleset.sc_BattleD]=1) then
+@maxvalue=2
+endif
+
+if (tagis[ruleset.sc_KillT]=1) then
+   @maxvalue=1
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.EliteUM?] + roster.tagvalue[AlterComp.EliteUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.EliteLM?] + roster.tagvalue[AlterComp.EliteLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="Strategems" name="{macro c_Strat}" heading="Strategems" dynamic="yes" minvalue="0" maxvalue="0" maxbar="6" minthresh="-">
+    <active>(ruleset.ro_COD | ruleset.ro_PS)</active>
+    <qualify>Group.Strategems</qualify>
+    </profile>
+  <profile id="elHeavy" name="{macro n_Heavy}" heading="Heavy" dynamic="yes" minvalue="1" maxvalue="4" maxbar="6" minthresh="-" maxthresh="4 units">
+    <active>ruleset.elMymeara</active>
+    <qualify>Group.Heavy</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 6
+endif
+
+~ Clash of Heroes augmentation
+if (tagis[ruleset.sc_Heroes] = 1) then
+   @maxvalue = 1
+   @maxtext = @maxvalue
+   @maxbar =  @maxvalue
+endif
+
+~ Battle Missions Defender augmentation
+if (tagis[ruleset.sc_BattleD] = 1) then
+   @maxvalue=6
+endif
+
+~ Siege Assault Vanguard augmentation
+if (tagis[ruleset.smChSiege] = 1) then
+   @minvalue = 1
+   @maxvalue = 4
+endif
+
+~ Patrol Mission augmentation
+if (tagis[ruleset.sc_Patrol] = 1) then
+   @maxvalue = 1
+endif
+
+~ Boarding Action Attacker augmentation
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @maxvalue = 2
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HeavyUM?] + roster.tagvalue[AlterComp.HeavyUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HeavyLM?] + roster.tagvalue[AlterComp.HeavyLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="elTroops" name="{macro n_Troop}" heading="Troops" dynamic="yes" minvalue="2" maxvalue="4" maxbar="6" minthresh="2 units" maxthresh="6 units">
+    <active>ruleset.elMymeara</active>
+    <qualify>Group.Troop</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 4
+endif
+
+if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 12
+endif
+
+if (tagis[ruleset.sc_BattleA] = 1) then
+   @minvalue = 0
+endif
+
+if (tagis[ruleset.sc_BattleD] = 1) then
+   @maxvalue = 8
+endif
+
+if (tagis[ruleset.sc_CQA_A] = 1) then
+   @minvalue = 1
+endif
+
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @minvalue = 0
+   @maxvalue = 5
+endif
+
+if (tagis[ruleset.sc_ia9_BVD] = 1) then
+   @minvalue = 1
+   @maxvalue = 5
+endif
+
+@minvalue = @minvalue - roster.tagvalue[AlterComp.TroopLM?] + roster.tagvalue[AlterComp.TroopLP?]
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.TroopUM?] + roster.tagvalue[AlterComp.TroopUP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    <finaltest><![CDATA[~ get count of Non-compulsory Troops
+var totNonTrp as number
+totNonTrp = tagcount[gnAcc.gnNonTroop]
+
+~set variables, reset flags, get Troop count
+var totTroop as number
+var realTroop as number
+var adjust as number
+
+totTroop = @text
+
+if (realTroop <= 2) then
+   totTroop = totTroop
+   adjust = totTroop + totNonTrp
+   @text = adjust
+   @bar = adjust
+else
+   totTroop = totTroop + totNonTrp
+   @text = totTroop
+   @bar = totTroop
+endif
+
+~ Determination of minimum amount of Troops
+~ If Planetstrike attacker is not selected, perform main loop for minimum of 2 troops, discounting non-compulsories
+if (tagis[ruleset.sc_BattleA] = 0) then
+      if (totTroop >=2) then
+         if (adjust > maximum) then
+            @valid = isvalid[adjust]
+         else
+            @valid = isvalid[totTroop]
+         endif
+      endif
+else
+
+~ If Planetstrike attacker is selected, perform main loop for minimum of no troops, discounting non-compulsories
+   if (totTroop >= 0) then
+      if (adjust > maximum) then
+         @valid = isvalid[adjust]
+      else
+         @valid = isvalid[totTroop]
+      endif
+   endif
+endif
+
+~ If Boarding Action attacker is not selected, perform main loop for minimum of 2 troops, discounting non-compulsories
+if (tagis[ruleset.sc_ia9_BVA] = 0) then
+      if (totTroop >=2) then
+         if (adjust > maximum) then
+            @valid = isvalid[adjust]
+         else
+            @valid = isvalid[totTroop]
+         endif
+      endif
+else
+
+~ If Boarding Action attacker is selected, perform main loop for minimum of no troops, discounting non-compulsories
+   if (totTroop >= 0) then
+      if (adjust > maximum) then
+         @valid = isvalid[adjust]
+      else
+         @valid = isvalid[totTroop]
+      endif
+   endif
+endif
+
+~ Determination of minimum amount of Troops
+~ If Boarding Action Defender is not selected, perform main loop for minimum of 2 troops, discounting non-compulsories
+if (tagis[ruleset.sc_ia9_BVD] = 0) then
+      if (totTroop >=2) then
+         if (adjust > maximum) then
+            @valid = isvalid[adjust]
+         else
+            @valid = isvalid[totTroop]
+         endif
+      endif
+else
+
+~ If Boarding Action Defender is selected, perform main loop for minimum of no troops, discounting non-compulsories
+   if (totTroop >= 0) then
+      if (adjust > maximum) then
+         @valid = isvalid[adjust]
+      else
+         @valid = isvalid[totTroop]
+      endif
+   endif
+endif]]></finaltest>
+    </profile>
+  <profile id="hq_sw" name="{macro n_HQ}" heading="HQ" dynamic="yes" minvalue="1" maxvalue="2" maxbar="6" minthresh="1 unit" maxthresh="2 units">
+    <active>!(ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.ia_Renegad | ruleset.sc_KillT)</active>
+    <qualify>Group.HQ</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 2
+endif
+
+if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_BattleD]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.ro_SpHd] = 1) then
+   @minvalue = 0
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HQUM?] + roster.tagvalue[AlterComp.HQUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HQLM?] + roster.tagvalue[AlterComp.HQLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    <finaltest><![CDATA[~ check for number of Space Wolves HQ, roster allows two HQ choices but count as one HQ FOC slot
+
+~ get count of Heralds
+var totChoice as number
+totChoice = tagcount[swTags.sw_HQ]
+
+~flags r used to show if the count has been ammended for Heralds
+~ variables: 
+~ totHaem = number of haemonculi
+~ finHAem: final number after rounding
+~ totHQ = total number of HQ units
+~ haemFlag = flag set if haemonculi are found
+
+var finHerald as number
+var totHQ as number
+var heraldFlag as number
+
+~set variables, reset flags, get hq count
+totHQ = @text
+finHerald = 0
+heraldFlag = 0
+
+if (totChoice > 0) then
+
+  ~ ammend count to reflect up to 2 heralds = 1 HQ slot, set flag
+  finHerald = round(totChoice/2,0,1)
+  heraldFlag = 1
+endif
+
+if (heraldFlag = 0) then
+
+    @valid = isvalid[@text]
+  else
+
+  ~ set HQ total by first removing the true count of heralds and then add on the rounded count
+  totHQ = totHQ - totChoice + finHerald
+
+  ~ update text display and validate
+  @text = totHQ
+  @bar = totHQ
+  @valid = isvalid[totHQ]
+endif
+]]></finaltest>
+    </profile>
+  <profile id="deHQ" name="{macro n_HQ}" heading="HQ" dynamic="yes" minvalue="1" maxvalue="2" maxbar="6" minthresh="1 unit" maxthresh="2 units">
+    <active>!(ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.sc_KillT)</active>
+    <qualify>Group.HQ</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 2
+endif
+
+if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_BattleD]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.ro_SpHd] = 1) then
+   @minvalue = 0
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HQUM?] + roster.tagvalue[AlterComp.HQUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HQLM?] + roster.tagvalue[AlterComp.HQLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    <finaltest><![CDATA[~ check for number of haemonculi, roster allowed three but count as one choice
+
+~ get count of haemonculi
+var totHaem as number
+totHaem = tagcount[deTags.deHaem]
+
+~flags r used to show if the count has been ammended for haemonculi
+~ variables: 
+~ totHaem = number of haemonculi
+~ finHAem: final number after rounding
+~ totHQ = total number of HQ units
+~ haemFlag = flag set if haemonculi are found
+var finHaem as number
+var totHQ as number
+var haemFlag as number
+
+~set variables, reset flags, get hq count
+totHQ = @text
+finHaem = 0
+haemFlag = 0
+
+if (totHaem > 0) then
+
+  ~ ammend count to reflect up to 3 haemonculi = 1 HQ slot, set flag
+  finHaem = round(totHaem/3,0,1)
+  haemFlag = 1
+endif
+
+if (haemFlag = 0) then
+
+    @valid = isvalid[@text]
+  else
+
+  ~ set HQ total by first removing the true count of haemonculi and then add on the rounded count
+  totHQ = totHQ - totHaem + finHaem
+
+  ~ update text display and validate
+  @text = totHQ
+  @bar = totHQ
+  @valid = isvalid[totHQ]
+endif
+]]></finaltest>
+    </profile>
+  <profile id="trp_sp" name="{macro n_Troop}" heading="Troops" dynamic="yes" minvalue="0" maxvalue="6" maxbar="6" minthresh="-" maxthresh="6 units">
+    <active>ruleset.ro_SpHd</active>
+    <qualify>Group.Troop</qualify>
+    <minmax>@minvalue = @minvalue - roster.tagvalue[AlterComp.TroopLM?] + roster.tagvalue[AlterComp.TroopLP?]
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.TroopUM?] + roster.tagvalue[AlterComp.TroopUP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="patrol_hq" name="{macro n_HQ}" heading="HQ" dynamic="yes" minvalue="1" maxvalue="0" maxbar="6" minthresh="1 unit">
+    <active>ruleset.sc_Patrol</active>
+    <qualify>Group.HQ</qualify>
+    <finaltest><![CDATA[~ get count of Non-Compulsory HQ units
+var totNonHQ as number
+totNonHQ = tagcount[gnAcc.gnNonHQ]
+
+~set variables, reset flags, get hq count
+var totHQ as number
+var realHQ as number
+var adjust as number
+
+totHQ = @text
+
+if (realHQ <= 1) then
+   totHQ = totHQ
+   adjust = totHQ + totNonHQ
+   @text = adjust
+   @bar = adjust
+else
+   totHQ = totHQ + totNonHQ
+   @text = totHQ
+   @bar = totHQ
+endif
+
+if (totHQ >=1) then
+   if (adjust > maximum) then
+      @valid = isvalid[adjust]
+   else
+      @valid = isvalid[totHQ]
+endif
+endif]]></finaltest>
+    </profile>
+  <profile id="heavy" name="{macro n_Heavy}" heading="Heavy" dynamic="yes" minvalue="0" maxvalue="3" maxbar="6" minthresh="-" maxthresh="3 units">
+    <active>!(ruleset.elUSaim | ruleset.ro_Apoc | ruleset.sc_KillT | ruleset.elMymeara)</active>
+    <qualify>Group.Heavy</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 6
+endif
+
+~ Clash of Heroes augmentation
+if (tagis[ruleset.sc_Heroes] = 1) then
+   @maxvalue = 1
+   @maxtext = @maxvalue
+   @maxbar =  @maxvalue
+endif
+
+~ Battle Missions Defender augmentation
+if (tagis[ruleset.sc_BattleD] = 1) then
+   @maxvalue=6
+endif
+
+~ Siege Assault Vanguard augmentation
+if (tagis[ruleset.smChSiege] = 1) then
+   @minvalue = 1
+   @maxvalue = 4
+endif
+
+~ Patrol Mission augmentation
+if (tagis[ruleset.sc_Patrol] = 1) then
+   @maxvalue = 1
+endif
+
+~ Boarding Action Attacker augmentation
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @maxvalue = 2
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HeavyUM?] + roster.tagvalue[AlterComp.HeavyUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HeavyLM?] + roster.tagvalue[AlterComp.HeavyLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="cdHQ" name="{macro n_HQ}" heading="HQ" dynamic="yes" minvalue="1" maxvalue="2" maxbar="6" minthresh="1 unit" maxthresh="2 units">
+    <active>!(ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.sc_KillT)</active>
+    <qualify>Group.HQ</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 2
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_BattleD]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.ro_SpHd] = 1) then
+   @minvalue = 0
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HQUM?] + roster.tagvalue[AlterComp.HQUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HQLM?] + roster.tagvalue[AlterComp.HQLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    <finaltest><![CDATA[~ check for number of Heralds, roster allows two heralds but count as one HQ choice
+
+~ get count of Heralds
+var totHerald as number
+totHerald = tagcount[cdFATags.Herald]
+
+~flags r used to show if the count has been ammended for Heralds
+~ variables: 
+~ totHerald = number of heralds
+~ finHerald = final number after rounding
+~ totHQ = total number of HQ units
+~ heraldFlag = flag set if heralds are found
+var finHerald as number
+var totHQ as number
+var heraldFlag as number
+
+~set variables, reset flags, get hq count
+totHQ = @text
+finHerald = 0
+heraldFlag = 0
+
+if (totHerald > 0) then
+
+  ~ ammend count to reflect up to 2 heralds = 1 HQ slot, set flag
+  finHerald = round(totHerald/4,0,1)
+  heraldFlag = 1
+endif
+
+if (heraldFlag = 0) then
+
+    @valid = isvalid[@text]
+  else
+
+  ~ set HQ total by first removing the true count of heralds and then add on the rounded count
+
+  if (tagis[ruleset.ro_2ndPrim] = 1) then
+    if (totHerald = 2) then
+      if (totHQ = 2) then
+
+        totHerald = finHerald
+
+      endif
+    endif
+  endif
+
+  totHQ = totHQ - totHerald + finHerald
+
+  ~ update text display and validate
+  @text = totHQ
+  @bar = totHQ
+  @valid = isvalid[totHQ]
+endif]]></finaltest>
+    </profile>
+  <profile id="elite" name="{macro n_Elite}" heading="Elite" dynamic="yes" minvalue="0" maxvalue="3" maxbar="6" minthresh="-" maxthresh="3 units">
+    <active>!(ruleset.elUSaim | ruleset.ro_Apoc | ruleset.elMymeara)</active>
+    <qualify>Group.Elite</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 6
+endif
+
+if (tagis[ruleset.sc_Heroes] = 1) then
+   @maxvalue = 4
+   @maxtext = @maxvalue
+   @maxbar =  @maxvalue
+endif
+
+if (tagis[ruleset.sc_KillT]=1) then
+   @maxvalue=1
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+   @maxvalue=6
+endif
+
+if (tagis[ruleset.sc_CQA_A] = 1) then
+   @minvalue = 1
+endif
+
+if (tagis[ruleset.sc_CQA_D] = 1) then
+   @maxvalue = 2
+endif
+
+if (tagis[ruleset.sc_Patrol]=1) then
+   @maxvalue=1
+endif
+
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @minvalue = 1
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_ia9_BVD] = 1) then
+   @maxvalue = 4
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.EliteUM?] + roster.tagvalue[AlterComp.EliteUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.EliteLM?] + roster.tagvalue[AlterComp.EliteLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="Formation" name="{macro c_Form}" heading="Formation" dynamic="yes" minvalue="0" maxvalue="0" maxbar="6" minthresh="-">
+    <active>(ruleset.ro_SpHd)</active>
+    <qualify>Group.Formation</qualify>
+    <minmax>if (tagis[ruleset.ro_SpHd] = 1) then
+   @minvalue = 1
+endif
+
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HQLM?] + roster.tagvalue[AlterComp.HQLP?]
+
+@mintext = @minvalue</minmax>
+    </profile>
+  <profile id="fast" name="{macro n_Fast}" heading="Fast" dynamic="yes" minvalue="0" maxvalue="3" maxbar="6" minthresh="-" maxthresh="3 units">
+    <active>!(ruleset.elUSaim | ruleset.ro_Apoc)</active>
+    <qualify>Group.Fast</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 6
+endif
+
+if (tagis[ruleset.sc_Heroes] = 1) then
+   @maxvalue = 1
+   @maxtext = @maxvalue
+   @maxbar = @maxvalue
+endif
+
+~ Kill Team augmentation
+if (tagis[ruleset.sc_KillT]=1) then
+   @maxvalue=1
+endif
+
+~ Battle Mission Attacker augmentation
+if (tagis[ruleset.sc_BattleA]=1) then
+   @maxvalue = 6
+endif
+
+if (tagis[ruleset.sc_CQA_D] = 1) then
+   @maxvalue = 1
+endif
+
+~ Patrol Mission augmentation
+if (tagis[ruleset.sc_Patrol] = 1) then
+   @maxvalue = 1
+endif
+
+~ Boarding Action Attacker augmentation
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @maxvalue = 2
+endif
+
+~ Boarding Action Defender augmentation
+if (tagis[ruleset.sc_ia9_BVD] = 1) then
+   @maxvalue = 1
+endif
+
+~ Siege Assault Vanguard augmentation
+if (tagis[ruleset.smChSiege] = 1) then
+   @maxvalue = 2
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.FastUM?] + roster.tagvalue[AlterComp.FastUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.FastLM?] + roster.tagvalue[AlterComp.FastLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="Fort" name="{macro n_Fort}" heading="Fortification" dynamic="yes" minvalue="0" maxvalue="1" minthresh="0" maxthresh="1">
+    <active>!(ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.sc_KillT)</active>
+    <qualify>Group.Fort</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 2
+endif
+
+if (tagis[ruleset.ro_Apoc] = 1) then
+   @maxvalue = 0
+endif</minmax>
+    </profile>
+  <profile id="troops" name="{macro n_Troop}" heading="Troops" dynamic="yes" minvalue="2" maxvalue="6" maxbar="6" minthresh="2 units" maxthresh="6 units">
+    <active>!(ruleset.elUSaim | ruleset.elUAlaitoc | ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.sc_KillT | ruleset.ro_SpHd | ruleset.elMymeara)</active>
+    <qualify>Group.Troop</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 4
+endif
+
+if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 12
+endif
+
+if (tagis[ruleset.sc_BattleA] = 1) then
+   @minvalue = 0
+endif
+
+if (tagis[ruleset.sc_BattleD] = 1) then
+   @maxvalue = 8
+endif
+
+if (tagis[ruleset.sc_CQA_A] = 1) then
+   @minvalue = 1
+endif
+
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @minvalue = 0
+   @maxvalue = 5
+endif
+
+if (tagis[ruleset.sc_ia9_BVD] = 1) then
+   @minvalue = 1
+   @maxvalue = 5
+endif
+
+@minvalue = @minvalue - roster.tagvalue[AlterComp.TroopLM?] + roster.tagvalue[AlterComp.TroopLP?]
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.TroopUM?] + roster.tagvalue[AlterComp.TroopUP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    <finaltest><![CDATA[~ get count of Non-compulsory Troops
+var totNonTrp as number
+totNonTrp = tagcount[gnAcc.gnNonTroop]
+
+~set variables, reset flags, get Troop count
+var totTroop as number
+var realTroop as number
+var adjust as number
+
+totTroop = @text
+
+if (realTroop <= 2) then
+   totTroop = totTroop
+   adjust = totTroop + totNonTrp
+   @text = adjust
+   @bar = adjust
+else
+   totTroop = totTroop + totNonTrp
+   @text = totTroop
+   @bar = totTroop
+endif
+
+~ Determination of minimum amount of Troops
+~ If Planetstrike attacker is not selected, perform main loop for minimum of 2 troops, discounting non-compulsories
+if (tagis[ruleset.sc_BattleA] = 0) then
+      if (totTroop >=2) then
+         if (adjust > maximum) then
+            @valid = isvalid[adjust]
+         else
+            @valid = isvalid[totTroop]
+         endif
+      endif
+else
+
+~ If Planetstrike attacker is selected, perform main loop for minimum of no troops, discounting non-compulsories
+   if (totTroop >= 0) then
+      if (adjust > maximum) then
+         @valid = isvalid[adjust]
+      else
+         @valid = isvalid[totTroop]
+      endif
+   endif
+endif
+
+~ If Boarding Action attacker is not selected, perform main loop for minimum of 2 troops, discounting non-compulsories
+if (tagis[ruleset.sc_ia9_BVA] = 0) then
+      if (totTroop >=2) then
+         if (adjust > maximum) then
+            @valid = isvalid[adjust]
+         else
+            @valid = isvalid[totTroop]
+         endif
+      endif
+else
+
+~ If Boarding Action attacker is selected, perform main loop for minimum of no troops, discounting non-compulsories
+   if (totTroop >= 0) then
+      if (adjust > maximum) then
+         @valid = isvalid[adjust]
+      else
+         @valid = isvalid[totTroop]
+      endif
+   endif
+endif
+
+~ Determination of minimum amount of Troops
+~ If Boarding Action Defender is not selected, perform main loop for minimum of 2 troops, discounting non-compulsories
+if (tagis[ruleset.sc_ia9_BVD] = 0) then
+      if (totTroop >=2) then
+         if (adjust > maximum) then
+            @valid = isvalid[adjust]
+         else
+            @valid = isvalid[totTroop]
+         endif
+      endif
+else
+
+~ If Boarding Action Defender is selected, perform main loop for minimum of no troops, discounting non-compulsories
+   if (totTroop >= 0) then
+      if (adjust > maximum) then
+         @valid = isvalid[adjust]
+      else
+         @valid = isvalid[totTroop]
+      endif
+   endif
+endif]]></finaltest>
+    </profile>
+  <profile id="Legend" name="{macro c_Legend}" heading="Legend" dynamic="yes" minvalue="0" maxvalue="0" maxbar="6" minthresh="-">
+    <active>(ruleset.ro_Apoc)</active>
+    <qualify>Group.Legend</qualify>
+    </profile>
+  <profile id="Other" name="{macro c_Other}" heading="Other" dynamic="yes" minvalue="0" maxvalue="0" maxbar="6" minthresh="-">
+    <active>(ruleset.ro_Apoc)</active>
+    <qualify>!(runtime.child? | Group.Legend | Group.Formation)</qualify>
+    </profile>
+  <profile id="hq" name="{macro n_HQ}" heading="HQ" dynamic="yes" minvalue="1" maxvalue="2" maxbar="6" minthresh="1 unit" maxthresh="2 units">
+    <active>!(ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.sc_KillT)</active>
+    <qualify>Group.HQ</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 2
+endif
+
+if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_BattleD]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+@maxvalue=3
+endif
+
+if (tagis[ruleset.sc_CQA_D] = 1) then
+   @minvalue = 0
+endif
+
+if (tagis[ruleset.sc_CQA_D] = 1) then
+   @minvalue = 0
+endif
+
+if (tagis[ruleset.ro_SpHd] = 1) then
+   @minvalue = 0
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HQUM?] + roster.tagvalue[AlterComp.HQUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HQLM?] + roster.tagvalue[AlterComp.HQLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    <finaltest><![CDATA[~ get count of Non-Compulsory HQ units
+var totNonHQ as number
+totNonHQ = tagcount[gnAcc.gnNonHQ]
+
+~set variables, reset flags, get hq count
+var totHQ as number
+var realHQ as number
+var adjust as number
+
+realHQ = realHQ
+
+totHQ = @text
+
+if (realHQ <= 1) then
+   totHQ = totHQ
+   adjust = totHQ + totNonHQ
+   @text = adjust
+   @bar = adjust
+else
+   totHQ = totHQ + totNonHQ
+   @text = totHQ
+   @bar = totHQ
+endif
+
+if (totHQ >=1) then
+   if (adjust > maximum) then
+      @valid = isvalid[adjust]
+   else
+      @valid = isvalid[totHQ]
+  endif
+endif
+
+if (tagis[ruleset.sc_CQA_D] = 1) then
+  @valid = 1
+endif
+
+if (tagis[ruleset.ro_SpHd] = 1) then
+  @valid = 1
+endif
+
+if (tagis[AlterComp.HQLM1] > 0) then
+  @valid = 1
+endif]]></finaltest>
+    </profile>
+  <profile id="elElite" name="{macro n_Elite}" heading="Elite" dynamic="yes" minvalue="0" maxvalue="2" maxbar="6" minthresh="-" maxthresh="3 units">
+    <active><![CDATA[!(ruleset.elUSaim | ruleset.ro_Apoc) & ruleset.elMymeara]]></active>
+    <qualify>Group.Elite</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 6
+endif
+
+if (tagis[ruleset.sc_Heroes] = 1) then
+   @maxvalue = 4
+   @maxtext = @maxvalue
+   @maxbar =  @maxvalue
+endif
+
+if (tagis[ruleset.sc_KillT]=1) then
+   @maxvalue=1
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+   @maxvalue=6
+endif
+
+if (tagis[ruleset.sc_CQA_A] = 1) then
+   @minvalue = 1
+endif
+
+if (tagis[ruleset.sc_CQA_D] = 1) then
+   @maxvalue = 2
+endif
+
+if (tagis[ruleset.sc_Patrol]=1) then
+   @maxvalue=1
+endif
+
+if (tagis[ruleset.sc_ia9_BVA] = 1) then
+   @minvalue = 1
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_ia9_BVD] = 1) then
+   @maxvalue = 4
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.EliteUM?] + roster.tagvalue[AlterComp.EliteUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.EliteLM?] + roster.tagvalue[AlterComp.EliteLP?]
+
+@mintext = @minvalue
+@maxtext = @maxvalue</minmax>
+    </profile>
+  <profile id="elHQ" name="{macro n_HQ}" heading="HQ" dynamic="yes" minvalue="1" maxvalue="2" maxbar="6" minthresh="1 unit" maxthresh="2 units">
+    <active>!(ruleset.sc_Patrol | ruleset.ro_Apoc | ruleset.sc_KillT)</active>
+    <qualify>Group.HQ</qualify>
+    <minmax>if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @minvalue = 2
+endif
+
+if (tagis[ruleset.ro_2ndPrim] = 1) then
+   @maxvalue = 4
+endif
+
+if (tagis[ruleset.sc_BattleD]=1) then
+  @maxvalue=3
+endif
+
+if (tagis[ruleset.sc_BattleA]=1) then
+  @maxvalue=3
+endif
+
+if (tagis[ruleset.ro_SpHd] = 1) then
+   @minvalue = 0
+endif
+
+@maxvalue = @maxvalue - roster.tagvalue[AlterComp.HQUM?] + roster.tagvalue[AlterComp.HQUP?]
+@minvalue = @minvalue - roster.tagvalue[AlterComp.HQLM?] + roster.tagvalue[AlterComp.HQLP?]
+
+if (tagis[elGTags.Wraithseer]=1) then
+  @minvalue = @minvalue + 1
+endif
+
+@mintext = @minvalue
+@maxtext = @maxvalue
+</minmax>
+    <finaltest>~ remove any HQ slots for each warlock unit taken
+
+~ get count of warlocks
+var totWar as number
+totWar = tagcount[elATags.elWarlock]
+
+~set variables, reset flags, get hq count
+var totHQ as number
+totHQ = @text
+
+~remove warlocks and set displays
+totHQ = totHQ - (totWar)
+@text = totHQ
+@bar = totHQ
+@valid = isvalid[totHQ]
+
+</finaltest>
+    </profile>
+  <profile id="patrol_trp" name="{macro n_Troop}" heading="Troops" dynamic="yes" minvalue="2" maxvalue="0" maxbar="6" minthresh="2 units" maxthresh="-">
+    <active>ruleset.sc_Patrol | ruleset.sc_KillT</active>
+    <qualify>Group.Troop</qualify>
+    <minmax>if (tagis[ruleset.sc_KillT] = 1) then
+   @minvalue = 0
+   @maxvalue = 2
+   @mintext = @minvalue
+   @maxtext = @maxvalue
+   @maxbar =  @maxvalue
+
+endif</minmax>
+    <finaltest><![CDATA[~ get count of Non-compulsory Troops
+var totNonTrp as number
+totNonTrp = tagcount[gnAcc.gnNonTroop]
+
+~set variables, reset flags, get Troop count
+var totTroop as number
+var realTroop as number
+var adjust as number
+
+totTroop = @text
+
+if (realTroop <= 2) then
+   totTroop = totTroop
+   adjust = totTroop + totNonTrp
+   @text = adjust
+   @bar = adjust
+else
+   totTroop = totTroop + totNonTrp
+   @text = totTroop
+   @bar = totTroop
+endif
+
+if (totTroop >=2) then
+   if (adjust > maximum) then
+      @valid = isvalid[adjust]
+   else
+      @valid = isvalid[totTroop]
+endif
+endif
+
+~ If Battle Missions - Kill Team is selected, perform main loop for minimum of no troops
+   if (tagis[ruleset.sc_KillT] = 1) then
+      if (totTroop <= 2) then
+         @valid = 1
+      endif
+   endif]]></finaltest>
+    </profile>
+  <race id="iaRenegade" name="IA - Renegades and Heretics" abbrev="Chaos" output="Renegades and Heretics">
+    <comment>Created by Harkan, maintained by shaggai.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    </race>
+  <race id="el" name="Eldar" abbrev="EL" output="Eldar">
+    <comment>Created and maintained by Warriorstwilight.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elHQ"/>
+    <raceprof id="elite"/>
+    <raceprof id="elElite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="trp_sp"/>
+    <raceprof id="troops"/>
+    <raceprof id="elTroops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="elHeavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.de | roster.ta)) |       (ruleset.ro_AllyAoC & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.da6E | roster.gk5E | roster.ig | roster.sm | roster.sw5E)) |
+(ruleset.ro_AllyDA & (roster.ork | roster.sob)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ne5E | roster.ty5))]]></ally>
+    </race>
+  <race id="ty5" name="Tyranids" abbrev="ty" notes="Units with Instinctive Behavior outside synapse range and not in CC, gone to ground or falling back must take a Ld test (C:T, pg. 33).">
+    <comment>Created and updated by Homer_S, maintained by AB40K Team.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyCtA & (!roster.?))]]></ally>
+    <racenote index="0" text="{i}Synapse Creatures{/i} (C:T, pg. 33)\n{i}Shadow in the Warp{/i} (C:T, pg. 33)\n{i}Instinctive Behavior{/i}  (C:T, pg. 33)">
+      <legality>roster.ty5</legality>
+      </racenote>
+    <createnote index="0" text="Special Rules:\n{i}Synapse Creatures{/i} (C:T, pg. 33)\n{i}Shadow in the Warp{/i} (C:T, pg. 33)\n{i}Instinctive Behavior{/i}  (C:T, pg. 33)">
+      <legality>roster.ty5</legality>
+      </createnote>
+    </race>
+  <race id="generic" name="Generic unit" abbrev="gn" visible="no">
+    <raceprof id="hq"/>
+    <raceprof id="fast"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="heavy"/>
+    </race>
+  <race id="chA" name="Chaos Space Marines" abbrev="Chaos" output="Chaos Space Marines" visible="no">
+    <comment>Created by Harkan, maintained by shaggai.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    </race>
+  <race id="de" name="Dark Eldar" abbrev="DE" output="Dark Eldar">
+    <comment>Created by ArmchairGeneral, maintained by shaggai.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="deHQ"/>
+    <raceprof id="deElite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.el)) |              (ruleset.ro_AllyDA & (roster.rg | roster.rs | roster.bt | roster.cd | roster.csm6E | roster.ig | roster.gk5E | roster.ork | roster.sob | roster.sm | roster.sw5E | roster.ta)) |
+(ruleset.ro_AllyCtA & (roster.ba5E | roster.da6E | roster.ne5E | roster.ty5))]]></ally>
+    </race>
+  <race id="rg" name="Raven Guard" abbrev="RG">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.sm | roster.rs | roster.bt | roster.ba5E | roster.da6E |roster.ig | roster.sw5E | roster.ta)) | (ruleset.ro_AllyAoC & (roster.el | roster.gk5E | roster.sob)) | (ruleset.ro_AllyDA & (roster.de | roster.ne5E | roster.ork)) | (ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ty5))]]></ally>
+    <racenote index="0" text="Raven Guard (IA8, pg. 104)">
+      <legality>roster.rg</legality>
+      </racenote>
+    <createnote index="0" text="Raven Guard (IA8, pg. 104)">
+      <legality>roster.rg</legality>
+      </createnote>
+    </race>
+  <race id="bt" name="Black Templars" abbrev="BT">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="trp_sp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.ba5E | roster.da6E | roster.ig | roster.sm | roster.sw5E)) |             (ruleset.ro_AllyAoC & (roster.el | roster.gk5E | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.de | roster.ne5E | roster.sob)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ork | roster.ty5))]]></ally>
+    <racenote index="0" text="{i}And They Shall Know No Fear...{/i} (p22 C:BT)\n{i}Drop Pod Assault{/i} (p22 C:BT)\n{i}Righteous Zeal{/i} (p22 C:BT)\n{i}Abhor The Witch{/i} (p22 C:BT)\n{i}Kill Them All{/i} (p22 C:BT)\n{i}No Pity! No Remorse! No Fear!{/i} (p22 C:BT)">
+      <legality>roster.bt</legality>
+      </racenote>
+    <createnote index="0" text="Special Rules:\n{i}And They Shall Know No Fear...{/i} (p22 C:BT)\n{i}Drop Pod Assault{/i} (p22 C:BT)\n{i}Righteous Zeal{/i} (p22 C:BT)\n{i}Abhor The Witch{/i} (p22 C:BT)\n{i}Kill Them All{/i} (p22 C:BT)\n{i}No Pity! No Remorse! No Fear!{/i} (p22 C:BT)">
+      <legality>roster.da</legality>
+      </createnote>
+    </race>
+  <race id="da" name="OLD DARK ANGELS" abbrev="ODA" visible="no">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    </race>
+  <race id="rs" name="Red Scorpions" abbrev="RS">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.sm | roster.rg | roster.bt | roster.ba5E | roster.da6E |roster.ig | roster.sw5E | roster.ta)) | (ruleset.ro_AllyAoC & (roster.el | roster.gk5E | roster.sob)) | (ruleset.ro_AllyDA & (roster.de | roster.ne5E | roster.ork)) | (ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ty5))]]></ally>
+    <racenote index="0" text="{i}Purity Above All{/i} (IA6, pg. 123)\n{i}Have Pride in your Colours{/i} (IA6, pg. 123)">
+      <legality>roster.rs</legality>
+      </racenote>
+    <createnote index="0" text="Special Rules:\n{i}Purity Above All{/i} (IA6, pg. 123)\n{i}Have Pride in your Colours{/i} (IA6, pg. 123)">
+      <legality>roster.rs</legality>
+      </createnote>
+    </race>
+  <race id="ta" name="Tau Empire" abbrev="Tau" output="Tau">
+    <comment>Created by Shi_Vral, maintained by jlong05.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.el | roster.sm)) | (ruleset.ro_AllyAoC & (roster.bt | roster.ba5E | roster.csm6E | roster.da6E | roster.gk5E | roster.ig | roster.ne5E | roster.sw5E)) | (ruleset.ro_AllyDA & (roster.cd | roster.de | roster.sob)) | (ruleset.ro_AllyCtA & (roster.ty5)) | (ruleset.ro_AllyAoC & roster.ork)]]></ally>
+    </race>
+  <race id="ne5E" name="Necrons" abbrev="Nec" output="Necrons">
+    <comment>Created by Imhotep, maintained by jlong05.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyAoC & (roster.csm6E | roster.gk5E | roster.ork | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.da6E | roster.ig | roster.sob | roster.sm | roster.sw5E)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.de | roster.el |  roster.ty5))]]></ally>
+    </race>
+  <race id="sm" name="Space Marines" abbrev="SM">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.da6E | roster.ig | roster.sw5E | roster.ta)) | (ruleset.ro_AllyAoC & (roster.el | roster.gk5E | roster.sob)) | (ruleset.ro_AllyDA & (roster.de | roster.ne5E | roster.ork)) | (ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ty5))]]></ally>
+    </race>
+  <race id="cd" name="Chaos Daemons" abbrev="cd" output="Chaos Daemons">
+    <comment>Created and maintained by WarriorsTwilight.</comment>
+    <raceprof id="cdHQ"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.csm6E)) |                     (ruleset.ro_AllyAoC & (roster.ig)) |
+(ruleset.ro_AllyDA & (roster.de | roster.ork | roster.ta)) |
+(ruleset.ro_AllyCtA & (roster.rg | roster.rs | roster.ba5E | roster.bt | roster.da6E | roster.el | roster.gk5E | roster.ne5E | roster.sob | roster.sm | roster.sw5E | roster.ty5))]]></ally>
+    <racenote index="0" text="Detachments of Chaos Daemons have the Special Rules Daemonic Assault and Daemonic Rivalry (see C:CD, pg. 27).">
+      <legality>roster.cd</legality>
+      </racenote>
+    </race>
+  <race id="impArm" name="Imperial Armour" abbrev="IA" output="IA" visible="no">
+    <comment>Created by Harkan, maintained by shaggai.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    </race>
+  <race id="sob" name="Sisters of Battle" abbrev="SoB" output="Sisters of Battle">
+    <comment>Created by gsjtitan, maintained by shaggai.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.ig)) |                     (ruleset.ro_AllyAoC & (roster.rg | roster.rs | roster.ba5E | roster.da6E | roster.gk5E | roster.sm | roster.sw5E)) |
+(ruleset.ro_AllyDA & (roster.bt | roster.de | roster.el | roster.ne5E | roster.ta)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ork | roster.ty5))]]></ally>
+    </race>
+  <race id="gk5E" name="Grey Knights" abbrev="GK" output="Grey Knights">
+    <comment>Created by versif, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyAoC & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.da6E | roster.el | roster.ig | roster.ne5E | roster.sob | roster.sm | roster.sw5E | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.de | roster.ork)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ty5))]]></ally>
+    <racenote index="0" text="{b}Grey Knights Special Rules:{/b}\n{i}Brotherhood of Psykers{/i} (Codex: GK, pg. 21)\n{i}Psyker Mastery Levels{/i} (Codex: GK, pg. 21)\n{i}Psychic Pilot{/i} (Codex: GK, pg. 21)\n{i}Preferred Enemy (Daemons){/i} (Codex: GK, pg. 21)\n{i}And They Shall Know No Fear{/i} (Codex: GK, pg. 21)\n{i}Combat Squads{/i} (Codex: GK, pg. 21)\n{i}The Aegis{/i} (Codex: GK, pg. 21)">
+      <legality>roster.gk5E</legality>
+      </racenote>
+    <createnote index="0" text="{b}Grey Knights Special Rules:{/b}\n{i}Brotherhood of Psykers{/i} (Codex: GK, pg. 21)\n{i}Psyker Mastery Levels{/i} (Codex: GK, pg. 21)\n{i}Psychic Pilot{/i} (Codex: GK, pg. 21)\n{i}Preferred Enemy (Daemons){/i} (Codex: GK, pg. 21)\n{i}And They Shall Know No Fear{/i} (Codex: GK, pg. 21)\n{i}Combat Squads{/i} (Codex: GK, pg. 21)\n{i}The Aegis{/i} (Codex: GK, pg. 21)">
+      <legality>roster.gk5E</legality>
+      </createnote>
+    </race>
+  <race id="ig" name="Imperial Guard" abbrev="Guard" output="Imperial Guard">
+    <comment>Created by Pi, updated by Warmonger, updated and maintained by Homer_S.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.da6E | roster.sob | roster.sm | roster.sw5E| roster.abg)) |                                 (ruleset.ro_AllyAoC & (roster.cd | roster.csm6E | roster.el | roster.gk5E | roster.ork | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.de | roster.ne5E)) |
+(ruleset.ro_AllyCtA & (roster.ty5))]]></ally>
+    </race>
+  <race id="ork" name="Orks" abbrev="Orks">
+    <comment>Created by Greenjello, updated by Harkan. maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyAoC & (roster.csm6E | roster.ig | roster.ne5E)) |
+(ruleset.ro_AllyDA & (roster.rg | roster.rs | roster.cd | roster.da6E | roster.de | roster.el | roster.gk5E | roster.sm | roster.sw5E)) |
+(ruleset.ro_AllyCtA & (roster.bt | roster.ba5E | roster.sob |  roster.ty5)) | (ruleset.ro_AllyAoC & roster.ta) ]]></ally>
+    <racenote index="0" text="{i}Waaagh!{/i} (C:O, pg. 31)\n{i}Mob Rule!{/i} (C:O, pg. 31)\n{i}Furious Charge{/i} (on selected units) (WH40K, pg. 75)">
+      <legality>roster.ork</legality>
+      </racenote>
+    <createnote index="0" text="{i}Waaagh!{/i} (C:O, pg. 31)\n{i}Mob Rule!{/i} (C:O, pg. 31)\n{i}Furious Charge{/i} (on selected units) (WH40K, pg. 75)">
+      <legality>roster.ork</legality>
+      </createnote>
+    </race>
+  <race id="da6E" name="Dark Angels" abbrev="DA">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs |  roster.bt | roster.ba5E | roster.ig | roster.sm)) |       
+(ruleset.ro_AllyAoC & (roster.el | roster.gk5E | roster.sob | roster.sw5E | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.ne5E | roster.ork)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.de | roster.ty5))]]></ally>
+    </race>
+  <race id="ba5E" name="Blood Angels" abbrev="BA">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="trp_sp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.bt | roster.da6E | roster.ig | roster.sm | roster.sw5E)) | (ruleset.ro_AllyAoC & (roster.el | roster.gk5E | roster.sob | roster.ta)) | (ruleset.ro_AllyDA & (roster.ne5E)) |  (ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.de | roster.ork | roster.ty5))]]></ally>
+    <racenote index="0" text="Special Rules:\n{i}And They Shall Know No Fear...{/i} (p74 WH40K)\n{i}The Black Rage{/i}  (p4 C:BA)\n{i}The Death Company{/i} (p4 C:BA)">
+      <legality>roster.ba5E</legality>
+      </racenote>
+    <createnote index="0" text="Special Rules:\n{i}And They Shall Know No Fear...{/i} (p74 WH40K)\n{i}The Black Rage{/i}  (p4 C:BA)\n{i}The Death Company{/i} (p4 C:BA)">
+      <legality>roster.ba5E</legality>
+      </createnote>
+    </race>
+  <race id="sw5E" name="Space Wolves" abbrev="SW">
+    <comment>Created by Rob, updated by Warmonger, maintained by shaggai.</comment>
+    <raceprof id="hq_sw"/>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="troops"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.ig | roster.sm)) |                           (ruleset.ro_AllyAoC & (roster.da6E | roster.el | roster.gk5E | roster.sob | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.de | roster.ne5E | roster.ork)) |
+(ruleset.ro_AllyCtA & (roster.cd | roster.csm6E | roster.ty5))]]></ally>
+    <racenote index="0" text="Special Rules:\n{i}And They Shall Know No Fear...{/i} (p74 WH40K)\n{i}Acute Senses{/i} (p75 WH40K)\n{i}Counter-Attack{/i}  (p74 WH40K)">
+      <legality>roster.sw5E</legality>
+      </racenote>
+    <createnote index="0" text="Special Rules:\n{i}And They Shall Know No Fear...{/i} (p74 WH40K)\n{i}Acute Senses{/i} (p75 WH40K)\n{i}Counter-Attack{/i}  (p74 WH40K)">
+      <legality>roster.sw5E</legality>
+      </createnote>
+    </race>
+  <race id="abg" name="~ Armoured Battle Group" abbrev="ABG" output="Armoured Battle Group">
+    <comment>Created by Pi, updated by Warmonger, updated and maintained by Homer_S.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.rg | roster.rs | roster.bt | roster.ba5E | roster.da6E | roster.sob | roster.sm | roster.sw5E| roster.ig)) |                                 (ruleset.ro_AllyAoC & (roster.cd | roster.csm6E | roster.el | roster.gk5E | roster.ork | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.de | roster.ne5E)) |
+(ruleset.ro_AllyCtA & (roster.ty5))]]></ally>
+    </race>
+  <race id="csm6E" name="Chaos Space Marines" abbrev="Chaos" output="Chaos Space Marines">
+    <comment>Created by shaggai, maintained by shaggai.</comment>
+    <raceprof id="patrol_hq"/>
+    <raceprof id="hq"/>
+    <raceprof id="elite"/>
+    <raceprof id="patrol_trp"/>
+    <raceprof id="troops"/>
+    <raceprof id="fast"/>
+    <raceprof id="heavy"/>
+    <raceprof id="Formation"/>
+    <raceprof id="Other"/>
+    <raceprof id="Legend"/>
+    <raceprof id="Fort"/>
+    <ally><![CDATA[(ruleset.ro_AllyBB & (roster.cd)) | (ruleset.ro_AllyAoC & (roster.ig | roster.ne5E | roster.ork | roster.ta)) |
+(ruleset.ro_AllyDA & (roster.de)) | (ruleset.ro_AllyCtA & (roster.rg | roster.rs | roster.ba5E | roster.bt | roster.da6E | roster.el | roster.gk5E | roster.sob | roster.sm | roster.sw5E | roster.ty5))]]></ally>
+    </race>
+  <defaults>
+    <sortset id="default" name="Default Sort" group1="Group" group2="_Name_" group3="_Cost_" default="yes"></sortset>
+    <view id="default" name="Available View" default="yes">
+      <column group="Group"/>
+      <column group="WS"/>
+      <column group="BS"/>
+      <column group="St"/>
+      <column group="To"/>
+      <column group="Wo"/>
+      <column group="In"/>
+      <column group="At"/>
+      <column group="Ld"/>
+      <column group="Save"/>
+      <info group="Transport"/>
+      </view>
+    <view id="roster" name="Roster View" roster="yes">
+      <column group="Group"/>
+      <column group="WS"/>
+      <column group="BS"/>
+      <column group="St"/>
+      <column group="To"/>
+      <column group="Wo"/>
+      <column group="In"/>
+      <column group="At"/>
+      <column group="Ld"/>
+      <column group="Save"/>
+      <column group="_Summary_"/>
+      <info group="Transport"/>
+      </view>
+    <view id="output" name="Output View" output="yes">
+      <column group="Group"/>
+      <column group="WS"/>
+      <column group="BS"/>
+      <column group="St"/>
+      <column group="To"/>
+      <column group="Wo"/>
+      <column group="In"/>
+      <column group="At"/>
+      <column group="Ld"/>
+      <column group="Save"/>
+      <info group="Transport"/>
+      </view>
+    <view id="tanks" name="Tanks" context="avail+roster+output+html">
+      <column group="Group"/>
+      <column group="BS"/>
+      <column group="Front"/>
+      <column group="Side"/>
+      <column group="Rear"/>
+      <column group="HP"/>
+      <column group="Transport"/>
+      <column group="_Summary_"/>
+      <info group="WS"/>
+      <info group="St"/>
+      <info group="To"/>
+      <info group="Wo"/>
+      <info group="In"/>
+      <info group="At"/>
+      <info group="Ld"/>
+      <info group="Save"/>
+      </view>
+    <filter id="hq" name="HQ" favorite="1">
+      <fltgroup group="Group">
+        <flttag tag="HQ"/>
+        </fltgroup>
+      <fltgroup group="Group">
+        <flttag tag="Advisor"/>
+        </fltgroup>
+      </filter>
+    <filter id="elite" name="Elite" favorite="6">
+      <fltgroup group="Group">
+        <flttag tag="Elite"/>
+        </fltgroup>
+      </filter>
+    <filter id="troops" name="Troop" favorite="11">
+      <fltgroup group="Group">
+        <flttag tag="Troop"/>
+        </fltgroup>
+      </filter>
+    <filter id="Speed" name="Fast" favorite="16">
+      <fltgroup group="Group">
+        <flttag tag="Fast"/>
+        </fltgroup>
+      </filter>
+    <filter id="Heavy" name="Heavy" favorite="21">
+      <fltgroup group="Group">
+        <flttag tag="Heavy"/>
+        </fltgroup>
+      </filter>
+    <filter id="sprHeavy" name="Warmachines" favorite="26">
+      <fltgroup group="Group">
+        <flttag tag="SuperHeavy"/>
+        </fltgroup>
+      </filter>
+    <filter id="formation" name="Formation" favorite="27">
+      <fltgroup group="Group">
+        <flttag tag="Formation"/>
+        </fltgroup>
+      </filter>
+    <filter id="Legendary" name="Legendary" favorite="27">
+      <fltgroup group="Group">
+        <flttag tag="Legend"/>
+        </fltgroup>
+      </filter>
+    <filter id="Assets" name="Strategic Assets" favorite="27">
+      <fltgroup group="Group">
+        <flttag tag="Assets"/>
+        </fltgroup>
+      </filter>
+    <filter id="Strategems" name="Strategems" favorite="27">
+      <fltgroup group="Group">
+        <flttag tag="Strategems"/>
+        </fltgroup>
+      </filter>
+    <filter id="Fort" name="Fortification" favorite="22">
+      <fltgroup group="Group">
+        <flttag tag="Fort"/>
+        </fltgroup>
+      </filter>
+    </defaults>
+  </document>

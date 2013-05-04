@@ -85,6 +85,16 @@
 		20B1FE1A1729F6F3007B3EDD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B1FE191729F6F3007B3EDD /* ImageIO.framework */; };
 		20B1FE291729F977007B3EDD /* UIViewController+ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1FE281729F977007B3EDD /* UIViewController+ImagePicker.m */; };
 		20B1FE2C172A0D36007B3EDD /* ModelSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B1FE2B172A0D36007B3EDD /* ModelSummaryCell.m */; };
+		20DDC61017345BC500A2C0EE /* general6Dat.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC58F17345BC200A2C0EE /* general6Dat.dat */; };
+		20DDC64B17345BC500A2C0EE /* sm5AP.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5CA17345BC400A2C0EE /* sm5AP.dat */; };
+		20DDC64C17345BC500A2C0EE /* sm5Aug.aug in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5CB17345BC400A2C0EE /* sm5Aug.aug */; };
+		20DDC64D17345BC500A2C0EE /* sm5EDat.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5CC17345BC400A2C0EE /* sm5EDat.dat */; };
+		20DDC64E17345BC500A2C0EE /* sm5EDatRG.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5CD17345BC400A2C0EE /* sm5EDatRG.dat */; };
+		20DDC64F17345BC500A2C0EE /* sm5EDatRS.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5CE17345BC400A2C0EE /* sm5EDatRS.dat */; };
+		20DDC65017345BC500A2C0EE /* sm5EXT.ext in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5CF17345BC400A2C0EE /* sm5EXT.ext */; };
+		20DDC65117345BC500A2C0EE /* sm5LegDA.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5D017345BC400A2C0EE /* sm5LegDA.dat */; };
+		20DDC65217345BC500A2C0EE /* sm5SpecDat.dat in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5D117345BC400A2C0EE /* sm5SpecDat.dat */; };
+		20DDC66817345BC500A2C0EE /* warhammer6-40k.def in Resources */ = {isa = PBXBuildFile; fileRef = 20DDC5E717345BC400A2C0EE /* warhammer6-40k.def */; };
 		8EA39002BBA148EFBA3F2195 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB2954759848B9BE5C08F8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +248,16 @@
 		20B1FE281729F977007B3EDD /* UIViewController+ImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ImagePicker.m"; sourceTree = "<group>"; };
 		20B1FE2A172A0D36007B3EDD /* ModelSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSummaryCell.h; sourceTree = "<group>"; };
 		20B1FE2B172A0D36007B3EDD /* ModelSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSummaryCell.m; sourceTree = "<group>"; };
+		20DDC58F17345BC200A2C0EE /* general6Dat.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = general6Dat.dat; sourceTree = "<group>"; };
+		20DDC5CA17345BC400A2C0EE /* sm5AP.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5AP.dat; sourceTree = "<group>"; };
+		20DDC5CB17345BC400A2C0EE /* sm5Aug.aug */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5Aug.aug; sourceTree = "<group>"; };
+		20DDC5CC17345BC400A2C0EE /* sm5EDat.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5EDat.dat; sourceTree = "<group>"; };
+		20DDC5CD17345BC400A2C0EE /* sm5EDatRG.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5EDatRG.dat; sourceTree = "<group>"; };
+		20DDC5CE17345BC400A2C0EE /* sm5EDatRS.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5EDatRS.dat; sourceTree = "<group>"; };
+		20DDC5CF17345BC400A2C0EE /* sm5EXT.ext */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5EXT.ext; sourceTree = "<group>"; };
+		20DDC5D017345BC400A2C0EE /* sm5LegDA.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5LegDA.dat; sourceTree = "<group>"; };
+		20DDC5D117345BC400A2C0EE /* sm5SpecDat.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sm5SpecDat.dat; sourceTree = "<group>"; };
+		20DDC5E717345BC400A2C0EE /* warhammer6-40k.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "warhammer6-40k.def"; sourceTree = "<group>"; };
 		E6FA73F781594A18ABDD53B9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -470,6 +490,7 @@
 		208C8D9517044E8400D0A8C0 /* Roster */ = {
 			isa = PBXGroup;
 			children = (
+				20DDC56517345BAC00A2C0EE /* XMLData */,
 				20B1FE071729DC28007B3EDD /* lib */,
 				2046FC4E17261D8E00DA5059 /* Views */,
 				2046FC4317253C0200DA5059 /* Categories */,
@@ -596,6 +617,23 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		20DDC56517345BAC00A2C0EE /* XMLData */ = {
+			isa = PBXGroup;
+			children = (
+				20DDC58F17345BC200A2C0EE /* general6Dat.dat */,
+				20DDC5CA17345BC400A2C0EE /* sm5AP.dat */,
+				20DDC5CB17345BC400A2C0EE /* sm5Aug.aug */,
+				20DDC5CC17345BC400A2C0EE /* sm5EDat.dat */,
+				20DDC5CD17345BC400A2C0EE /* sm5EDatRG.dat */,
+				20DDC5CE17345BC400A2C0EE /* sm5EDatRS.dat */,
+				20DDC5CF17345BC400A2C0EE /* sm5EXT.ext */,
+				20DDC5D017345BC400A2C0EE /* sm5LegDA.dat */,
+				20DDC5D117345BC400A2C0EE /* sm5SpecDat.dat */,
+				20DDC5E717345BC400A2C0EE /* warhammer6-40k.def */,
+			);
+			name = XMLData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -676,6 +714,16 @@
 				208C8DA917044E8400D0A8C0 /* MainStoryboard_iPhone.storyboard in Resources */,
 				208C8DAC17044E8400D0A8C0 /* MainStoryboard_iPad.storyboard in Resources */,
 				20AE26131729558300A9977D /* FPPicker.bundle in Resources */,
+				20DDC61017345BC500A2C0EE /* general6Dat.dat in Resources */,
+				20DDC64B17345BC500A2C0EE /* sm5AP.dat in Resources */,
+				20DDC64C17345BC500A2C0EE /* sm5Aug.aug in Resources */,
+				20DDC64D17345BC500A2C0EE /* sm5EDat.dat in Resources */,
+				20DDC64E17345BC500A2C0EE /* sm5EDatRG.dat in Resources */,
+				20DDC64F17345BC500A2C0EE /* sm5EDatRS.dat in Resources */,
+				20DDC65017345BC500A2C0EE /* sm5EXT.ext in Resources */,
+				20DDC65117345BC500A2C0EE /* sm5LegDA.dat in Resources */,
+				20DDC65217345BC500A2C0EE /* sm5SpecDat.dat in Resources */,
+				20DDC66817345BC500A2C0EE /* warhammer6-40k.def in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

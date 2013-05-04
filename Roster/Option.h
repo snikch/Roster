@@ -9,9 +9,12 @@
 #import <CoreData/CoreData.h>
 #import "Wargear.h"
 
+@class Model;
+
 @interface Option : NSManagedObject
 
 @property (strong) Wargear *wargear;
+@property (strong) Model *model;
 @property (strong) NSNumber *cost;
 @property (strong) NSString *name;
 

@@ -103,8 +103,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"unit.name" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor];
+    NSArray *sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"unit.classification" ascending:YES], [[NSSortDescriptor alloc] initWithKey:@"unit.name" ascending:YES]];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     

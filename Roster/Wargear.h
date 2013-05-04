@@ -11,5 +11,9 @@
 @interface Wargear : NSManagedObject
 
 @property (strong) NSSet *characteristics;
+@property (strong) NSString *name;
+@property (strong) NSString *info;
+@property (strong) NSString *abbreviation;
+@property (strong) NSNumber *footnote;
 
 @end

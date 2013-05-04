@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document signature="Army Builder Extension">
+  <extover isunit="yes" entity="ia5smWhiHy" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smDamRh" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smLRH" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smLRP" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smLSTem" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5da_MDN" index="11" group="race" empty="yes">
+    <condition><![CDATA[roster.da]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smDeDro" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smTGD" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia_Sentry" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smHyADB" index="11" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smLRP" index="11" group="Group" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="Elite"/>
+    </extover>
+  <extover isunit="yes" entity="iaa2e_SiDN" index="10" group="race" empty="yes">
+    <condition>roster.sm</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smThGu" index="10" group="race" empty="yes">
+    <condition><![CDATA[roster.sm & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia5smThGu" index="11" group="Group" empty="yes">
+    <condition><![CDATA[roster.sm & ruleset.ro_Apoc]]></condition>
+    <tagover id="Legend"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_HellH" index="50" group="race">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia_Light" index="50" name="Lightning" group="race">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia_ThBolt" index="50" name="Thunderbolt" group="race">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia_Vult" index="50" name="Vulture" group="race">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ia_Vult" index="51" name="Vulture" group="ia9Tags">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="NavalFleet"/>
+    </extover>
+  <extover isunit="yes" entity="ia_Light" index="51" name="Lightning" group="ia9Tags">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="NavalFleet"/>
+    </extover>
+  <extover isunit="yes" entity="ia_ThBolt" index="51" name="Thunderbolt" group="ia9Tags">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="NavalFleet"/>
+    </extover>
+  <extover isunit="yes" entity="iaIgAnn" index="60" name="Leman Russ Annihilator" group="race">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="iaIgAnn" index="61" name="Leman Russ Annihilator" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="AuxLRBT"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRBT" index="60" group="race">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRBT" index="61" group="ia9Tags">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="AuxLRBT"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRExt" index="60" group="race">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRExt" index="61" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="AuxLRBT"/>
+    </extover>
+  <extover isunit="yes" entity="iaIG_Thund" index="60" name="Thunderer" group="race">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="iaIG_Thund" index="61" name="Thunderer" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="AuxSiege"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_Basil" index="61" group="ia9Tags">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="AuxSiege"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_Medus" index="61" group="ia9Tags">
+    <condition>ruleset.smChTyrant</condition>
+    <tagover id="AuxSiege"/>
+    </extover>
+  <extover isunit="yes" entity="apIG_SLord" index="50" name="Stormlord" group="ia9Tags" empty="yes">
+    <condition><![CDATA[ruleset.ro_Apoc & ruleset.smChTyrant]]></condition>
+    <tagover id="ia9_CCV"/>
+    <statval stat="BS" value="4"/>
+    </extover>
+  <extover isunit="yes" entity="apIG_Bane" index="50" group="ia9Tags" empty="yes">
+    <condition><![CDATA[ruleset.ro_Apoc & ruleset.smChTyrant]]></condition>
+    <tagover id="ia9_CCV"/>
+    <statval stat="BS" value="4"/>
+    </extover>
+  <extover isunit="yes" entity="iaIgAnn" index="62" name="Leman Russ Annihilator" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRBT" index="62" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRExt" index="62" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant | (ruleset.smChTyrant & ruleset.ro_Apoc)]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRDem" index="60" group="race">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRDem" index="61" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRExe" index="60" group="race">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRExe" index="61" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRPun" index="60" group="race">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRPun" index="61" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRVan" index="60" group="race">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LRVan" index="61" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LREra" index="60" group="race">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="ig5E_LREra" index="61" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  <extover isunit="yes" entity="iaIG_Conq" index="60" name="Leman Russ Conqueror" group="race">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="sm"/>
+    </extover>
+  <extover isunit="yes" entity="iaIG_Conq" index="61" name="Leman Russ Conqueror" group="ia9Tags">
+    <condition><![CDATA[ruleset.smChTyrant & ruleset.ro_Apoc]]></condition>
+    <tagover id="apFia9_BP"/>
+    </extover>
+  </document>

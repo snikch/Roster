@@ -1,0 +1,14 @@
+PODS:
+  - XMLDictionary (2.0.0)
+
+DEPENDENCIES:
+  - XMLDictionary (from `https://github.com/mysterioustrousers/XMLDictionary.git`)
+
+EXTERNAL SOURCES:
+  XMLDictionary:
+    :git: https://github.com/mysterioustrousers/XMLDictionary.git
+
+SPEC CHECKSUMS:
+  XMLDictionary: d41dcb25b03e480f374551037396f4fc1307ff1c
+
+COCOAPODS: 0.18.1

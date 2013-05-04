@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document signature="Army Builder Data">
+  <tagset id="Chapters">
+    <tag group="race" tag="sm"/>
+    </tagset>
+  <linkset id="ia9UT_Loth">
+    <link option="gn6_Fearle" priority="305" nature="auto" textcost=" " index="3">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_IndCha" priority="305" nature="auto" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_Psyker" name="Psyker (Mastery Level 3)" priority="305" nature="auto" textcost=" " index="6">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smSR_ComTa" priority="305" index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    </linkset>
+  <linkset id="rsUT_Culln">
+    <link option="gn6_ATSKNF" priority="305" nature="auto" textcost=" " index="3">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_EteWar" priority="305" nature="auto" textcost=" " index="5">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_IndCha" priority="305" nature="auto" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smSR_ComTa" priority="305" index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    </linkset>
+  <linkset id="ia9UT_Cull">
+    <link option="gn6_ATSKNF" priority="305" nature="auto" textcost=" " index="3">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_EteWar" name="Proud to Live, Proud to Die, Hard to Kill" priority="305" nature="auto" description="Benefits from the Eternal Warrior USR. In addition, while Culln is alive he and all other Red Scorpion units within 12&quot;, add +1 to their total score for the purposes of determining combat resolution in any given assault. Note that this bonus does not stack." textcost=" " index="5">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_EteWar" priority="305" nature="auto" textcost=" " index="6">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_IndCha" priority="305" nature="auto" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smSR_ChapT" priority="305" nature="auto" description="If you include Lord Commander Culln then all units in your army may opt to lose the Combat Tactics special rule. Instead, the Veteran Sergeants in your Tactical squads may be replaced with Apothecaries if you wish at no additional cost. If one or more models in your army has the Chapter Tactics special rule, you must choose which verison will apply." textcost=" " index="8">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smSR_Orbit" priority="305" nature="auto" textcost=" " index="7">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smSR_ComTa" index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    </linkset>
+  <option id="rsTacSgtUp" name="Apothecary" abbrev="" category="taUpgrade" priority="0" cost="0" costtype="single"></option>
+  <option id="rs5ESgtTac" name="" abbrev="" category="add" priority="0" cost="0" costtype="single" unit="rs5ESgtTac" show="never"></option>
+  <option id="rsArmSel" name="The Armour of Selket" abbrev="ArmSel" description="The Armour of Selket (see IA vol. 9, pg. 165)." category="wargear" footnote="yes" priority="5" nature="base" cost="0" costtype="single" textcost=" ">
+    <link option="gnArtArm" nature="auto" cost="0." textcost=" " hide="yes" index="0"></link>
+    <link option="gn6_PsyHoo" nature="auto" cost="0." textcost=" " hide="yes" index="1"></link>
+    </option>
+  <unit id="rs5ESgtTac" name="Sergeant" cost="23." idtag="yes" statset="unit" maxsize="1" startsize="1">
+    <statval stat="At" value="2"/>
+    <statval stat="BS" value="4"/>
+    <statval stat="In" value="4"/>
+    <statval stat="Ld" value="9"/>
+    <statval stat="Save" value="3"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="4"/>
+    <statval stat="Wo" value="1"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="smUT_Tac"/>
+    <link option="iaSM_SgtHa" name="Veteran Sergeant Haas" priority="0" display="705" index="0"></link>
+    <link option="gnKrakG_E" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="2">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="1">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smAWN" priority="5" nature="base" cost="0." category="wargear" textcost=" " index="3">
+      <live><![CDATA[smTags.Apothecary & !ruleset.ro_CompOut]]></live>
+      </link>
+    <link option="gnSpcWar" priority="10" index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWargear" name="{macro color1}-- Options --{text 010101}" priority="18" index="5">
+      <live>!smTags.Apothecary</live>
+      </link>
+    <link option="gnMeltaB_E" priority="20" cost="5." category="wargear" index="6">
+      <live>!smTags.Apothecary</live>
+      </link>
+    <link option="sm5E_Homer" priority="20" cost="15." category="wargear" index="7">
+      <live>!smTags.Apothecary</live>
+      </link>
+    <link option="gnSpcWar" priority="21" index="8">
+      <live>!smTags.Apothecary</live>
+      </link>
+    <link option="gnBoltG" priority="30" category="weapons" textcost=" " select="yes" index="9">
+      <exclref id="onehand"/>
+      </link>
+    <link option="gnBoltPUn" priority="30" category="weapons" textcost=" " select="yes" index="10">
+      <exclref id="onehand"/>
+      </link>
+    <link option="gnSpcWpn" priority="33" index="18"></link>
+    <link option="gnWeapon" name="{macro color1}-- Replace Boltgun / BoltP with --{text 010101}" priority="35" index="19">
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnCCW" name="Chainsword" priority="40" cost="0." rangemax="2" costtype="single" category="weapons" abbrev="ChSwd" textcost="Free" index="20">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnCombF" priority="40" cost="10." rangemax="2" costtype="single" category="weapons" index="21">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnCombMG" priority="40" cost="10." rangemax="2" costtype="single" category="weapons" index="22">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnCombPG" priority="40" cost="10." rangemax="2" costtype="single" category="weapons" index="23">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnPlasP" priority="40" cost="15." rangemax="2" costtype="single" category="weapons" index="24">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnPowF" priority="40" cost="25." rangemax="2" costtype="single" category="weapons" index="25">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnStormB" priority="40" cost="10." rangemax="2" costtype="single" category="weapons" index="26">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowAx" priority="40" cost="15." rangemax="2" costtype="single" category="weapons" index="27">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowLa" priority="40" cost="15." rangemax="2" costtype="single" category="weapons" index="28">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowMa" priority="40" cost="15." rangemax="2" costtype="single" category="weapons" index="29">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowSw" priority="40" cost="15." rangemax="2" costtype="single" category="weapons" index="30">
+      <exclref id="onehand"/>
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnSpcWpn" priority="43" index="31">
+      <live>!smTags.SgtHaas</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Must Choose a Power Weapon --{text 010101}" priority="70" index="12">
+      <live>smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowAx" priority="73" cost="0." textcost="Free" index="13">
+      <exclref id="range_11"/>
+      <live>smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowLa" priority="73" cost="0." textcost="Free" index="14">
+      <exclref id="range_11"/>
+      <live>smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowMa" priority="73" cost="0." textcost="Free" index="15">
+      <exclref id="range_11"/>
+      <live>smTags.SgtHaas</live>
+      </link>
+    <link option="gn6_PowSw" priority="73" cost="0." textcost="Free" index="16">
+      <exclref id="range_11"/>
+      <live>smTags.SgtHaas</live>
+      </link>
+    <link option="gnSpcWpn" priority="78" index="17">
+      <live><![CDATA[!ruleset.ro_CompOut & smTags.SgtHaas]]></live>
+      </link>
+    <link option="gnSpace" name="{macro color1}-- Upgrade Sergeant to --{text 010101}" priority="700" category="taUpgrade" index="32"></link>
+    <link option="rsTacSgtUp" priority="705" cost="25." textcost="+25" index="34"></link>
+    <link option="rsTacSgtUp" priority="705" cost="0." textcost="+0" index="33">
+      <live>ia9TagsG.ia9_LHCul</live>
+      </link>
+    <tag group="UnitTags" tag="infantry" name="Unit Type: Infantry"/>
+    <tag group="smTags" tag="Sergeant"/>
+    <tag group="UnitTags" tag="character" name="Character"/>
+    <member>roster.rs</member>
+    <prelinks><![CDATA[~ If upgrade is chosen, add the Apothecary tag for Live purposes
+var upgrade as number
+
+if (option[rsTacSgtUp].selection > 0) then
+   upgrade = entity.assign[smTags.Apothecary] 
+else
+endif]]></prelinks>
+    <postlinks><![CDATA[~ Changing name of unit based on tagging
+if (entity.tagis[smTags.SgtHaas] = 1) then
+   entity.name ="Veteran Sergeant Haas (IA)"
+   var retval as number
+   retval = root.assign[smTags.SgtHaas]
+   entity.basestat[Wo] = 2
+endif
+
+~ Procedure call for setting bonus attacks, adjusting strength, etc.
+call sm5EAdjCCW]]></postlinks>
+    </unit>
+  <unit id="ia9_Loth" name="Magister Sevrin Loth (IA)" cost="205." idtag="yes" statset="unit" maxsize="1" startsize="1">
+    <statval stat="At" value="3"/>
+    <statval stat="BS" value="5"/>
+    <statval stat="In" value="5"/>
+    <statval stat="Ld" value="10"/>
+    <statval stat="Save" value="2+"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="6"/>
+    <statval stat="Wo" value="3"/>
+    <statval stat="gn6_PsyPow" value="6"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="ia9UT_Loth"/>
+    <linkref id="sm5E_LibPP"/>
+    <linkref id="gnWarlord"/>
+    <link option="gnRef" name="(IA9, pg. 165)" priority="0" index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnKrakG_E" priority="3" nature="auto" category="wargear" textcost=" " index="2">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="auto" category="wargear" textcost=" " index="1">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="rsArmSel" priority="5" nature="auto" cost="0." textcost=" " hide="yes" index="3">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="rsArmSel" priority="5" nature="auto" cost="0." textcost=" " index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWar" priority="8" index="5">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltP" priority="55" nature="auto" cost="0." category="weapons" textcost=" " index="7">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltP" priority="55" nature="auto" cost="0." category="weapons" textcost=" " hide="yes" index="6">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="58" index="8">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Must Choose a Force Weapon --{text 010101}" priority="60" index="9"></link>
+    <link option="gn6_ForcAx" priority="63" cost="0." textcost="Free" index="10">
+      <exclref id="range_11a"/>
+      </link>
+    <link option="gn6_ForcSt" priority="63" cost="0." textcost="Free" index="11">
+      <exclref id="range_11a"/>
+      </link>
+    <link option="gn6_ForcSw" priority="63" cost="0." textcost="Free" index="12">
+      <exclref id="range_11a"/>
+      </link>
+    <link option="gnSpcWpn" priority="65" index="13"></link>
+    <link option="gn6_Psyker" priority="305" nature="auto" hide="yes" index="21">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpace" priority="308" category="skills" index="25">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_PP_ALL" index="22">
+      <live>UnitTags.gn6_PsyCod</live>
+      </link>
+    <link option="gn6_PP_x" index="23">
+      <live>UnitTags.gn6_Psy6E</live>
+      </link>
+    <tag group="race" tag="sm"/>
+    <tag group="smTags" tag="AllowHonGu"/>
+    <tag group="smTags" tag="Librarian"/>
+    <tag group="UnitTags" tag="infantry" name="Unit Type: Infantry"/>
+    <tag group="gnAcc" tag="gnNameChar"/>
+    <tag group="limited" tag="unique"/>
+    <tag group="race" tag="rs"/>
+    <tag group="Group" tag="HQ"/>
+    <tag group="UnitTags" tag="character" name="Character"/>
+    <member><![CDATA[(((ruleset.ro_spec | ruleset.ro_Apoc) & ruleset.smCh5E | roster.rs) | (ruleset.ro_ApocHE & (roster.ig | roster.ohw | roster.cd | roster.chA | roster.de | roster.ne | roster.ork | roster.ta | roster.ty5 | roster.el)) | (ruleset.ro_ApocTA & (roster.ig | roster.ohw)) | (ruleset.ro_ApocDA & (roster.ig | roster.ohw))) & ruleset.ro_ImpArm]]></member>
+    <postlinks>~ Procedure call for setting bonus attacks, adjusting strength, etc.
+call sm5EAdjCCW</postlinks>
+    </unit>
+  <unit id="rs5EScoutB" name="Scout Bike Squad" cost="20." textcost="70" statset="unit" minsize="2" maxsize="9" startsize="2">
+    <statval stat="At" value="1"/>
+    <statval stat="BS" value="3"/>
+    <statval stat="In" value="4"/>
+    <statval stat="Ld" value="8"/>
+    <statval stat="Save" value="4"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="3"/>
+    <statval stat="Wo" value="1"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="smUT_ScB"/>
+    <link option="gnRef" name="(C:SM, pg. 67 &amp; 141)" priority="0" nature="auto" textcost=" " index="33">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnKrakG_E" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="11">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="base" category="wargear" textcost=" " index="10">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnScoArm" priority="5" nature="base" textcost=" " index="17">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnShotGMS" name="Shotgun" priority="5" nature="base" category="wargear" textcost=" " index="19">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_SMB" priority="5" nature="base" textcost=" " index="16">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWar" priority="10" index="26">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWargear" name="{macro color1}-- Options --{text 010101}" priority="15" index="0"></link>
+    <link option="sm5E_ClusM" priority="20" index="21"></link>
+    <link option="gnSpcWar" priority="21" index="27">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltP" priority="30" nature="base" category="weapons" textcost=" " index="18">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltP" priority="30" nature="base" category="weapons" textcost=" " hide="yes" index="31">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnShotGMS" name="Shotgun" priority="30" nature="base" category="weapons" textcost=" " index="30">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnShotGMS" name="Shotgun" priority="30" nature="base" category="weapons" textcost=" " hide="yes" index="32">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="35" index="24">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Replace TL Boltgun with --{text 010101}" priority="40" index="25"></link>
+    <link option="smAstGL" priority="45" rangemax="3" category="weapons" textcost="10" index="22">
+      <exclref id="range_03"/>
+      </link>
+    <link option="gnSpcWpn" priority="46" index="29"></link>
+    <link option="sm5ESgtScB" priority="105" nature="auto" cost="30." index="15"></link>
+    <tag group="smTags" tag="ScoutBike"/>
+    <tag group="Group" tag="Fast"/>
+    <tag group="UnitTags" tag="bikes" name="Unit Type: Bikes"/>
+    <tag group="race" tag="rs"/>
+    <member>roster.rs</member>
+    <postlinks>~ Procedure call for setting bonus attacks, adjusting strength, etc.
+      call sm5EAdjCCW</postlinks>
+    </unit>
+  <unit id="rs5EScout" name="Scout Squad" cost="13." textcost="75" statset="unit" minsize="4" maxsize="9" startsize="4">
+    <statval stat="At" value="1"/>
+    <statval stat="BS" value="3"/>
+    <statval stat="In" value="4"/>
+    <statval stat="Ld" value="8"/>
+    <statval stat="Save" value="4"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="3"/>
+    <statval stat="Wo" value="1"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="smUT_Sco"/>
+    <link option="gnRef" name="(C:SM, pg. 66 &amp; 134)" priority="0" nature="auto" textcost=" " index="47">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnKrakG_E" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="22">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="21">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnScoArm" priority="5" nature="base" textcost=" " index="37">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpace" priority="25" category="wargear" index="38">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWargear" name="{macro color1}-- Options --{text 010101}" priority="28" index="14"></link>
+    <link option="gn6_CamC" priority="30" cost="3." index="34"></link>
+    <link option="gnSpcWar" priority="31" index="44"></link>
+    <link option="gnBoltG" priority="35" nature="auto" remainder="range_m" category="weapons" textcost=" " hide="yes" index="46">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltG" priority="35" nature="auto" remainder="range_m" category="weapons" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltPUn" priority="35" nature="auto" remainder="range_0m" category="weapons" textcost=" " hide="yes" index="23">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="38" index="32">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Replace Boltgun with --{text 010101}" priority="40" index="31"></link>
+    <link option="gnCCW" name="Combat Blade" priority="45" cost="0." rangemax="9" costtype="single" category="weapons" abbrev="CB" textcost="Free" index="36">
+      <exclref id="range_m"/>
+      </link>
+    <link option="gnShotGMS" name="Shotgun" priority="45" cost="0." rangemax="9" costtype="single" category="weapons" textcost="Free" index="5">
+      <exclref id="range_m"/>
+      </link>
+    <link option="gnSnipeR" priority="45" cost="0." rangemax="9" costtype="single" category="weapons" textcost="Free" index="35">
+      <exclref id="range_m"/>
+      </link>
+    <link option="gnSpcWpn" priority="50" index="24"></link>
+    <link option="gn0to1" priority="55" category="weapons" index="1"></link>
+    <link option="gnMissile" priority="60" cost="10." costtype="single" category="weapons" index="10">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      </link>
+    <link option="smHBwHR" priority="60" cost="10." costtype="single" category="weapons" index="29">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      </link>
+    <link option="gnSpcWpn" priority="61" index="45"></link>
+    <link option="gnAddUnit" name="{macro color1}-- Upgrade Sergeant to --{text 010101}" priority="100" category="taUpgrade" index="39"></link>
+    <link option="sm5ESgtSco" priority="105" nature="auto" cost="13." remainder="range_11" index="40"></link>
+    <link option="sm5ETelion" priority="105" cost="50." textcost="50" index="42">
+      <exclref id="range_11"/>
+      </link>
+    <tag group="Group" tag="Troop"/>
+    <tag group="UnitTags" tag="infantry" name="Unit Type: Infantry"/>
+    <tag group="race" tag="rs"/>
+    <tag group="smTags" tag="ScoutSqd"/>
+    <member><![CDATA[roster.rs | (roster.sm & ally.rs)]]></member>
+    <postlinks><![CDATA[~ Adjusting squad cost if Chapter Champion is chosen
+if (option[sm5ETelion].selection > 0) then
+   @single = @single + 23
+endif
+
+~ Procedure call for setting bonus attacks, adjusting strength, etc.
+call sm5EAdjCCW
+]]></postlinks>
+    </unit>
+  <unit id="ia9_Culln" name="Lord High Commander Carab Culln (IA)" cost="215." statset="unit" maxsize="1" startsize="1">
+    <statval stat="At" value="4"/>
+    <statval stat="BS" value="5"/>
+    <statval stat="In" value="5"/>
+    <statval stat="Ld" value="10"/>
+    <statval stat="Save" value="2+"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="6"/>
+    <statval stat="Wo" value="3"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="ia9UT_Cull"/>
+    <linkref id="gnWarlord"/>
+    <link option="gnRef" name="(IA9, pgs. 166-167)" priority="0" index="8">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnIronHalo" priority="5" nature="auto" cost="0." textcost=" " index="1">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnIronHalo" priority="5" nature="auto" cost="0." textcost=" " hide="yes" index="14">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnTermArm" priority="5" nature="auto" textcost=" " hide="yes" index="13">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnTermArm" priority="5" nature="auto" textcost=" " index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="sm5E_Homer" priority="5" nature="auto" textcost=" " index="6">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWar" priority="8" index="12">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnStormB" name="Master Crafted Storm Bolter" priority="55" nature="auto" category="weapons" abbrev="MCStormB" description="24&quot; Range; S4; AP5; Assault 2; May re-roll one failed roll to hit per turn." textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smRB" name="Blade of the Scorpion" priority="55" nature="auto" cost="0." category="weapons" abbrev="BoS" description="Blade of the Scorpion (see IA vol. 9, pg. 167)." textcost=" " hide="yes" index="15">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="smRB" name="Blade of the Scorpion" priority="55" nature="auto" cost="0." category="weapons" abbrev="BotS" description="Blade of the Scorpion (see IA vol. 9, pg. 167)." textcost=" " index="2">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="56" index="11">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpace" priority="308" category="skills" index="16">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <tag group="ia9TagsG" tag="ia9_LHCul"/>
+    <tag group="limited" tag="unique"/>
+    <tag group="race" tag="rs"/>
+    <tag group="race" tag="sm"/>
+    <tag group="rgTagsG" tag="Culln"/>
+    <tag group="smTags" tag="ChapterMas"/>
+    <tag group="UnitTags" tag="character" name="Character"/>
+    <tag group="UnitTags" tag="infantry" name="Unit Type: Infantry"/>
+    <tag group="gnAcc" tag="gnNameChar"/>
+    <tag group="Group" tag="HQ"/>
+    <member><![CDATA[(((ruleset.ro_spec | ruleset.ro_Apoc) & ruleset.smCh5E | roster.rs) | (ruleset.ro_ApocHE & (roster.ig | roster.ohw | roster.cd | roster.chA | roster.de | roster.ne | roster.ork | roster.ta | roster.ty5 | roster.el)) | (ruleset.ro_ApocTA & (roster.ig | roster.ohw)) | (ruleset.ro_ApocDA & (roster.ig | roster.ohw))) & ruleset.ro_ImpArm]]></member>
+    <postlinks>~ Procedure call for setting bonus attacks, adjusting strength, etc.
+call sm5EAdjCCW</postlinks>
+    </unit>
+  <unit id="rsCmdrCull" name="Commander Carab Culln (IA)" cost="190." statset="unit" maxsize="1" startsize="1">
+    <statval stat="At" value="3"/>
+    <statval stat="BS" value="5"/>
+    <statval stat="In" value="5"/>
+    <statval stat="Ld" value="10"/>
+    <statval stat="Save" value="2+"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="6"/>
+    <statval stat="Wo" value="3"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="rsUT_Culln"/>
+    <linkref id="gnWarlord"/>
+    <link option="gnRef" name="(IA PDF)" priority="0" index="8">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnKrakG_E" priority="3" nature="auto" category="wargear" textcost=" " index="3">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="auto" category="wargear" textcost=" " index="5">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnIronHalo" priority="5" nature="auto" cost="0." textcost=" " hide="yes" index="14">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnIronHalo" priority="5" nature="auto" cost="0." textcost=" " index="1">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnTermArm" priority="5" nature="auto" textcost=" " index="4">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnTermArm" priority="5" nature="auto" textcost=" " hide="yes" index="13">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="sm5E_Homer" priority="5" nature="auto" textcost=" " index="6">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWar" priority="8" index="12">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnStormB" name="Master Crafted Storm Bolter" priority="55" nature="auto" category="weapons" abbrev="MCStormB" description="24&quot; Range; S4; AP5; Assault 2; May re-roll one failed roll to hit per turn." textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="smRB" name="Blade of Vord" priority="55" nature="auto" cost="0." category="weapons" abbrev="BoV" description="Blade of Vord (see FW PDF)." textcost=" " hide="yes" index="15">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="smRB" name="Blade of Vord" priority="55" nature="auto" cost="0." category="weapons" abbrev="BoV" description="Blade of Vord (see FW PDF)." textcost=" " index="2">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="56" index="11">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpace" priority="308" category="skills" index="16">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <tag group="UnitTags" tag="character" name="Character"/>
+    <tag group="UnitTags" tag="infantry" name="Unit Type: Infantry"/>
+    <tag group="gnAcc" tag="gnNameChar"/>
+    <tag group="limited" tag="unique"/>
+    <tag group="race" tag="rs"/>
+    <tag group="rgTagsG" tag="Culln"/>
+    <tag group="smTags" tag="Commander"/>
+    <tag group="Group" tag="HQ"/>
+    <member><![CDATA[(((ruleset.ro_spec | ruleset.ro_Apoc) & ruleset.smCh5E | roster.rs) | (ruleset.ro_ApocHE & (roster.ig | roster.ohw | roster.cd | roster.chA | roster.de | roster.ne | roster.ork | roster.ta | roster.ty5 | roster.el)) | (ruleset.ro_ApocTA & (roster.ig | roster.ohw)) | (ruleset.ro_ApocDA & (roster.ig | roster.ohw))) & ruleset.ro_ImpArm]]></member>
+    <postlinks>~ Procedure call for setting bonus attacks, adjusting strength, etc.
+call sm5EAdjCCW</postlinks>
+    </unit>
+  <unit id="rs5ETactic" name="Tactical Squad" cost="16." textcost="90" statset="unit" minsize="4" maxsize="9" startsize="4">
+    <statval stat="At" value="1"/>
+    <statval stat="BS" value="4"/>
+    <statval stat="In" value="4"/>
+    <statval stat="Ld" value="8"/>
+    <statval stat="Save" value="3"/>
+    <statval stat="St" value="4"/>
+    <statval stat="To" value="4"/>
+    <statval stat="WS" value="4"/>
+    <statval stat="Wo" value="1"/>
+    <linkref id="gn6_AutoUT"/>
+    <linkref id="smUT_Tac"/>
+    <linkref id="smTrans"/>
+    <link option="gnRef" name="(C:SM, pg. 59 &amp; 134)" priority="0" nature="auto" textcost=" " index="41">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnKrakG_E" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="22">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gn6_AslGre" priority="3" nature="base" cost="0." category="wargear" textcost=" " index="21">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnPowArm" priority="5" nature="base" textcost=" " index="34">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWar" priority="10" index="35">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltG" priority="15" nature="auto" remainder="range_m" category="weapons" textcost=" " hide="yes" index="40">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltG" priority="15" nature="auto" remainder="range_m" category="weapons" textcost=" " index="0">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltPUn" priority="15" nature="auto" remainder="range_0m" category="weapons" textcost=" " hide="yes" index="39">
+      <live>ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnBoltPUn" priority="15" nature="auto" remainder="range_0m" category="weapons" textcost=" " index="23">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnSpcWpn" priority="17" index="38">
+      <live>!ruleset.ro_CompOut</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Options --{text 010101}" priority="18" index="14">
+      <live>smTags.AllowSW</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Replace Bolter with --{text 010101}" priority="30" index="31">
+      <live>smTags.AllowSW</live>
+      </link>
+    <link option="gnFlamer" priority="35" cost="0." costtype="single" category="weapons" textcost="Free" index="5">
+      <exclref id="range_m"/>
+      <exclref id="range_01a"/>
+      <live>smTags.AllowSW</live>
+      </link>
+    <link option="gnMeltaG" priority="35" cost="5." costtype="single" category="weapons" index="7">
+      <exclref id="range_m"/>
+      <exclref id="range_01a"/>
+      <live>smTags.AllowSW</live>
+      </link>
+    <link option="gnPlasG" priority="35" cost="10." costtype="single" category="weapons" index="8">
+      <exclref id="range_m"/>
+      <exclref id="range_01a"/>
+      <live>smTags.AllowSW</live>
+      </link>
+    <link option="gnSpcWpn" priority="49" index="24">
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gnWeapon" name="{macro color1}-- Replace Bolter with --{text 010101}" priority="50" index="1">
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gnLasC" priority="55" cost="10." costtype="single" category="weapons" index="30">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gnMMelta" priority="55" costtype="single" category="weapons" textcost="Free" index="28">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gnMissile" priority="55" costtype="single" category="weapons" textcost="Free" index="10">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gnPlasC" priority="55" cost="5." costtype="single" category="weapons" index="9">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gn6_HvyBG" priority="55" costtype="single" category="weapons" textcost="Free" index="29">
+      <exclref id="range_m"/>
+      <exclref id="range_01"/>
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="gnSpcWpn" priority="58" index="36">
+      <live>smTags.AllowHW</live>
+      </link>
+    <link option="rs5ESgtTac" priority="105" nature="auto" cost="3." costtype="single" index="13"></link>
+    <tag group="smTags" tag="TacSquad"/>
+    <tag group="Group" tag="Troop"/>
+    <tag group="UnitTags" tag="infantry" name="Unit Type: Infantry"/>
+    <tag group="race" tag="rs"/>
+    <tag group="race" tag="sm"/>
+    <member>roster.rs | ally.rs</member>
+    <prelinks>~Unlocking special and heavy weapons once model count is increased to 9
+      var unlockSW as number
+      var unlockHW as number      
+      
+      if (count[model] = 9) then
+      unlockSW = entity.assign[smTags.AllowSW] 
+      unlockHW = entity.assign[smTags.AllowHW] 
+      endif
+    </prelinks>
+    <postlinks>~ Procedure call for setting bonus attacks, adjusting strength, etc.
+      call sm5EAdjCCW</postlinks>
+    </unit>
+  <scripts></scripts>
+  <rule id="ia9_Culln" message="You can only have one verison of Culln in your army." summary="You can only have one verison of Culln in your army." priority="20">
+    <set set="ro_ImpArm"/>
+    <test/>
+    <valid><![CDATA[if (overall.tagcount[rgTagsG.Culln] <= 1) then
+   @valid = 1
+endif]]></valid>
+    </rule>
+  </document>

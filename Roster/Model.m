@@ -13,6 +13,9 @@
 @dynamic name;
 @dynamic cost;
 @dynamic included;
+@dynamic unit;
+@dynamic max;
+@dynamic available;
 
 -(NSMutableArray*)wargear{
     NSMutableArray *wargearArray = [NSMutableArray array];

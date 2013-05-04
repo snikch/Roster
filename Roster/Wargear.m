@@ -11,6 +11,10 @@
 @implementation Wargear
 
 @dynamic characteristics;
+@dynamic name;
+@dynamic info;
+@dynamic abbreviation;
+@dynamic footnote;
 //-(NSArray*)characteristicsArray{
 //    NSManagedObjectContext *context = [self managedObjectContext];
 //    NSFetchRequest *request = [[NSFetchRequest alloc] init];

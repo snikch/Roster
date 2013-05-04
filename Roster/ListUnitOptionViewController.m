@@ -240,7 +240,12 @@
     [slider addTarget:self action:@selector(didFinishChangingSlider:) forControlEvents:UIControlEventTouchUpInside];
     [slider addTarget:self action:@selector(didFinishChangingSlider:) forControlEvents:UIControlEventTouchUpOutside];
     slider.minimumValue = 0.0f;
-    slider.maximumValue = [(NSNumber*)[option valueForKey:@"max"] floatValue];
+    float max = [(NSNumber*)[option valueForKey:@"max"] floatValue];
+    if (max == 0) {
+        NSManagedObject *model = (NSManagedObject*)[option valueForKey:@"model"];
+        max = [[model valueForKey:@"included"] floatValue] + [[model valueForKey:@"max"] floatValue];
+    }
+    slider.maximumValue = max;
     
     UILabel *valueLabel = (UILabel*)[cell viewWithTag:103];
     NSNumber *value = (NSNumber*)[listOption valueForKey:@"count"];
